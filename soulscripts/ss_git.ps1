@@ -1,14 +1,16 @@
-# soulscript: pkws helper (PowerShell)
+# soulscript: pkws git helper (PowerShell)
 # Usage:
-#   .\soulscripts\ss_git.ps1                 -> git status (default)
-#   .\soulscripts\ss_git.ps1 status          -> git status
-#   .\soulscripts\ss_git.ps1 pull            -> git pull origin master
-#   .\soulscripts\ss_git.ps1 git pull        -> same as above
+#   ss git status
+#   ss git pull
+#   ss git push
+#   ss git pushall
+#   ss git pullall
+#   ss git add .
+#   ss git add <file> [...]
+#   ss git commit "message here"
 
-param(
-    [string]$arg1,
-    [string]$arg2
-)
+# All command-line args come from $args
+$allArgs = @($args)
 
 # Detect repo root using git
 $repoRoot = git rev-parse --show-toplevel 2>$null
@@ -19,30 +21,39 @@ if (-not $repoRoot) {
 
 Set-Location $repoRoot
 
-# --- Simple domain + command parsing (git only for now) ---
-
 $domain = $null
 $cmd    = $null
+$rest   = @()
 
-if (-not $arg1) {
+if (-not $allArgs -or $allArgs.Count -eq 0) {
     # No args: default to git status
     $domain = "git"
     $cmd    = "status"
 }
-elseif ($arg1 -eq "git") {
-    # Explicit git domain
+elseif ($allArgs[0] -eq "git") {
+    # Explicit git domain: ss git <cmd> [args...]
     $domain = "git"
-    if ($arg2) {
-        $cmd = $arg2
+
+    if ($allArgs.Count -gt 1) {
+        $cmd = $allArgs[1]
     }
     else {
         $cmd = "status"
     }
+
+    if ($allArgs.Count -gt 2) {
+        $rest = $allArgs[2..($allArgs.Count - 1)]
+    }
 }
 else {
     # For now, treat anything else as a git subcommand
+    # ss add . / ss commit "msg" / etc.
     $domain = "git"
-    $cmd    = $arg1
+    $cmd    = $allArgs[0]
+
+    if ($allArgs.Count -gt 1) {
+        $rest = $allArgs[1..($allArgs.Count - 1)]
+    }
 }
 
 switch ($domain) {
@@ -70,13 +81,35 @@ switch ($domain) {
                 Write-Host "[ss][git] git pull github master"
                 git pull github master
             }
+            "add" {
+                if ($rest.Count -gt 0) {
+                    $targets = $rest
+                    Write-Host "[ss][git] git add $($targets -join ' ')"
+                    git add @targets
+                }
+                else {
+                    Write-Host "[ss][git] git add ."
+                    git add .
+                }
+            }
+            "commit" {
+                if ($rest.Count -gt 0) {
+                    $message = [string]::Join(" ", $rest)
+                    Write-Host "[ss][git] git commit -m `"$message`""
+                    git commit -m "$message"
+                }
+                else {
+                    Write-Host "[ss][git] git commit"
+                    git commit
+                }
+            }
             "status" {
                 Write-Host "[ss][git] git status -sb"
                 git status -sb
             }
             Default {
                 Write-Host "[ss][git] Unknown git command: $cmd"
-                Write-Host "Usage: .\soulscripts\ss_git.ps1 [git] {pull|push|pushall|pullall|status}"
+                Write-Host "Usage: ss git {status|pull|push|pushall|pullall|add|commit}"
             }
         }
     }
