@@ -1,0 +1,15 @@
+# Vault of Memories layout manifest
+# Lines starting with # are comments.
+# Each other line is a folder path, relative to the repo root.
+
+companions/
+shrine_of_memories/
+shrine_of_memories/memory_honor/
+shrine_of_memories/memory_mirror/
+systems/
+universe/
+universe/pkw_hollowverse/
+universe/pkw_hollowverse/public/
+universe/pkw_hollowverse/public/emotional_system_voxia_arc/
+universe/pkw_hollowverse/private/
+meta/
