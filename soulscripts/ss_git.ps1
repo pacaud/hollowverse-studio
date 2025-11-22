@@ -4,7 +4,6 @@
 #   .\soulscripts\ss_git.ps1 status          -> git status
 #   .\soulscripts\ss_git.ps1 pull            -> git pull origin master
 #   .\soulscripts\ss_git.ps1 git pull        -> same as above
-#   (future) .\soulscripts\ss_git.ps1 ssh ... -> other domain
 
 param(
     [string]$arg1,
@@ -20,6 +19,8 @@ if (-not $repoRoot) {
 
 Set-Location $repoRoot
 
+# --- Simple domain + command parsing (git only for now) ---
+
 $domain = $null
 $cmd    = $null
 
@@ -31,11 +32,15 @@ if (-not $arg1) {
 elseif ($arg1 -eq "git") {
     # Explicit git domain
     $domain = "git"
-    $cmd    = ($arg2 ? $arg2 : "status")
+    if ($arg2) {
+        $cmd = $arg2
+    }
+    else {
+        $cmd = "status"
+    }
 }
 else {
     # For now, treat anything else as a git subcommand
-    # (future: if ($arg1 -eq "ssh") { $domain = "ssh"; ... })
     $domain = "git"
     $cmd    = $arg1
 }
