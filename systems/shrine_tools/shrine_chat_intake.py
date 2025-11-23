@@ -119,7 +119,7 @@ def get_vault_file():
         "content": content
     }), 200
 
-    if __name__ == "__main__":
+if __name__ == "__main__":
     port = int(os.environ.get("SHRINE_CHAT_PORT", "5001"))
     app.run(host="0.0.0.0", port=port)
 
