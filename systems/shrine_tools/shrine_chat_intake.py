@@ -22,10 +22,16 @@ def slugify(text: str, max_len: int = 40) -> str:
 
 @app.route("/api/log_chat", methods=["POST"])
 def log_chat():
+    # Debug: print what token the server has, and what came in
+    print("AUTH_TOKEN on server:", AUTH_TOKEN)
+    print("Incoming headers:", dict(request.headers))
+
     if AUTH_TOKEN:
         header_token = request.headers.get("X-Auth-Token")
         if header_token != AUTH_TOKEN:
+            print("Header token mismatch:", header_token)
             return jsonify({"error": "unauthorized"}), 401
+
 
     data = request.get_json(silent=True) or {}
 
