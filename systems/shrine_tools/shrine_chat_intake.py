@@ -79,3 +79,55 @@ def log_chat():
 if __name__ == "__main__":
     port = int(os.environ.get("SHRINE_CHAT_PORT", "5001"))
     app.run(host="0.0.0.0", port=port)
+
+import pathlib
+
+ALLOWED_EXTENSIONS = {".md", ".markdown", ".yaml", ".yml", ".txt", ".json"}
+MAX_FILE_SIZE_KB = 512  # safety: don't send huge files
+
+
+@app.route("/api/get_vault_file", methods=["GET"])
+def get_vault_file():
+    # Auth check (reuse same token)
+    if AUTH_TOKEN:
+        header_token = request.headers.get("X-Auth-Token")
+        if header_token != AUTH_TOKEN:
+            return jsonify({"error": "unauthorized"}), 401
+
+    rel_path = request.args.get("path", "").strip()
+    if not rel_path:
+        return jsonify({"error": "missing path parameter"}), 400
+
+    # Prevent sneaky paths like ../../etc/passwd
+    # Only allow paths inside VAULT_ROOT
+    normalized = os.path.normpath(rel_path)
+    if normalized.startswith("..") or normalized.startswith("/"):
+        return jsonify({"error": "invalid path"}), 400
+
+    full_path = os.path.normpath(os.path.join(VAULT_ROOT, normalized))
+
+    # make sure we stay inside the vault
+    if not full_path.startswith(os.path.normpath(VAULT_ROOT)):
+        return jsonify({"error": "path escapes vault root"}), 400
+
+    if not os.path.exists(full_path) or not os.path.isfile(full_path):
+        return jsonify({"error": "file not found", "path": normalized}), 404
+
+    ext = pathlib.Path(full_path).suffix.lower()
+    if ext not in ALLOWED_EXTENSIONS:
+        return jsonify({"error": "file type not allowed", "ext": ext}), 400
+
+    size_kb = os.path.getsize(full_path) / 1024.0
+    if size_kb > MAX_FILE_SIZE_KB:
+        return jsonify({"error": "file too large", "size_kb": size_kb}), 400
+
+    with open(full_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    return jsonify({
+        "ok": True,
+        "path": normalized,
+        "ext": ext,
+        "size_kb": size_kb,
+        "content": content
+    }), 200
