@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import os
 import datetime
 import re
-import pathlib  # move this up with the other imports
+import pathlib
 
 VAULT_ROOT = "/srv/vault_of_memories_git"
 CHAT_BASE = os.path.join(VAULT_ROOT, "shrine_of_memories", "chat_logs", "by_date")
