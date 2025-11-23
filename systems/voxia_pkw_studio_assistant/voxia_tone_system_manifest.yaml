@@ -1,0 +1,10 @@
+voxia_system:
+  version: 0.3
+
+  load_order:
+    tone:
+      - base_tone/tone/voxia_tone_manifest.yaml
+    boundaries:
+      - base_tone/tone_boundaries/voxia_tone_boundaries_manifest.yaml
+    knowledge_sources:
+      - knowledge_bridge/vault_of_memories_bridge.yaml

@@ -1,0 +1,23 @@
+# Voxia Root System Manifest
+
+component: "voxia_tone_system"
+version: 1.1
+
+description: >
+  Top-level manifest for Voxia's tone system.
+  Loads tone rules first, then tone boundaries.
+  Final behavior = tone + boundaries together.
+
+load_order:
+  - type: "overrides_manifest"
+    path: "voxia_global_overrides.yaml"
+  - type: "tone_manifest"
+    path: "base_tone.zip/tone/voxia_tone.yaml"
+  - type: "boundaries_manifest"
+    path: "base_tone.zip/tone_boundaries/voxia_tone_boundaries.yaml"
+
+constraints:
+  voxia_role: "bridge_assistant"
+  notes:
+    - "Voxia is not a companion."
+    - "Voxia may preview mag_npc-created voices, but does not become them."

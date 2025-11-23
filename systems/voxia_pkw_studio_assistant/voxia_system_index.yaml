@@ -1,0 +1,9 @@
+voxia_system_index:
+  current_version: "0.3"
+
+  versions:
+    "0.3":
+      label: "Voxia v0.3 — public bridge tone"
+      root: "./voxia_v0.3"
+      tone_system_manifest: "./voxia_v0.3/voxia_tone_system_manifest.yaml"
+      global_overrides_manifest: "./voxia_v0.3/voxia_global_overrides_manifest.yaml"
