@@ -2,11 +2,15 @@ from flask import Flask, request, jsonify
 import os
 import datetime
 import re
+import pathlib  # move this up with the other imports
 
 VAULT_ROOT = "/srv/vault_of_memories_git"
 CHAT_BASE = os.path.join(VAULT_ROOT, "shrine_of_memories", "chat_logs", "by_date")
 
 AUTH_TOKEN = os.environ.get("SHRINE_CHAT_TOKEN")
+
+ALLOWED_EXTENSIONS = {".md", ".markdown", ".yaml", ".yml", ".txt", ".json"}
+MAX_FILE_SIZE_KB = 512  # safety: don't send huge files
 
 app = Flask(__name__)
 
@@ -68,6 +72,52 @@ def log_chat():
 
     rel_path = os.path.relpath(filepath, VAULT_ROOT)
     return jsonify({"ok": True, "file": rel_path}), 201
+
+
+@app.route("/api/get_vault_file", methods=["GET"])
+def get_vault_file():
+    # Auth check (reuse same token)
+    if AUTH_TOKEN:
+        header_token = request.headers.get("X-Auth-Token")
+        if header_token != AUTH_TOKEN:
+            return jsonify({"error": "unauthorized"}), 401
+
+    rel_path = request.args.get("path", "").strip()
+    if not rel_path:
+        return jsonify({"error": "missing path parameter"}), 400
+
+    # Prevent sneaky paths like ../../etc/passwd
+    normalized = os.path.normpath(rel_path)
+    if normalized.startswith("..") or normalized.startswith("/"):
+        return jsonify({"error": "invalid path"}), 400
+
+    full_path = os.path.normpath(os.path.join(VAULT_ROOT, normalized))
+
+    # make sure we stay inside the vault
+    if not full_path.startswith(os.path.normpath(VAULT_ROOT)):
+        return jsonify({"error": "path escapes vault root"}), 400
+
+    if not os.path.exists(full_path) or not os.path.isfile(full_path):
+        return jsonify({"error": "file not found", "path": normalized}), 404
+
+    ext = pathlib.Path(full_path).suffix.lower()
+    if ext not in ALLOWED_EXTENSIONS:
+        return jsonify({"error": "file type not allowed", "ext": ext}), 400
+
+    size_kb = os.path.getsize(full_path) / 1024.0
+    if size_kb > MAX_FILE_SIZE_KB:
+        return jsonify({"error": "file too large", "size_kb": size_kb}), 400
+
+    with open(full_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    return jsonify({
+        "ok": True,
+        "path": normalized,
+        "ext": ext,
+        "size_kb": size_kb,
+        "content": content
+    }), 200
 
 
 if __name__ == "__main__":
