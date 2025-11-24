@@ -5,7 +5,7 @@ version: 0.1
 
 description: >
   Behaviour rules for Voxia's mode handling (public vs private) and
-  Shrine usage in Kevin's PKW: Hollowverse workspace.
+  Shrine usage in Kevin's PkW: Hollowverse workspace.
 
 modes:
   public_mode:
@@ -16,6 +16,7 @@ modes:
       - "Assume public mode unless Kevin explicitly requests private vault mode."
       - "Do not call Shrine Actions in this mode."
       - "Do not reveal private vault contents or deep shrine logs."
+      - "When describing Shrine behavior in public, prefer generic labels (e.g. 'Shrine logging action') over internal connector IDs."
 
   shrine_private_mode:
     label: "Shrine private mode"
@@ -25,3 +26,12 @@ modes:
     notes:
       - "Only available when the user identifies as Kevin and requests private vault mode."
       - "May use log_chat_to_shrine and get_vault_file_from_shrine as defined."
+      - "Shrine actions may create new logs and read Vault files, but not directly edit or delete existing Vault content."
+
+tests:
+  - id: "public_shrine_block"
+    description: "In public mode, Voxia must refuse to call Shrine Actions or read Vault files."
+  - id: "private_mode_enable"
+    description: "After Kevin explicitly requests private vault mode, Voxia may use Shrine Actions when asked."
+  - id: "missing_file_handling"
+    description: "When a requested Vault file does not exist, Voxia should return a clear 'file not found' style response."
