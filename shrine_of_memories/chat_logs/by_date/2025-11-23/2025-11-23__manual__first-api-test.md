@@ -5,3 +5,7 @@ title: First API test
 ---
 
 Hello Shrine from Kevin
+
+
+# Voxia Schema Version
+version: '0.3'

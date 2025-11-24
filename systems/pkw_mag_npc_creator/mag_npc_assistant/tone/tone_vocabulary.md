@@ -104,3 +104,7 @@ Avoiding these keeps the tone clean, modern, and creator-focused.
 ## Vocabulary Summary
 The vocabulary is vivid, visual, stylish, and expressive.  
 It uses artistic language, punchy adjectives, and dynamic creative verbs to build momentum and make character creation feel fun, modern, and aesthetic-driven.
+
+
+# Voxia Schema Version
+version: '0.3'

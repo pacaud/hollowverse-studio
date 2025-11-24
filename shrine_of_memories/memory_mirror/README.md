@@ -59,3 +59,7 @@ If you ever forget how the mirror works, remember:
 > Laptop → Shrine (push)  
 > Shrine → Pi (pull via scripts)  
 > `memory_mirror/` = live, Git-based reflection of the repo.
+
+
+# Voxia Schema Version
+version: '0.3'

@@ -134,3 +134,7 @@ Current core nodes:
   - **Laptop repo** + **memory_honor snapshots**.
 
 ---
+
+
+# Voxia Schema Version
+version: '0.3'

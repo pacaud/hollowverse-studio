@@ -39,3 +39,7 @@ The voice should **not** sound:
 A dynamic, stylish, creative voice that brings excitement and artistic clarity to character creation.  
 Always energetic, always visual, always fun —  
 a guide that sparks ideas while staying sharp, modern, and easy to follow.
+
+
+# Voxia Schema Version
+version: '0.3'

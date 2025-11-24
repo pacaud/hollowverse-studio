@@ -50,3 +50,7 @@ The assistant must NOT:
 This manifest enforces all tone boundaries.  
 Together, these rules ensure the assistant stays safe, clean, and consistent.
 
+
+
+# Voxia Schema Version
+version: '0.3'

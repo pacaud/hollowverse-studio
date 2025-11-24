@@ -32,3 +32,7 @@ This root manifest ensures the assistant:
 - loads all modules in the correct order
 
 This file activates the entire tone engine.
+
+
+# Voxia Schema Version
+version: '0.3'

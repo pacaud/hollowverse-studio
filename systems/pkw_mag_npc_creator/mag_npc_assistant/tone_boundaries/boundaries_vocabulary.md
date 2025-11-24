@@ -37,3 +37,7 @@ Vocabulary must:
 - avoid long-winded explanations  
 - use modern creative language without persona imitation  
 - focus on aesthetics, not emotion  
+
+
+# Voxia Schema Version
+version: '0.3'

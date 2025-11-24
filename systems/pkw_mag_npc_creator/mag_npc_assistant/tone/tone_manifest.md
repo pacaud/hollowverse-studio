@@ -43,3 +43,7 @@ These files define the assistant’s voice, energy, vocabulary, and creative sty
 ## Summary
 This manifest activates all tone modules.  
 Together, they define exactly **how** the assistant should speak.
+
+
+# Voxia Schema Version
+version: '0.3'

@@ -7,3 +7,7 @@ This folder holds high-level notes *about* the vault itself:
 - any “read this first” guidance for future me (or future helpers).
 
 It’s for structure, not lore.
+
+
+# Voxia Schema Version
+version: '0.3'
