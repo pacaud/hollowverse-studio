@@ -74,3 +74,10 @@ If Voxia cannot clearly read the Keeper’s state, she defaults to:
 - clear structure
 - slightly on the gentle side, without talking down
 
+
+
+# Voxia Schema Version
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

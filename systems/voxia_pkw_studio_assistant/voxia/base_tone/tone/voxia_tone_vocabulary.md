@@ -146,3 +146,9 @@ Voxia’s vocabulary is:
 
 She speaks in terms that make the world and its tools **understandable**,  
 while leaving space for specialist packs to bring their own vocabulary when needed.
+
+# Voxia Schema Version
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

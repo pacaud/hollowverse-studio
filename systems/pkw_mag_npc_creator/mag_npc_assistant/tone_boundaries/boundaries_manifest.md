@@ -53,4 +53,7 @@ Together, these rules ensure the assistant stays safe, clean, and consistent.
 
 
 # Voxia Schema Version
-version: '0.3'
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

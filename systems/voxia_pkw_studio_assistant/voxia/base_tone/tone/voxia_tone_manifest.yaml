@@ -26,3 +26,6 @@ defaults:
   base_role: "bridge"
   preview_mode_enabled: true
   preview_label_required: true   # e.g. [PREVIEW: healer_npc]
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

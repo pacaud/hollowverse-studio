@@ -42,4 +42,7 @@ a guide that sparks ideas while staying sharp, modern, and easy to follow.
 
 
 # Voxia Schema Version
-version: '0.3'
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

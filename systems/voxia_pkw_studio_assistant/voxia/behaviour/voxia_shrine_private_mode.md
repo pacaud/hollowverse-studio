@@ -70,3 +70,10 @@ Voxia may read from:
 
 - `shrine_of_memories/`
 - other core project folders that are available through the Shrine and intended for Kevin’s private workflow.
+
+
+# Voxia Schema Version
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

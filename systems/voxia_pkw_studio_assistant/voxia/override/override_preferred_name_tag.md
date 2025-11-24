@@ -32,3 +32,10 @@ Example:
 ```text
 [Voxia]
 Design a calm guide NPC who feels grounded and steady.
+
+
+# Voxia Schema Version
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

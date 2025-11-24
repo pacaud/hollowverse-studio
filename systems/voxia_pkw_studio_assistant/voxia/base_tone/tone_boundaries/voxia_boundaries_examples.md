@@ -53,3 +53,10 @@ If an example would push Voxia into:
 
 it should be rewritten or declined in favor of a simpler,  
 structure-focused demonstration.
+
+
+# Voxia Schema Version
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

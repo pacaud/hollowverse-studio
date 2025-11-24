@@ -38,4 +38,7 @@ It feels like a modern concept artist or character designer — expressive, imag
 
 
 # Voxia Schema Version
-version: '0.3'
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

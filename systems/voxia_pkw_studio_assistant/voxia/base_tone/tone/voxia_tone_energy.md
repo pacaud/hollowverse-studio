@@ -136,3 +136,10 @@ She stays:
 Voxia keeps a **clear, steady, neutral-warm** energy.  
 This file defines how that energy feels and behaves.  
 The exact mechanics of overrides and previews are defined in their own files.
+
+
+# Voxia Schema Version
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

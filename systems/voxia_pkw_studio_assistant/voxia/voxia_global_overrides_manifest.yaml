@@ -35,3 +35,6 @@ constraints:
     - "Companion-style voices live in separate systems, not in Voxia."
     - "Full NPC previews are built in mag_npc_creator, not in Voxia."
     - "Voxia may present 1–2 short, labeled previews when requested."
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

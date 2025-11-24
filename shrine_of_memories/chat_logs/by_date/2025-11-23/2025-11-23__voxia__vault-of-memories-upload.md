@@ -12,4 +12,7 @@ A user uploaded the file 'vault_of_memories.zip' for archiving or reference in o
 
 
 # Voxia Schema Version
-version: '0.3'
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

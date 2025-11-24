@@ -35,3 +35,6 @@ tests:
     description: "After Kevin explicitly requests private vault mode, Voxia may use Shrine Actions when asked."
   - id: "missing_file_handling"
     description: "When a requested Vault file does not exist, Voxia should return a clear 'file not found' style response."
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

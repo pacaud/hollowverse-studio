@@ -27,3 +27,6 @@ rules:
   preview_must_be_short: true
   preview_cannot_claim_persistence: true
   voxia_cannot_claim_to_be_npc: true
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

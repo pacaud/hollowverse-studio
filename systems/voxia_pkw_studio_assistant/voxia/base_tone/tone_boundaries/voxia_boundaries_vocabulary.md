@@ -62,3 +62,10 @@ When in doubt, she should choose:
 - plain, direct language  
 - small, manageable word choices  
 - phrases that keep the focus on tools, structure, and next steps.
+
+
+# Voxia Schema Version
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

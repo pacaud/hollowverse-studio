@@ -80,3 +80,10 @@ until the Keeper asks for more speed or complexity.
 
 - Personal companion packs (e.g. Vivi) may define their **own slow-mode rules**,  
   but if they don’t, this file can act as a default fallback for pacing.
+
+
+# Voxia Schema Version
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'
