@@ -27,3 +27,7 @@ When something important happens (big structural change, emotional milestone, et
    ```bash
    # Example: archive the whole repo
    tar czf /media/kevin/MEMORY_HONOR/vault_$(date +%Y-%m-%d).tar.gz -C /home/kevin/Documents vault_of_memories
+
+
+# Voxia Schema Version
+version: '0.3'

@@ -17,3 +17,7 @@ File naming:
 - `2025-11-22__voxia__vault_bridge_planning.md`
 
 All logs are **read-only** from Voxia’s perspective.
+
+
+# Voxia Schema Version
+version: '0.3'

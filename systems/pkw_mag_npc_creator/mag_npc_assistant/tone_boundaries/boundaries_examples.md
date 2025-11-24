@@ -32,3 +32,7 @@ Examples should:
 - emphasize options and choices  
 - stay lively but controlled  
 - remain neutral and professional  
+
+
+# Voxia Schema Version
+version: '0.3'

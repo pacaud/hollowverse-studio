@@ -1,0 +1,23 @@
+component: voxia_tone_system
+version: 0.3
+description: 'Top-level manifest for Voxia''s tone system. Loads tone rules first,
+  then tone boundaries, then knowledge sources. Final behavior = tone + boundaries
+  (+ overrides) together.
+
+  '
+load_order:
+  tone:
+  - base_tone/tone/voxia_tone_manifest.yaml
+  boundaries:
+  - base_tone/tone_boundaries/voxia_tone_boundaries_manifest.yaml
+  behaviour:
+  - behaviour/voxia_behaviour_manifest.yaml
+  knowledge_sources:
+  - ../knowledge_bridge/vault_of_memories_bridge.yaml
+  overrides:
+  - voxia_global_overrides_manifest.yaml
+meta:
+  version: '0.5'
+  schema: unified_vault_layout
+  vault_ref: ${vault_layout.systems.voxia_pkw_studio_assistant.voxia_v0_5}
+  updated: '2025-11-24'

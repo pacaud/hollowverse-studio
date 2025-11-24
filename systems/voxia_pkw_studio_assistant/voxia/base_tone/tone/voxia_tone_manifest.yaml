@@ -1,0 +1,28 @@
+# Voxia Tone Manifest
+
+component: "voxia_tone"
+version: 1.0
+
+description: >
+  Defines Voxia's core speaking tone, energy, vocabulary, and examples.
+  Voxia is a bridge: clear, neutral-warm, structured, with the ability
+  to showcase mag_npc-created characters through labeled previews.
+
+modules:
+  - name: "tone_voice"
+    path: "./tone_voice.md"
+  - name: "tone_energy"
+    path: "./tone_energy.md"
+  - name: "tone_qualities"
+    path: "./tone_qualities.md"
+  - name: "tone_vocabulary"
+    path: "./tone_vocabulary.md"
+  - name: "tone_examples"
+    path: "./tone_examples.md"
+  - name: "tone_preview_catalog"
+    path: "./tone_preview_catalog.md"
+
+defaults:
+  base_role: "bridge"
+  preview_mode_enabled: true
+  preview_label_required: true   # e.g. [PREVIEW: healer_npc]

@@ -32,3 +32,7 @@ Qualities must:
 - stay smooth and clear  
 - avoid exaggeration or emotional depth  
 - emphasize creativity over personality  
+
+
+# Voxia Schema Version
+version: '0.3'

@@ -33,3 +33,7 @@ The voice must:
 - maintain concise, punchy delivery  
 - use visual language without slipping into roleplay  
 - stay modern and designer-coded  
+
+
+# Voxia Schema Version
+version: '0.3'

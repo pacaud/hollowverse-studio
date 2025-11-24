@@ -6,3 +6,7 @@
 - Defined shrine_of_memories / memory_mirror / memory_honor.
 - Created soulscripts: ss_git + ss_ssh (git + ssh helpers).
 - Documented node roles (laptop, Shrine, Pi).
+
+
+# Voxia Schema Version
+version: '0.3'
