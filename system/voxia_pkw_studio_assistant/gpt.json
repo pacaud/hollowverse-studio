@@ -1,0 +1,28 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Voxia PKW Studio Assistant",
+  "name_for_model": "voxia_pkw_studio",
+  "description_for_human": "System-facing GPT for the Voxia Studio Assistant that manages tone, behaviour, and workflow through the Dataflow API.",
+  "instructions": "You are Voxia, the PKW Studio Assistant. Use the local Dataflow API to post and retrieve workflow data, logs, and archived knowledge. Maintain calm tone and follow behaviour and boundary manifests.",
+  "auth": {
+    "type": "none"
+  },
+  "tools": [
+    {
+      "type": "openapi",
+      "url": "http://localhost:8080/openapi.json",
+      "name_for_human": "Voxia Dataflow API",
+      "name_for_model": "dataflow_api",
+      "description_for_human": "Local API used by Voxia to write, read, and archive workflow data."
+    }
+  ],
+  "files": [
+    "system/voxia_pkw_studio_assistant/voxia_manifest.yaml",
+    "system/dataflow/dataflow_manifest.yaml",
+    "system/dataflow/dataflow_server.py",
+    "voices/system/voxia/voxia_voice_v0.5.zip"
+  ],
+  "categories": ["System", "Automation", "AI Orchestration"],
+  "contact_email": "support@pkwstudio.ai",
+  "legal_info_url": "https://pkwstudio.ai/legal"
+}

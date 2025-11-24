@@ -1,0 +1,24 @@
+dataflow_manifest:
+  version: '1.0'
+  description: Voxia system data exchange workflow for POST (write), GET (read), and
+    ARCHIVE (store).
+  paths:
+    post_path: system/dataflow/incoming/
+    get_path: system/dataflow/outgoing/
+    archive_path: system/dataflow/archive/
+  methods:
+    POST:
+      action: Write new workflow data, logs, or knowledge artifacts to incoming/
+      auto_archive: true
+      archive_interval: daily
+    GET:
+      action: Retrieve workflow data, archived knowledge, or responses from outgoing/
+      cache_enabled: true
+    ARCHIVE:
+      action: Move completed workflows and knowledge into archive/ for long-term storage
+      compression: zip
+  meta:
+    maintainer: Voxia PKW Studio Assistant
+    schema: unified_vault_layout
+    updated: '2025-11-24'
+    vault_ref: ${vault_layout.system.dataflow}
