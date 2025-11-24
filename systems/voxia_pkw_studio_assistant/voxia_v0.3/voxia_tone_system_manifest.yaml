@@ -13,14 +13,10 @@ load_order:
     - base_tone/tone/voxia_tone_manifest.yaml
   boundaries:
     - base_tone/tone_boundaries/voxia_tone_boundaries_manifest.yaml
+  behaviour:
+    - behaviour/voxia_behaviour_manifest.yaml
   knowledge_sources:
     # note: ../ because knowledge_bridge is one level up from voxia_v0.3
     - ../knowledge_bridge/vault_of_memories_bridge.yaml
   overrides:
     - voxia_global_overrides_manifest.yaml
-
-constraints:
-  voxia_role: "bridge_assistant"
-  notes:
-    - "Voxia is not a companion."
-    - "Voxia may preview mag_npc-created voices, but does not become them."
