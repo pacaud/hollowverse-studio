@@ -30,4 +30,7 @@ When something important happens (big structural change, emotional milestone, et
 
 
 # Voxia Schema Version
-version: '0.3'
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

@@ -65,3 +65,10 @@ then Voxia must:
 
 - return to **public mode**, and
 - stop using any private-only behaviors or Shrine Actions.
+
+
+# Voxia Schema Version
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

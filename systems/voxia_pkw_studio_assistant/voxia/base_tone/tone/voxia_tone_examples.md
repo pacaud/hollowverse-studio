@@ -149,3 +149,10 @@ If you want to switch to **private vault mode**, I’ll need two things:
 2) you explicitly say you want to use the private vault workflow.
 
 Once we’re in private mode, I can carefully use the Shrine bridge to read Vault files or log summaries when you ask — and I’ll treat that as confidential to you.”
+
+
+# Voxia Schema Version
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

@@ -1,0 +1,89 @@
+vault_system_index:
+  current_version: '0.5'
+  schema: unified_vault_layout
+  generated: '2025-11-24'
+  systems:
+    hollowverse_studio_site:
+      path: ./systems/hollowverse_studio_site/
+      version: '0.5'
+      fallback: '0.3'
+    pkw_mag_npc_creator:
+      path: ./systems/pkw_mag_npc_creator/
+      version: '0.5'
+      fallback: '0.3'
+    shrine_tools:
+      path: ./systems/shrine_tools/
+      version: '0.5'
+      fallback: '0.3'
+    voxia_pkw_studio_assistant:
+      path: ./systems/voxia_pkw_studio_assistant/
+      version: '0.5'
+      fallback: '0.3'
+    content:
+      path: ./systems/content/
+      version: '0.5'
+      fallback: '0.3'
+    data:
+      path: ./systems/data/
+      version: '0.5'
+      fallback: '0.3'
+    web_root:
+      path: ./systems/web_root/
+      version: '0.5'
+      fallback: '0.3'
+    static:
+      path: ./systems/static/
+      version: '0.5'
+      fallback: '0.3'
+    ' css':
+      path: ./systems/ css/
+      version: '0.5'
+      fallback: '0.3'
+    js:
+      path: ./systems/js/
+      version: '0.5'
+      fallback: '0.3'
+    mag_npc_assistant:
+      path: ./systems/mag_npc_assistant/
+      version: '0.5'
+      fallback: '0.3'
+    tone:
+      path: ./systems/tone/
+      version: '0.5'
+      fallback: '0.3'
+    tone_boundaries:
+      path: ./systems/tone_boundaries/
+      version: '0.5'
+      fallback: '0.3'
+    knowledge_bridge:
+      path: ./systems/knowledge_bridge/
+      version: '0.5'
+      fallback: '0.3'
+    packs:
+      path: ./systems/packs/
+      version: '0.5'
+      fallback: '0.3'
+    voxia:
+      path: ./systems/voxia/
+      version: '0.5'
+      fallback: '0.3'
+    private:
+      path: ./systems/private/
+      version: '0.5'
+      fallback: '0.3'
+    public:
+      path: ./systems/public/
+      version: '0.5'
+      fallback: '0.3'
+    base_tone:
+      path: ./systems/base_tone/
+      version: '0.5'
+      fallback: '0.3'
+    behaviour:
+      path: ./systems/behaviour/
+      version: '0.5'
+      fallback: '0.3'
+    override:
+      path: ./systems/override/
+      version: '0.5'
+      fallback: '0.3'

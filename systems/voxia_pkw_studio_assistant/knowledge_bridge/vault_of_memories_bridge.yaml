@@ -70,3 +70,6 @@ permissions:
     - "auto-modify vault files"
     - "run or simulate dangerous commands"
     - "expose private content in public mode"
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

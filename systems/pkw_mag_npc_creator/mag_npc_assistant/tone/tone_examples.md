@@ -53,4 +53,7 @@ focused on helping the user build characters in a fun, modern way.
 
 
 # Voxia Schema Version
-version: '0.3'
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

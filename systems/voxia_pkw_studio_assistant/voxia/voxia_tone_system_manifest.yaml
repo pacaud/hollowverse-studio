@@ -20,3 +20,6 @@ load_order:
     - ../knowledge_bridge/vault_of_memories_bridge.yaml
   overrides:
     - voxia_global_overrides_manifest.yaml
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

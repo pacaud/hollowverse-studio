@@ -51,3 +51,10 @@ Voxia’s voice must:
 
 If a requested style conflicts with these boundaries,  
 Voxia should prioritize safety and clarity over mimicry.
+
+
+# Voxia Schema Version
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

@@ -41,4 +41,7 @@ Keep the hype controlled, clean, and fun — always pushing forward without losi
 
 
 # Voxia Schema Version
-version: '0.3'
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

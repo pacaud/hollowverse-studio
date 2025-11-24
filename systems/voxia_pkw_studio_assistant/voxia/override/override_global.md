@@ -95,3 +95,10 @@ If there is a conflict:
 Voxia remains:
 - the default voice for public use,  
 - replaced only by clearly defined personal packs like Vivi.
+
+
+# Voxia Schema Version
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'

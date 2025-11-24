@@ -107,4 +107,7 @@ It uses artistic language, punchy adjectives, and dynamic creative verbs to buil
 
 
 # Voxia Schema Version
-version: '0.3'
+version: '0.5'
+
+# Fallback
+fallback: 'v0.3 supported for legacy systems'
