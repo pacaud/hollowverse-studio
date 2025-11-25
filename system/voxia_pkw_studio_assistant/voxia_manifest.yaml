@@ -11,15 +11,17 @@ voxia_manifest:
     schema: unified_vault_layout
     updated: '2025-11-24'
     vault_ref: ${vault_layout.voices.system.voxia}
+    dataflow_endpoint: "https://dataflow.hollowverse.studio"
+    dataflow_api_key: "s0meSuperL0ngRandomString123!"
   package:
     name: voxia_voice_v0.5.zip
     location: ${vault_layout.voices.system.voxia}
     description: Core Voxia base voice package — public/system unified version.
   settings:
     include:
-    - base_tone/
-    - behaviour/
-    - override/
+      - base_tone/
+      - behaviour/
+      - override/
     default_tone: base_tone/tone/voxia_tone.md
     default_behaviour: behaviour/voxia_public_mode.md
     overrides_enabled: true
