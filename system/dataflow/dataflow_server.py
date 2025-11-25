@@ -1,45 +1,15 @@
 from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS
 import os
 import zipfile
 from datetime import datetime
 from functools import wraps
 
 app = Flask(__name__)
+CORS(app, resources={r"/dataflow/*": {"origins": "*"}, r"/ping": {"origins": "*"}})
 
 # === API Key Security ===
 API_KEY = os.environ.get("SHRINE_CHAT_TOKEN", "s0meSuperL0ngRandomString123!")
-
-@app.route("/")
-def home():
-    return jsonify({
-        "message": "Voxia Dataflow Server is running (secured).",
-        "routes": {
-            "ARCHIVE": "/dataflow/archive",
-            "GET": "/dataflow/get/<filename>",
-            "POST": "/dataflow/post",
-            "PING": "/ping"
-        }
-    })
-
-@app.route("/ping")
-def ping():
-    return jsonify({"status": "ok", "source": "voxia-dataflow"}), 200
-
-@app.route("/")
-def home():
-    return jsonify({
-        "message": "Voxia Dataflow Server is running (secured).",
-        "routes": {
-            "ARCHIVE": "/dataflow/archive",
-            "GET": "/dataflow/get/<filename>",
-            "POST": "/dataflow/post",
-            "PING": "/ping"
-        }
-    })
-
-@app.route("/ping")
-def ping():
-    return jsonify({"status": "ok", "source": "voxia-dataflow"}), 200
 
 def require_api_key(func):
     @wraps(func)
@@ -59,6 +29,25 @@ ARCHIVE_PATH = os.path.join(BASE_PATH, "archive")
 os.makedirs(INCOMING_PATH, exist_ok=True)
 os.makedirs(OUTGOING_PATH, exist_ok=True)
 os.makedirs(ARCHIVE_PATH, exist_ok=True)
+
+# === Routes ===
+
+@app.route("/")
+def home():
+    return jsonify({
+        "message": "Voxia Dataflow Server is running (secured).",
+        "routes": {
+            "ARCHIVE": "/dataflow/archive",
+            "GET": "/dataflow/get/<filename>",
+            "POST": "/dataflow/post",
+            "PING": ["/ping", "/api/ping"]
+        }
+    })
+
+@app.route("/ping")
+@app.route("/api/ping")
+def ping():
+    return jsonify({"status": "ok", "source": "voxia-dataflow"}), 200
 
 # --- POST ---
 @app.route('/dataflow/post', methods=['POST'])
@@ -102,22 +91,11 @@ def archive_data():
                 full_path = os.path.join(root, file)
                 arcname = os.path.relpath(full_path, INCOMING_PATH)
                 archive_zip.write(full_path, arcname)
+
     for file in os.listdir(INCOMING_PATH):
         os.remove(os.path.join(INCOMING_PATH, file))
 
     return jsonify({'status': 'success', 'message': f'Archived incoming files to {archive_name}.'}), 200
-
-# --- Root ---
-@app.route('/', methods=['GET'])
-def index():
-    return jsonify({
-        'message': 'Voxia Dataflow Server is running (secured).',
-        'routes': {
-            'POST': '/dataflow/post',
-            'GET': '/dataflow/get/<filename>',
-            'ARCHIVE': '/dataflow/archive'
-        }
-    }), 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=False)
