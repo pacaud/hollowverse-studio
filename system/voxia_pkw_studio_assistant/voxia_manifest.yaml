@@ -1,0 +1,25 @@
+voxia_manifest:
+  version: '0.5'
+  description: Master loader for Voxia tone, behaviour, and overrides.
+  includes:
+    tone_manifest: ./tone_manifest.yaml
+    behaviour_manifest: ./behaviour_manifest.yaml
+    overrides_manifest: ./overrides_manifest.yaml
+    dataflow: ./../dataflow/dataflow_manifest.yaml
+  meta:
+    maintainer: Voxia PKW Studio Assistant
+    schema: unified_vault_layout
+    updated: '2025-11-24'
+    vault_ref: ${vault_layout.voices.system.voxia}
+  package:
+    name: voxia_voice_v0.5.zip
+    location: ${vault_layout.voices.system.voxia}
+    description: Core Voxia base voice package — public/system unified version.
+  settings:
+    include:
+    - base_tone/
+    - behaviour/
+    - override/
+    default_tone: base_tone/tone/voxia_tone.md
+    default_behaviour: behaviour/voxia_public_mode.md
+    overrides_enabled: true
