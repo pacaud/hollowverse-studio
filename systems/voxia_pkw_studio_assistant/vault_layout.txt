@@ -1,1 +1,0 @@
-systems/voxia_pkw_studio_assistant/voxia_v0.3  - Voxia public bridge tone system v0.3 (base tone + boundaries + overrides)
