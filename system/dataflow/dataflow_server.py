@@ -42,12 +42,11 @@ def require_api_key(func):
 
 # === Directory Setup ===
 FOLDER_PATH = "/var/www/dataflow.hollowverse"
-INCOMING_PATH = os.path.join(FOLDER_PATH, "incoming")
-OUTGOING_PATH = os.path.join(FOLDER_PATH, "outgoing")
+DATA_PATH = os.path.join(FOLDER_PATH, "data")      # ✅ unified folder for get/post
 ARCHIVE_PATH = os.path.join(FOLDER_PATH, "archive")
 
-for path in (INCOMING_PATH, OUTGOING_PATH, ARCHIVE_PATH):
-    os.makedirs(path, exist_ok=True)
+os.makedirs(DATA_PATH, exist_ok=True)
+os.makedirs(ARCHIVE_PATH, exist_ok=True)
 
 
 # === Routes ===
@@ -68,58 +67,58 @@ def home():
 
 @app.route("/ping", methods=["GET"])
 def ping():
-    """Placeholder route for future use (e.g., Sym Play)."""
+    """Basic heartbeat endpoint."""
     return jsonify({"status": "ok", "source": "voxia-dataflow"}), 200
 
 
-# === Incoming Upload ===
+# === Upload Endpoint (POST) ===
 @app.route("/dataflow/post", methods=["POST"])
 @require_api_key
 def post_data():
-    """Accept a file or JSON payload and save it to /incoming."""
+    """Accept a file or JSON payload and save it to /data."""
     if "file" in request.files:
         file = request.files["file"]
         filename = secure_filename(file.filename)
-        save_path = os.path.join(INCOMING_PATH, filename)
+        save_path = os.path.join(DATA_PATH, filename)
         file.save(save_path)
 
         logging.info(f"Uploaded file: {filename} from {request.remote_addr}")
         return jsonify({
             "status": "success",
-            "message": f"File '{filename}' saved to incoming."
+            "message": f"File '{filename}' saved to data directory."
         }), 200
 
     elif request.is_json:
         data = request.get_json()
         filename = data.get("filename", f"data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
-        filepath = os.path.join(INCOMING_PATH, secure_filename(filename))
+        filepath = os.path.join(DATA_PATH, secure_filename(filename))
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(str(data))
 
         logging.info(f"Received JSON payload as '{filename}' from {request.remote_addr}")
         return jsonify({
             "status": "success",
-            "message": f"JSON data saved as '{filename}'."
+            "message": f"JSON data saved as '{filename}' in data directory."
         }), 200
 
     logging.warning(f"No data received from {request.remote_addr}")
     return jsonify({"status": "error", "message": "No data received."}), 400
 
 
-# === Outgoing Download ===
+# === Download Endpoint (GET) ===
 @app.route("/dataflow/get/<path:filename>", methods=["GET"])
 @require_api_key
 def get_data(filename):
-    """Retrieve a file from /outgoing."""
+    """Retrieve a file from /data."""
     filename = secure_filename(filename)
-    file_path = os.path.join(OUTGOING_PATH, filename)
+    file_path = os.path.join(DATA_PATH, filename)
     if os.path.exists(file_path):
         logging.info(f"File served: {filename} to {request.remote_addr}")
-        return send_from_directory(OUTGOING_PATH, filename, as_attachment=True)
+        return send_from_directory(DATA_PATH, filename, as_attachment=True)
     logging.warning(f"Requested file not found: {filename}")
     return jsonify({
         "status": "error",
-        "message": f"File '{filename}' not found in outgoing."
+        "message": f"File '{filename}' not found in data directory."
     }), 404
 
 
@@ -128,7 +127,7 @@ def get_data(filename):
 @require_api_key
 def manage_archive():
     """
-    POST: Archive all files from /incoming into /archive.
+    POST: Archive all files from /data into /archive.
     GET: List available archives.
     """
     if request.method == "POST":
@@ -136,20 +135,20 @@ def manage_archive():
         archive_path = os.path.join(ARCHIVE_PATH, archive_name)
 
         with zipfile.ZipFile(archive_path, "w", zipfile.ZIP_DEFLATED) as archive_zip:
-            for root, _, files in os.walk(INCOMING_PATH):
+            for root, _, files in os.walk(DATA_PATH):
                 for file in files:
                     full_path = os.path.join(root, file)
-                    arcname = os.path.relpath(full_path, INCOMING_PATH)
+                    arcname = os.path.relpath(full_path, DATA_PATH)
                     archive_zip.write(full_path, arcname)
 
-        # Clean up incoming after archiving
-        for file in os.listdir(INCOMING_PATH):
-            os.remove(os.path.join(INCOMING_PATH, file))
+        # Clean up /data after archiving
+        for file in os.listdir(DATA_PATH):
+            os.remove(os.path.join(DATA_PATH, file))
 
         logging.info(f"Archived files to '{archive_name}' by {request.remote_addr}")
         return jsonify({
             "status": "success",
-            "message": f"Archived incoming files to '{archive_name}'."
+            "message": f"Archived data files to '{archive_name}'."
         }), 200
 
     # GET: list available archives
