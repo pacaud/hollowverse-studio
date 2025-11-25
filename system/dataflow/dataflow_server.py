@@ -7,7 +7,7 @@ from functools import wraps
 app = Flask(__name__)
 
 # === API Key Security ===
-API_KEY = os.environ.get("VOXIA_API_KEY", "s0meSuperL0ngRandomString123!")
+API_KEY = os.environ.get("SHRINE_CHAT_TOKEN", "s0meSuperL0ngRandomString123!")
 
 def require_api_key(func):
     @wraps(func)
