@@ -10,7 +10,7 @@ app = Flask(__name__)
 CORS(app, resources={
     r"/dataflow/*": {"origins": "*"},
     r"/ping": {"origins": "*"},
-    r"/api/ping": {"origins": "*"}
+    r"/api/*": {"origins": "*"}
 })
 
 # === Security (API Key) ===
@@ -45,6 +45,21 @@ def home():
             "POST": "/dataflow/post",
             "GET": "/dataflow/get/<filename>",
             "ARCHIVE": "/dataflow/archive"
+        }
+    }), 200
+
+# === API Root Endpoint ===
+@app.route("/api", methods=["GET"])
+def api_root():
+    """Returns API index overview."""
+    return jsonify({
+        "message": "Voxia Dataflow API root endpoint",
+        "status": "available",
+        "routes": {
+            "ping": "/api/ping",
+            "post": "/dataflow/post",
+            "get": "/dataflow/get/<filename>",
+            "archive": "/dataflow/archive"
         }
     }), 200
 
