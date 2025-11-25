@@ -9,6 +9,38 @@ app = Flask(__name__)
 # === API Key Security ===
 API_KEY = os.environ.get("SHRINE_CHAT_TOKEN", "s0meSuperL0ngRandomString123!")
 
+@app.route("/")
+def home():
+    return jsonify({
+        "message": "Voxia Dataflow Server is running (secured).",
+        "routes": {
+            "ARCHIVE": "/dataflow/archive",
+            "GET": "/dataflow/get/<filename>",
+            "POST": "/dataflow/post",
+            "PING": "/ping"
+        }
+    })
+
+@app.route("/ping")
+def ping():
+    return jsonify({"status": "ok", "source": "voxia-dataflow"}), 200
+
+@app.route("/")
+def home():
+    return jsonify({
+        "message": "Voxia Dataflow Server is running (secured).",
+        "routes": {
+            "ARCHIVE": "/dataflow/archive",
+            "GET": "/dataflow/get/<filename>",
+            "POST": "/dataflow/post",
+            "PING": "/ping"
+        }
+    })
+
+@app.route("/ping")
+def ping():
+    return jsonify({"status": "ok", "source": "voxia-dataflow"}), 200
+
 def require_api_key(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
