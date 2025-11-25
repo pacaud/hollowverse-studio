@@ -42,8 +42,8 @@ def require_api_key(func):
 
 # === Directory Setup ===
 FOLDER_PATH = "/var/www/dataflow.hollowverse"
-DATA_PATH = os.path.join(FOLDER_PATH, "data")      # ✅ unified folder for get/post
-ARCHIVE_PATH = os.path.join(FOLDER_PATH, "archive")
+DATA_PATH = os.path.join(FOLDER_PATH, "data")
+ARCHIVE_PATH = os.path.join(FOLDER_PATH, "archives")
 
 os.makedirs(DATA_PATH, exist_ok=True)
 os.makedirs(ARCHIVE_PATH, exist_ok=True)
@@ -55,23 +55,22 @@ os.makedirs(ARCHIVE_PATH, exist_ok=True)
 def home():
     """Health endpoint listing available routes."""
     return jsonify({
-        "message": "Voxia Dataflow Server is running (secured)",
+        "message": "Voxia Dataflow Server is running (secured, single-folder mode)",
         "routes": {
             "ping": "/ping",
             "post": "/dataflow/post",
-            "get": "/dataflow/get/<filename>",
-            "archive": "/dataflow/archive"
+            "get": "/dataflow/get/<filename>"
         }
     }), 200
 
 
 @app.route("/ping", methods=["GET"])
 def ping():
-    """Basic heartbeat endpoint."""
+    """Simple health check route."""
     return jsonify({"status": "ok", "source": "voxia-dataflow"}), 200
 
 
-# === Upload Endpoint (POST) ===
+# === Data Upload ===
 @app.route("/dataflow/post", methods=["POST"])
 @require_api_key
 def post_data():
@@ -85,7 +84,7 @@ def post_data():
         logging.info(f"Uploaded file: {filename} from {request.remote_addr}")
         return jsonify({
             "status": "success",
-            "message": f"File '{filename}' saved to data directory."
+            "message": f"File '{filename}' saved to /data."
         }), 200
 
     elif request.is_json:
@@ -98,14 +97,14 @@ def post_data():
         logging.info(f"Received JSON payload as '{filename}' from {request.remote_addr}")
         return jsonify({
             "status": "success",
-            "message": f"JSON data saved as '{filename}' in data directory."
+            "message": f"JSON data saved as '{filename}' in /data."
         }), 200
 
     logging.warning(f"No data received from {request.remote_addr}")
     return jsonify({"status": "error", "message": "No data received."}), 400
 
 
-# === Download Endpoint (GET) ===
+# === Data Retrieval ===
 @app.route("/dataflow/get/<path:filename>", methods=["GET"])
 @require_api_key
 def get_data(filename):
@@ -118,40 +117,15 @@ def get_data(filename):
     logging.warning(f"Requested file not found: {filename}")
     return jsonify({
         "status": "error",
-        "message": f"File '{filename}' not found in data directory."
+        "message": f"File '{filename}' not found in /data."
     }), 404
 
 
-# === Archive Management ===
-@app.route("/dataflow/archive", methods=["GET", "POST"])
+# === (Placeholder) Archives ===
+@app.route("/dataflow/archive", methods=["GET"])
 @require_api_key
-def manage_archive():
-    """
-    POST: Archive all files from /data into /archive.
-    GET: List available archives.
-    """
-    if request.method == "POST":
-        archive_name = f"archive_{datetime.now().strftime('%Y%m%d_%H%M%S')}.zip"
-        archive_path = os.path.join(ARCHIVE_PATH, archive_name)
-
-        with zipfile.ZipFile(archive_path, "w", zipfile.ZIP_DEFLATED) as archive_zip:
-            for root, _, files in os.walk(DATA_PATH):
-                for file in files:
-                    full_path = os.path.join(root, file)
-                    arcname = os.path.relpath(full_path, DATA_PATH)
-                    archive_zip.write(full_path, arcname)
-
-        # Clean up /data after archiving
-        for file in os.listdir(DATA_PATH):
-            os.remove(os.path.join(DATA_PATH, file))
-
-        logging.info(f"Archived files to '{archive_name}' by {request.remote_addr}")
-        return jsonify({
-            "status": "success",
-            "message": f"Archived data files to '{archive_name}'."
-        }), 200
-
-    # GET: list available archives
+def list_archives():
+    """List available archives (future use)."""
     archives = sorted(os.listdir(ARCHIVE_PATH))
     logging.info(f"Listed {len(archives)} archives for {request.remote_addr}")
     return jsonify({
