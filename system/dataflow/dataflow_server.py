@@ -5,13 +5,19 @@ import zipfile
 from datetime import datetime
 from functools import wraps
 
+# === Initialize Flask ===
 app = Flask(__name__)
-CORS(app, resources={r"/dataflow/*": {"origins": "*"}, r"/ping": {"origins": "*"}})
+CORS(app, resources={
+    r"/dataflow/*": {"origins": "*"},
+    r"/ping": {"origins": "*"},
+    r"/api/ping": {"origins": "*"}
+})
 
-# === API Key Security ===
-API_KEY = os.environ.get("SHRINE_CHAT_TOKEN", "s0meSuperL0ngRandomString123!")
+# === Security (API Key) ===
+API_KEY = os.environ.get("VOXIA_DATAFLOW_TOKEN", "s0meSuperL0ngRandomString123!")
 
 def require_api_key(func):
+    """Decorator to require the X-API-Key header for access."""
     @wraps(func)
     def wrapper(*args, **kwargs):
         key = request.headers.get("X-API-Key")
@@ -20,68 +26,71 @@ def require_api_key(func):
         return func(*args, **kwargs)
     return wrapper
 
-# === Dataflow Paths ===
+# === Directory Setup ===
 BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 INCOMING_PATH = os.path.join(BASE_PATH, "incoming")
 OUTGOING_PATH = os.path.join(BASE_PATH, "outgoing")
 ARCHIVE_PATH = os.path.join(BASE_PATH, "archive")
 
-os.makedirs(INCOMING_PATH, exist_ok=True)
-os.makedirs(OUTGOING_PATH, exist_ok=True)
-os.makedirs(ARCHIVE_PATH, exist_ok=True)
+for path in (INCOMING_PATH, OUTGOING_PATH, ARCHIVE_PATH):
+    os.makedirs(path, exist_ok=True)
 
-# === Routes ===
-
-@app.route("/")
+# === Root Endpoint ===
+@app.route("/", methods=["GET"])
 def home():
     return jsonify({
-        "message": "Voxia Dataflow Server is running (secured).",
+        "message": "Voxia Dataflow Server is running (secured)",
         "routes": {
-            "ARCHIVE": "/dataflow/archive",
-            "GET": "/dataflow/get/<filename>",
+            "PING": ["/ping", "/api/ping"],
             "POST": "/dataflow/post",
-            "PING": ["/ping", "/api/ping"]
+            "GET": "/dataflow/get/<filename>",
+            "ARCHIVE": "/dataflow/archive"
         }
-    })
+    }), 200
 
-@app.route("/ping")
-@app.route("/api/ping")
+# === Health Check Routes ===
+@app.route("/ping", methods=["GET"])
+@app.route("/api/ping", methods=["GET"])
 def ping():
+    """Simple health check route."""
     return jsonify({"status": "ok", "source": "voxia-dataflow"}), 200
 
-# --- POST ---
-@app.route('/dataflow/post', methods=['POST'])
+# === POST: Upload or Send JSON ===
+@app.route("/dataflow/post", methods=["POST"])
 @require_api_key
 def post_data():
+    """Accepts a file or JSON payload and stores it in the incoming directory."""
     if 'file' in request.files:
         file = request.files['file']
         save_path = os.path.join(INCOMING_PATH, file.filename)
         file.save(save_path)
-        return jsonify({'status': 'success', 'message': f'File {file.filename} saved to incoming/.'}), 200
+        return jsonify({"status": "success", "message": f"File {file.filename} saved to incoming/."}), 200
+
     elif request.json:
         data = request.json
-        filename = data.get('filename', f'data_{datetime.now().strftime("%Y%m%d_%H%M%S")}.json')
+        filename = data.get('filename', f"data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
         filepath = os.path.join(INCOMING_PATH, filename)
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(str(data))
-        return jsonify({'status': 'success', 'message': f'JSON data saved as {filename}.'}), 200
-    else:
-        return jsonify({'status': 'error', 'message': 'No data received.'}), 400
+        return jsonify({"status": "success", "message": f"JSON data saved as {filename}."}), 200
 
-# --- GET ---
-@app.route('/dataflow/get/<path:filename>', methods=['GET'])
+    return jsonify({"status": "error", "message": "No data received."}), 400
+
+# === GET: Download from outgoing ===
+@app.route("/dataflow/get/<path:filename>", methods=["GET"])
 @require_api_key
 def get_data(filename):
+    """Serves a file from the outgoing directory."""
     file_path = os.path.join(OUTGOING_PATH, filename)
     if os.path.exists(file_path):
         return send_from_directory(OUTGOING_PATH, filename, as_attachment=True)
-    else:
-        return jsonify({'status': 'error', 'message': f'File {filename} not found in outgoing/.'}), 404
+    return jsonify({"status": "error", "message": f"File {filename} not found in outgoing/."}), 404
 
-# --- ARCHIVE ---
-@app.route('/dataflow/archive', methods=['POST'])
+# === ARCHIVE: Zip all incoming files ===
+@app.route("/dataflow/archive", methods=["POST"])
 @require_api_key
 def archive_data():
+    """Zips all incoming files and moves them to the archive directory."""
     archive_name = f"archive_{datetime.now().strftime('%Y%m%d_%H%M%S')}.zip"
     archive_path = os.path.join(ARCHIVE_PATH, archive_name)
 
@@ -95,7 +104,8 @@ def archive_data():
     for file in os.listdir(INCOMING_PATH):
         os.remove(os.path.join(INCOMING_PATH, file))
 
-    return jsonify({'status': 'success', 'message': f'Archived incoming files to {archive_name}.'}), 200
+    return jsonify({"status": "success", "message": f"Archived incoming files to {archive_name}."}), 200
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=False)
+# === Main Entry Point ===
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080, debug=False)
