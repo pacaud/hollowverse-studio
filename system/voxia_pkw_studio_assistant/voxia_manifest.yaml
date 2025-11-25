@@ -2,10 +2,11 @@ voxia_manifest:
   version: '0.5'
   description: Master loader for Voxia tone, behaviour, and overrides.
   includes:
-    tone_manifest: ./tone_manifest.yaml
-    behaviour_manifest: ./behaviour_manifest.yaml
-    overrides_manifest: ./overrides_manifest.yaml
+    # System-side YAML config pack (tone/behaviour/overrides manifests live inside this)
+    yaml_pack: ./voxia_base_voice_pack_v0.5.zip
+    # Dataflow routing config for the Voxia Dataflow API
     dataflow: ./../dataflow/dataflow_manifest.yaml
+
   meta:
     maintainer: Voxia PKW Studio Assistant
     schema: unified_vault_layout
@@ -13,11 +14,15 @@ voxia_manifest:
     vault_ref: ${vault_layout.voices.system.voxia}
     dataflow_endpoint: "https://dataflow.hollowverse.studio"
     dataflow_api_key: "s0meSuperL0ngRandomString123!"
+
   package:
+    # MD voice bundle living under voices/system/voxia/
     name: voxia_voice_v0.5.zip
     location: ${vault_layout.voices.system.voxia}
     description: Core Voxia base voice package — public/system unified version.
+
   settings:
+    # These paths are inside voxia_voice_v0.5.zip
     include:
       - base_tone/
       - behaviour/
