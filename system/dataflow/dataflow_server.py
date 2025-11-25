@@ -1,31 +1,46 @@
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
+from werkzeug.utils import secure_filename
 import os
 import zipfile
+import logging
 from datetime import datetime
 from functools import wraps
 
+# === Flask App Setup ===
 app = Flask(__name__)
 CORS(app, resources={
     r"/dataflow/*": {"origins": "*"},
     r"/ping": {"origins": "*"}
 })
 
+# === Logging Configuration ===
+LOG_DIR = "/var/log/voxia"
+LOG_FILE = os.path.join(LOG_DIR, "dataflow.log")
+os.makedirs(LOG_DIR, exist_ok=True)
+
+logging.basicConfig(
+    filename=LOG_FILE,
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s"
+)
+
 # === API Key Security ===
 API_KEY = os.environ.get("VOXIA_DATAFLOW_TOKEN", "s0meSuperL0ngRandomString123!")
 
 def require_api_key(func):
+    """Decorator to enforce API key authentication."""
     @wraps(func)
     def wrapper(*args, **kwargs):
         key = request.headers.get("X-API-Key")
         if key != API_KEY:
+            logging.warning(f"Unauthorized access attempt from {request.remote_addr}")
             return jsonify({"error": "Unauthorized"}), 401
         return func(*args, **kwargs)
     return wrapper
 
 
 # === Directory Setup ===
-BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 FOLDER_PATH = "/var/www/dataflow.hollowverse"
 INCOMING_PATH = os.path.join(FOLDER_PATH, "incoming")
 OUTGOING_PATH = os.path.join(FOLDER_PATH, "outgoing")
@@ -64,24 +79,30 @@ def post_data():
     """Accept a file or JSON payload and save it to /incoming."""
     if "file" in request.files:
         file = request.files["file"]
-        save_path = os.path.join(INCOMING_PATH, file.filename)
+        filename = secure_filename(file.filename)
+        save_path = os.path.join(INCOMING_PATH, filename)
         file.save(save_path)
+
+        logging.info(f"Uploaded file: {filename} from {request.remote_addr}")
         return jsonify({
             "status": "success",
-            "message": f"File '{file.filename}' saved to incoming."
+            "message": f"File '{filename}' saved to incoming."
         }), 200
 
     elif request.is_json:
         data = request.get_json()
         filename = data.get("filename", f"data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
-        filepath = os.path.join(INCOMING_PATH, filename)
+        filepath = os.path.join(INCOMING_PATH, secure_filename(filename))
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(str(data))
+
+        logging.info(f"Received JSON payload as '{filename}' from {request.remote_addr}")
         return jsonify({
             "status": "success",
             "message": f"JSON data saved as '{filename}'."
         }), 200
 
+    logging.warning(f"No data received from {request.remote_addr}")
     return jsonify({"status": "error", "message": "No data received."}), 400
 
 
@@ -90,9 +111,12 @@ def post_data():
 @require_api_key
 def get_data(filename):
     """Retrieve a file from /outgoing."""
+    filename = secure_filename(filename)
     file_path = os.path.join(OUTGOING_PATH, filename)
     if os.path.exists(file_path):
+        logging.info(f"File served: {filename} to {request.remote_addr}")
         return send_from_directory(OUTGOING_PATH, filename, as_attachment=True)
+    logging.warning(f"Requested file not found: {filename}")
     return jsonify({
         "status": "error",
         "message": f"File '{filename}' not found in outgoing."
@@ -122,6 +146,7 @@ def manage_archive():
         for file in os.listdir(INCOMING_PATH):
             os.remove(os.path.join(INCOMING_PATH, file))
 
+        logging.info(f"Archived files to '{archive_name}' by {request.remote_addr}")
         return jsonify({
             "status": "success",
             "message": f"Archived incoming files to '{archive_name}'."
@@ -129,6 +154,7 @@ def manage_archive():
 
     # GET: list available archives
     archives = sorted(os.listdir(ARCHIVE_PATH))
+    logging.info(f"Listed {len(archives)} archives for {request.remote_addr}")
     return jsonify({
         "status": "success",
         "archives": archives
