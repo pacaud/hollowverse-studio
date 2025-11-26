@@ -2,27 +2,33 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Voxia Dataflow API",
-    "version": "1.0.0",
-    "description": "Internal data management API for Voxia PKW Studio Assistant. Handles POST, GET, and ARCHIVE operations for workflow data."
+    "version": "1.1.0",
+    "description": "OpenAPI schema for the Voxia Dataflow API — secure file and JSON data handling service for Voxia PKW Studio Assistant. Includes ping, data upload/download, and archive creation/listing."
   },
   "servers": [
     {
-      "url": "https://dataflow.hollowverse.studio"
+      "url": "https://dataflow.hollowverse.studio",
+      "description": "Primary Voxia Dataflow API server"
     }
+  ],
+  "tags": [
+    { "name": "Ping", "description": "Service health endpoints." },
+    { "name": "Data", "description": "Upload and retrieve data files." },
+    { "name": "Archives", "description": "Manage archived ZIP bundles." }
   ],
   "paths": {
     "/ping": {
       "get": {
+        "tags": ["Ping"],
+        "summary": "Ping the Dataflow server",
+        "description": "Simple health check endpoint to verify the Dataflow API is running.",
         "operationId": "ping_dataflow",
-        "summary": "Ping the Voxia Dataflow server",
         "responses": {
           "200": {
-            "description": "Server is alive and reachable.",
+            "description": "Ping successful",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PingResponse"
-                }
+                "schema": { "$ref": "#/components/schemas/PingResponse" }
               }
             }
           }
@@ -31,169 +37,193 @@
     },
     "/dataflow/post": {
       "post": {
-        "operationId": "post_dataflow_file",
-        "summary": "Post a file or JSON payload to the Dataflow server",
-        "security": [
-          {
-            "apiKeyAuth": []
-          }
-        ],
+        "tags": ["Data"],
+        "summary": "Upload file or JSON data",
+        "description": "Accepts a JSON payload or multipart file upload. Requires an `X-API-Key` header.",
+        "operationId": "post_data",
         "requestBody": {
           "required": true,
           "content": {
-            "multipart/form-data": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "file": {
-                    "type": "string",
-                    "format": "binary"
-                  }
-                }
-              }
-            },
             "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DataflowPostJsonRequest"
-              }
+              "schema": { "$ref": "#/components/schemas/PostDataJsonRequest" }
+            },
+            "multipart/form-data": {
+              "schema": { "$ref": "#/components/schemas/PostDataMultipartRequest" }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Data successfully posted to incoming/",
+            "description": "Data successfully saved",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericStatusResponse"
-                }
+                "schema": { "$ref": "#/components/schemas/PostDataResponse" }
               }
             }
           },
-          "401": {
-            "description": "Unauthorized — missing or invalid API key"
-          }
-        }
+          "401": { "description": "Unauthorized or missing API key" }
+        },
+        "security": [{ "ApiKeyAuth": [] }]
       }
     },
     "/dataflow/get/{filename}": {
       "get": {
-        "operationId": "get_dataflow_file",
-        "summary": "Retrieve a file from the outgoing/ directory",
-        "security": [
-          {
-            "apiKeyAuth": []
-          }
-        ],
+        "tags": ["Data"],
+        "summary": "Retrieve a stored data file",
+        "description": "Fetch a file previously uploaded to `/dataflow/post`.",
+        "operationId": "get_data_file",
         "parameters": [
           {
             "name": "filename",
             "in": "path",
             "required": true,
-            "description": "The name of the file to retrieve",
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" },
+            "description": "Name of the file to retrieve"
           }
         ],
         "responses": {
           "200": {
-            "description": "File retrieved successfully."
-          },
-          "401": {
-            "description": "Unauthorized — invalid API key"
-          },
-          "404": {
-            "description": "File not found in outgoing/"
-          }
-        }
-      }
-    },
-    "/dataflow/archive": {
-      "post": {
-        "operationId": "archive_dataflow_files",
-        "summary": "Archive all incoming files into a ZIP in archive/",
-        "security": [
-          {
-            "apiKeyAuth": []
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Files successfully archived.",
+            "description": "File retrieved successfully",
             "content": {
+              "application/octet-stream": {},
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GenericStatusResponse"
-                }
+                "schema": { "$ref": "#/components/schemas/GetDataFileJsonResponse" }
               }
             }
           },
-          "401": {
-            "description": "Unauthorized — missing or invalid API key"
+          "401": { "description": "Unauthorized" },
+          "404": { "description": "File not found" }
+        },
+        "security": [{ "ApiKeyAuth": [] }]
+      }
+    },
+    "/dataflow/archive": {
+      "get": {
+        "tags": ["Archives"],
+        "summary": "List available archives",
+        "description": "Returns a list of ZIP archives in the `/archives` directory.",
+        "operationId": "get_archives",
+        "responses": {
+          "200": {
+            "description": "Archives listed successfully",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ArchivesResponse" }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized" }
+        },
+        "security": [{ "ApiKeyAuth": [] }]
+      },
+      "post": {
+        "tags": ["Archives"],
+        "summary": "Create a new archive",
+        "description": "Creates a ZIP archive of all files in the `/data` directory and stores it in `/archives`.",
+        "operationId": "create_archive",
+        "responses": {
+          "201": {
+            "description": "Archive created successfully",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ArchiveCreateResponse" }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized" }
+        },
+        "security": [{ "ApiKeyAuth": [] }]
+      }
+    },
+    "/dataflow/archive/{filename}": {
+      "get": {
+        "tags": ["Archives"],
+        "summary": "Download a specific archive",
+        "description": "Retrieve a specific ZIP archive from the `/archives` directory.",
+        "operationId": "get_archive_file",
+        "parameters": [
+          {
+            "name": "filename",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Archive filename (e.g. `archive_20251126_030000.zip`)"
           }
-        }
+        ],
+        "responses": {
+          "200": { "description": "Archive retrieved successfully" },
+          "401": { "description": "Unauthorized" },
+          "404": { "description": "Archive not found" }
+        },
+        "security": [{ "ApiKeyAuth": [] }]
       }
     }
   },
   "components": {
-    "securitySchemes": {
-      "apiKeyAuth": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "X-API-Key"
-      }
-    },
     "schemas": {
       "PingResponse": {
         "type": "object",
         "properties": {
-          "status": {
-            "type": "string",
-            "example": "ok"
-          },
-          "source": {
-            "type": "string",
-            "example": "voxia-dataflow"
-          }
-        },
-        "required": [
-          "status",
-          "source"
-        ]
+          "status": { "type": "string", "example": "ok" },
+          "source": { "type": "string", "example": "voxia-dataflow" }
+        }
       },
-      "DataflowPostJsonRequest": {
+      "PostDataJsonRequest": {
         "type": "object",
         "properties": {
-          "filename": {
-            "type": "string",
-            "example": "data_20251125.json"
-          },
-          "data": {
-            "type": "object",
-            "description": "Arbitrary JSON payload to store"
-          }
+          "filename": { "type": "string", "example": "test.json" },
+          "data": { "type": "object", "description": "Arbitrary JSON data" }
         },
-        "required": [
-          "data"
-        ]
+        "required": ["filename"]
       },
-      "GenericStatusResponse": {
+      "PostDataMultipartRequest": {
         "type": "object",
         "properties": {
-          "status": {
-            "type": "string",
-            "example": "success"
-          },
-          "message": {
-            "type": "string",
-            "example": "Operation completed successfully."
-          }
+          "filename": { "type": "string" },
+          "file": { "type": "string", "format": "binary" }
         },
-        "required": [
-          "status",
-          "message"
-        ]
+        "required": ["filename", "file"]
+      },
+      "PostDataResponse": {
+        "type": "object",
+        "properties": {
+          "status": { "type": "string", "example": "success" },
+          "message": { "type": "string" }
+        }
+      },
+      "GetDataFileJsonResponse": {
+        "type": "object",
+        "properties": {
+          "filename": { "type": "string" },
+          "content": { "type": "string" }
+        }
+      },
+      "ArchivesResponse": {
+        "type": "object",
+        "properties": {
+          "status": { "type": "string", "example": "success" },
+          "archives": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "message": { "type": "string" }
+        }
+      },
+      "ArchiveCreateResponse": {
+        "type": "object",
+        "properties": {
+          "status": { "type": "string", "example": "success" },
+          "archive": { "type": "string", "example": "archive_20251126_030000.zip" },
+          "message": { "type": "string" }
+        }
+      }
+    },
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key",
+        "description": "Provide your Voxia Dataflow API key"
       }
     }
   }
