@@ -33,8 +33,73 @@
   </main>
 
   <script>
-    const API_BASE = "https://dataflow.hollowverse.studio";
-    const LIST_ENDPOINT = API_BASE + "/dataflow/data/list";
+    <script>
+  const API_BASE = "https://dataflow.hollowverse.studio";
+  const API_KEY  = "uG2j48nRz7!mA@pF9xQvT1yCwK5oS";
+  const LIST_ENDPOINT = API_BASE + "/dataflow/data/list";
+
+  function goHome() {
+    window.location.href = "index.html";
+  }
+
+  async function loadFiles() {
+    const statusEl = document.getElementById("status");
+    const listEl = document.getElementById("fileList");
+    const reloadBtn = document.getElementById("reloadBtn");
+
+    statusEl.textContent = "Loading files…";
+    statusEl.className = "status-line status-info";
+    listEl.innerHTML = "";
+    reloadBtn.disabled = true;
+
+    try {
+      const res = await fetch(LIST_ENDPOINT, {
+        method: "GET",
+        headers: {
+          "Accept": "application/json",
+          "X-API-Key": API_KEY
+        }
+      });
+
+      if (!res.ok) {
+        throw new Error(`Error ${res.status}: ${res.statusText}`);
+      }
+
+      const data = await res.json();
+      const files = Array.isArray(data.files) ? data.files : [];
+
+      if (files.length === 0) {
+        statusEl.textContent = "No files found in data/.";
+        statusEl.className = "status-line status-info";
+        return;
+      }
+
+      files.forEach((file) => {
+        const li = document.createElement("li");
+        li.className = "file-item";
+
+        const nameSpan = document.createElement("span");
+        nameSpan.className = "file-name";
+        nameSpan.textContent = file;
+
+        li.appendChild(nameSpan);
+        listEl.appendChild(li);
+      });
+
+      statusEl.textContent = `Loaded ${files.length} file(s).`;
+      statusEl.className = "status-line status-success";
+    } catch (err) {
+      console.error(err);
+      statusEl.textContent = err.message || "Failed to load files.";
+      statusEl.className = "status-line status-error";
+    } finally {
+      reloadBtn.disabled = false;
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", loadFiles);
+</script>
+
 
     function goHome() {
       window.location.href = "index.html";
