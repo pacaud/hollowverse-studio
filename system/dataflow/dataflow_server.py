@@ -133,6 +133,29 @@ def get_data(filename):
         "message": f"File '{filename}' not found in /data."
     }), 404
 
+@app.route("/dataflow/data/list", methods=["GET"])
+@require_api_key
+def list_data_files():
+    """List all files under the /data directory (relative paths)."""
+    files = []
+
+    for root, dirs, filenames in os.walk(DATA_PATH):
+        for name in filenames:
+            full_path = os.path.join(root, name)
+            # make the path relative to DATA_PATH
+            rel_path = os.path.relpath(full_path, DATA_PATH)
+            # normalize for web (forward slashes)
+            rel_path = rel_path.replace(os.sep, "/")
+            files.append(rel_path)
+
+    files.sort()
+    logging.info(f"Listed {len(files)} data files for {request.remote_addr}")
+    return jsonify({
+        "status": "success",
+        "files": files
+    }), 200
+
+
 
 <<<<<<< HEAD
 # === (Placeholder) Archives ===
