@@ -43,12 +43,6 @@ def require_api_key(func):
 FOLDER_PATH = "/var/www/dataflow.hollowverse"
 DATA_PATH = os.path.join(FOLDER_PATH, "data")
 ARCHIVE_PATH = os.path.join(FOLDER_PATH, "archives")
-<<<<<<< HEAD
-
-os.makedirs(DATA_PATH, exist_ok=True)
-os.makedirs(ARCHIVE_PATH, exist_ok=True)
-=======
->>>>>>> 34ecdeed4b1153d6f4f9d89c675fd07ad1f677d0
 
 os.makedirs(DATA_PATH, exist_ok=True)
 os.makedirs(ARCHIVE_PATH, exist_ok=True)
@@ -63,12 +57,9 @@ def home():
         "routes": {
             "ping": "/ping",
             "post": "/dataflow/post",
-<<<<<<< HEAD
-            "get": "/dataflow/get/<filename>"
-=======
             "get": "/dataflow/get/<filename>",
+            "data_list": "/dataflow/data/list",
             "archives": "/dataflow/archive"
->>>>>>> 34ecdeed4b1153d6f4f9d89c675fd07ad1f677d0
         }
     }), 200
 
@@ -100,6 +91,7 @@ def post_data():
         data = request.get_json()
         filename = data.get("filename", f"data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
         filepath = os.path.join(DATA_PATH, secure_filename(filename))
+        # Note: you might later want json.dumps here instead of str(data)
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(str(data))
 
@@ -123,16 +115,15 @@ def get_data(filename):
     if os.path.exists(file_path):
         logging.info(f"File served: {filename} to {request.remote_addr}")
         return send_from_directory(DATA_PATH, filename, as_attachment=True)
-<<<<<<< HEAD
-=======
 
->>>>>>> 34ecdeed4b1153d6f4f9d89c675fd07ad1f677d0
     logging.warning(f"Requested file not found: {filename}")
     return jsonify({
         "status": "error",
         "message": f"File '{filename}' not found in /data."
     }), 404
 
+
+# === Data List ===
 @app.route("/dataflow/data/list", methods=["GET"])
 @require_api_key
 def list_data_files():
@@ -156,15 +147,6 @@ def list_data_files():
     }), 200
 
 
-
-<<<<<<< HEAD
-# === (Placeholder) Archives ===
-@app.route("/dataflow/archive", methods=["GET"])
-@require_api_key
-def list_archives():
-    """List available archives (future use)."""
-    archives = sorted(os.listdir(ARCHIVE_PATH))
-=======
 # === Archives ===
 @app.route("/dataflow/archive", methods=["GET", "POST"])
 @require_api_key
@@ -204,7 +186,6 @@ def list_or_create_archives():
             "message": "No archives currently available."
         }), 200
 
->>>>>>> 34ecdeed4b1153d6f4f9d89c675fd07ad1f677d0
     logging.info(f"Listed {len(archives)} archives for {request.remote_addr}")
     return jsonify({
         "status": "success",
@@ -233,4 +214,3 @@ def get_archive(filename):
 # === Entry Point ===
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=False)
-
