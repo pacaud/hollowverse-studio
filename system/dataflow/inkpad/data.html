@@ -119,7 +119,8 @@
         const res = await fetch(LIST_ENDPOINT, {
           method: "GET",
           headers: {
-            "Accept": "application/json"
+            "Accept": "application/json",
+            "X-API-Key": API_KEY
           }
         });
 
