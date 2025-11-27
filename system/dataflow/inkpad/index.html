@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inkpad — Dataflow Desk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="app-body">
+  <main class="center-shell">
+    <div class="card">
+      <h1 class="title">Inkpad</h1>
+      <p class="subtitle">
+        Dataflow Desk — a private workspace for your <code>data/</code> files on the Shrine.
+      </p>
+
+      <button class="primary-btn" onclick="goToData()">
+        Open data workspace
+      </button>
+    </div>
+  </main>
+
+  <script>
+    function goToData() {
+      window.location.href = "data.html";
+    }
+  </script>
+</body>
+</html>

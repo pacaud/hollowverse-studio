@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inkpad — Data workspace</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="app-body">
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <button class="ghost-btn" onclick="goHome()">← Back</button>
+      <h1 class="top-title">Inkpad</h1>
+      <span class="top-subtitle">Listing contents of <code>data/</code></span>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Data workspace</h2>
+        <button class="secondary-btn" onclick="loadFiles()" id="reloadBtn">
+          Reload
+        </button>
+      </div>
+
+      <div id="status" class="status-line"></div>
+
+      <ul id="fileList" class="file-list">
+        <!-- populated by JS -->
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    const API_BASE = "https://dataflow.hollowverse.studio";
+    const LIST_ENDPOINT = API_BASE + "/dataflow/data/list";
+
+    function goHome() {
+      window.location.href = "index.html";
+    }
+
+    async function loadFiles() {
+      const statusEl = document.getElementById("status");
+      const listEl = document.getElementById("fileList");
+      const reloadBtn = document.getElementById("reloadBtn");
+
+      statusEl.textContent = "Loading files…";
+      statusEl.className = "status-line status-info";
+      listEl.innerHTML = "";
+      reloadBtn.disabled = true;
+
+      try {
+        const res = await fetch(LIST_ENDPOINT, {
+          method: "GET",
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        if (!res.ok) {
+          const text = await res.text();
+          throw new Error(`Error ${res.status}: ${text || res.statusText}`);
+        }
+
+        const data = await res.json();
+        const files = Array.isArray(data.files) ? data.files : [];
+
+        if (files.length === 0) {
+          statusEl.textContent = "No files found in data/.";
+          statusEl.className = "status-line status-info";
+          return;
+        }
+
+        files.forEach((file) => {
+          const li = document.createElement("li");
+          li.className = "file-item";
+
+          const nameSpan = document.createElement("span");
+          nameSpan.className = "file-name";
+          nameSpan.textContent = file;
+
+          li.appendChild(nameSpan);
+          listEl.appendChild(li);
+        });
+
+        statusEl.textContent = `Loaded ${files.length} file(s).`;
+        statusEl.className = "status-line status-success";
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = err.message || "Failed to load files.";
+        statusEl.className = "status-line status-error";
+      } finally {
+        reloadBtn.disabled = false;
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", loadFiles);
+  </script>
+</body>
+</html>
