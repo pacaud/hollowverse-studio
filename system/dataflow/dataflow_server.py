@@ -26,7 +26,7 @@ logging.basicConfig(
 )
 
 # === API Key Security ===
-API_KEY = os.environ.get("VOXIA_DATAFLOW_TOKEN", "s0meSuperL0ngRandomString123!")
+API_KEY = os.environ.get("VOXIA_DATAFLOW_TOKEN", "uG2j48nRz7!mA@pF9xQvT1yCwK5oS")
 
 def require_api_key(func):
     """Decorator to enforce API key authentication."""
@@ -39,15 +39,19 @@ def require_api_key(func):
         return func(*args, **kwargs)
     return wrapper
 
-
 # === Directory Setup ===
 FOLDER_PATH = "/var/www/dataflow.hollowverse"
 DATA_PATH = os.path.join(FOLDER_PATH, "data")
 ARCHIVE_PATH = os.path.join(FOLDER_PATH, "archives")
+<<<<<<< HEAD
 
 os.makedirs(DATA_PATH, exist_ok=True)
 os.makedirs(ARCHIVE_PATH, exist_ok=True)
+=======
+>>>>>>> 34ecdeed4b1153d6f4f9d89c675fd07ad1f677d0
 
+os.makedirs(DATA_PATH, exist_ok=True)
+os.makedirs(ARCHIVE_PATH, exist_ok=True)
 
 # === Routes ===
 
@@ -59,7 +63,12 @@ def home():
         "routes": {
             "ping": "/ping",
             "post": "/dataflow/post",
+<<<<<<< HEAD
             "get": "/dataflow/get/<filename>"
+=======
+            "get": "/dataflow/get/<filename>",
+            "archives": "/dataflow/archive"
+>>>>>>> 34ecdeed4b1153d6f4f9d89c675fd07ad1f677d0
         }
     }), 200
 
@@ -114,6 +123,10 @@ def get_data(filename):
     if os.path.exists(file_path):
         logging.info(f"File served: {filename} to {request.remote_addr}")
         return send_from_directory(DATA_PATH, filename, as_attachment=True)
+<<<<<<< HEAD
+=======
+
+>>>>>>> 34ecdeed4b1153d6f4f9d89c675fd07ad1f677d0
     logging.warning(f"Requested file not found: {filename}")
     return jsonify({
         "status": "error",
@@ -121,12 +134,54 @@ def get_data(filename):
     }), 404
 
 
+<<<<<<< HEAD
 # === (Placeholder) Archives ===
 @app.route("/dataflow/archive", methods=["GET"])
 @require_api_key
 def list_archives():
     """List available archives (future use)."""
     archives = sorted(os.listdir(ARCHIVE_PATH))
+=======
+# === Archives ===
+@app.route("/dataflow/archive", methods=["GET", "POST"])
+@require_api_key
+def list_or_create_archives():
+    """
+    GET: List all available archives in /archives.
+    POST: Create a ZIP archive of all files in /data.
+    """
+    os.makedirs(ARCHIVE_PATH, exist_ok=True)
+
+    if request.method == "POST":
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        archive_name = f"archive_{timestamp}.zip"
+        archive_fullpath = os.path.join(ARCHIVE_PATH, archive_name)
+
+        # Create zip from current /data folder
+        with zipfile.ZipFile(archive_fullpath, "w", zipfile.ZIP_DEFLATED) as zipf:
+            for filename in os.listdir(DATA_PATH):
+                filepath = os.path.join(DATA_PATH, filename)
+                if os.path.isfile(filepath):
+                    zipf.write(filepath, filename)
+
+        logging.info(f"Created new archive: {archive_name}")
+        return jsonify({
+            "status": "success",
+            "message": f"Archive '{archive_name}' created successfully.",
+            "archive": archive_name
+        }), 201
+
+    # Handle GET (list)
+    archives = sorted(os.listdir(ARCHIVE_PATH))
+    if not archives:
+        logging.info(f"No archives found in {ARCHIVE_PATH}")
+        return jsonify({
+            "status": "success",
+            "archives": [],
+            "message": "No archives currently available."
+        }), 200
+
+>>>>>>> 34ecdeed4b1153d6f4f9d89c675fd07ad1f677d0
     logging.info(f"Listed {len(archives)} archives for {request.remote_addr}")
     return jsonify({
         "status": "success",
@@ -134,6 +189,25 @@ def list_archives():
     }), 200
 
 
+@app.route("/dataflow/archive/<path:filename>", methods=["GET"])
+@require_api_key
+def get_archive(filename):
+    """Download a specific archive."""
+    filename = secure_filename(filename)
+    file_path = os.path.join(ARCHIVE_PATH, filename)
+
+    if os.path.exists(file_path):
+        logging.info(f"Archive served: {filename} to {request.remote_addr}")
+        return send_from_directory(ARCHIVE_PATH, filename, as_attachment=True)
+
+    logging.warning(f"Archive not found: {filename}")
+    return jsonify({
+        "status": "error",
+        "message": f"Archive '{filename}' not found."
+    }), 404
+
+
 # === Entry Point ===
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=False)
+
