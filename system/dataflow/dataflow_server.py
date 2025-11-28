@@ -6,6 +6,7 @@ import zipfile
 import logging
 from datetime import datetime
 from functools import wraps
+import yaml
 
 # === Flask App Setup ===
 app = Flask(__name__)
@@ -29,7 +30,6 @@ logging.basicConfig(
 API_KEY = os.environ.get("VOXIA_DATAFLOW_TOKEN", "uG2j48nRz7!mA@pF9xQvT1yCwK5oS")
 
 def require_api_key(func):
-    """Decorator to enforce API key authentication."""
     @wraps(func)
     def wrapper(*args, **kwargs):
         key = request.headers.get("X-API-Key")
@@ -47,11 +47,8 @@ ARCHIVE_PATH = os.path.join(FOLDER_PATH, "archives")
 os.makedirs(DATA_PATH, exist_ok=True)
 os.makedirs(ARCHIVE_PATH, exist_ok=True)
 
-# === Routes ===
-
 @app.route("/", methods=["GET"])
 def home():
-    """Health endpoint listing available routes."""
     return jsonify({
         "message": "Voxia Dataflow Server is running (secured, single-folder mode)",
         "routes": {
@@ -63,184 +60,120 @@ def home():
         }
     }), 200
 
-
 @app.route("/ping", methods=["GET"])
 def ping():
-    """Simple health check route."""
     return jsonify({"status": "ok", "source": "voxia-dataflow"}), 200
 
-
-# === Data Upload ===
 @app.route("/dataflow/post", methods=["POST"])
 @require_api_key
 def post_data():
-    """Accept a file or JSON payload and save it to /data."""
     if "file" in request.files:
         file = request.files["file"]
         filename = secure_filename(file.filename)
         save_path = os.path.join(DATA_PATH, filename)
         file.save(save_path)
-
         logging.info(f"Uploaded file: {filename} from {request.remote_addr}")
-        return jsonify({
-            "status": "success",
-            "message": f"File '{filename}' saved to /data."
-        }), 200
-
+        return jsonify({"status": "success", "message": f"File '{filename}' saved to /data."}), 200
     elif request.is_json:
         data = request.get_json()
         filename = data.get("filename", f"data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
         filepath = os.path.join(DATA_PATH, secure_filename(filename))
-        # Note: you might later want json.dumps here instead of str(data)
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(str(data))
-
         logging.info(f"Received JSON payload as '{filename}' from {request.remote_addr}")
-        return jsonify({
-            "status": "success",
-            "message": f"JSON data saved as '{filename}' in /data."
-        }), 200
-
+        return jsonify({"status": "success", "message": f"JSON data saved as '{filename}' in /data."}), 200
     logging.warning(f"No data received from {request.remote_addr}")
     return jsonify({"status": "error", "message": "No data received."}), 400
 
-
-# === Data Retrieval ===
 @app.route("/dataflow/get/<path:filename>", methods=["GET"])
 @require_api_key
 def get_data(filename):
-    """Retrieve a file from /data."""
     filename = secure_filename(filename)
     file_path = os.path.join(DATA_PATH, filename)
     if os.path.exists(file_path):
         logging.info(f"File served: {filename} to {request.remote_addr}")
         return send_from_directory(DATA_PATH, filename, as_attachment=True)
-
     logging.warning(f"Requested file not found: {filename}")
-    return jsonify({
-        "status": "error",
-        "message": f"File '{filename}' not found in /data."
-    }), 404
+    return jsonify({"status": "error", "message": f"File '{filename}' not found in /data."}), 404
 
-
-# === Data List ===
 @app.route("/dataflow/data/list", methods=["GET"])
 @require_api_key
 def list_data_files():
-    """List all files under the /data directory (relative paths)."""
     files = []
-
     for root, dirs, filenames in os.walk(DATA_PATH):
         for name in filenames:
             full_path = os.path.join(root, name)
-            # make the path relative to DATA_PATH
-            rel_path = os.path.relpath(full_path, DATA_PATH)
-            # normalize for web (forward slashes)
-            rel_path = rel_path.replace(os.sep, "/")
+            rel_path = os.path.relpath(full_path, DATA_PATH).replace(os.sep, "/")
             files.append(rel_path)
-
     files.sort()
     logging.info(f"Listed {len(files)} data files for {request.remote_addr}")
-    return jsonify({
-        "status": "success",
-        "files": files
-    }), 200
+    return jsonify({"status": "success", "files": files}), 200
 
-
-# === Archives ===
 @app.route("/dataflow/archive", methods=["GET", "POST"])
 @require_api_key
 def list_or_create_archives():
-    """
-    GET: List all available archives in /archives.
-    POST: Create a ZIP archive of all files in /data.
-    """
     os.makedirs(ARCHIVE_PATH, exist_ok=True)
-
     if request.method == "POST":
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         archive_name = f"archive_{timestamp}.zip"
         archive_fullpath = os.path.join(ARCHIVE_PATH, archive_name)
-
-        # Create zip from current /data folder
         with zipfile.ZipFile(archive_fullpath, "w", zipfile.ZIP_DEFLATED) as zipf:
             for filename in os.listdir(DATA_PATH):
                 filepath = os.path.join(DATA_PATH, filename)
                 if os.path.isfile(filepath):
                     zipf.write(filepath, filename)
-
         logging.info(f"Created new archive: {archive_name}")
-        return jsonify({
-            "status": "success",
-            "message": f"Archive '{archive_name}' created successfully.",
-            "archive": archive_name
-        }), 201
-
-    # Handle GET (list)
+        return jsonify({"status": "success", "message": f"Archive '{archive_name}' created successfully.", "archive": archive_name}), 201
     archives = sorted(os.listdir(ARCHIVE_PATH))
-    if not archives:
-        logging.info(f"No archives found in {ARCHIVE_PATH}")
-        return jsonify({
-            "status": "success",
-            "archives": [],
-            "message": "No archives currently available."
-        }), 200
-
-    logging.info(f"Listed {len(archives)} archives for {request.remote_addr}")
-    return jsonify({
-        "status": "success",
-        "archives": archives
-    }), 200
-
+    return jsonify({"status": "success", "archives": archives, "message": "Archives listed."}), 200
 
 @app.route("/dataflow/archive/<path:filename>", methods=["GET"])
 @require_api_key
 def get_archive(filename):
-    """Download a specific archive."""
     filename = secure_filename(filename)
     file_path = os.path.join(ARCHIVE_PATH, filename)
-
     if os.path.exists(file_path):
         logging.info(f"Archive served: {filename} to {request.remote_addr}")
         return send_from_directory(ARCHIVE_PATH, filename, as_attachment=True)
-
     logging.warning(f"Archive not found: {filename}")
-    return jsonify({
-        "status": "error",
-        "message": f"Archive '{filename}' not found."
-    }), 404
+    return jsonify({"status": "error", "message": f"Archive '{filename}' not found."}), 404
 
-
-
-# === Voxia Manifest ===
+# === Voxia Manifest Recursive Loader ===
 @app.route("/voxia/manifest", methods=["GET"])
 @require_api_key
 def voxia_manifest():
-    """Return the contents of voxia_manifest.yaml for Voxia's voice config."""
     manifest_path = "/srv/vault_of_memories_git/system/voxia_pkw_studio_assistant/voxia_manifest.yaml"
     try:
         with open(manifest_path, "r", encoding="utf-8") as f:
-            content = f.read()
-        logging.info(f"Served Voxia manifest to {request.remote_addr}")
+            manifest = yaml.safe_load(f)
+        pkg_root = manifest.get("voxia_manifest", {}).get("package", {}).get("root_path")
+        settings = manifest.get("voxia_manifest", {}).get("settings", {})
+        if not pkg_root or not os.path.isdir(pkg_root):
+            return jsonify({"status": "error", "message": f"Voxia package root path not found: {pkg_root}"}), 500
+
+        def safe_read(rel_path):
+            abs_path = os.path.join(pkg_root, rel_path)
+            if os.path.exists(abs_path):
+                with open(abs_path, "r", encoding="utf-8") as f:
+                    return f.read()
+            return f"# Missing: {rel_path}"
+
+        tone = safe_read(settings.get("default_tone", ""))
+        behaviour = safe_read(settings.get("default_behaviour", ""))
+        overrides = [safe_read(p) for p in settings.get("override_files", [])]
+
         return jsonify({
             "status": "success",
-            "kind": "voxia_manifest",
-            "content": content
+            "kind": "voxia_package",
+            "manifest": manifest,
+            "tone": tone,
+            "behaviour": behaviour,
+            "overrides": overrides
         }), 200
-    except FileNotFoundError:
-        logging.warning(f"Voxia manifest not found at {manifest_path}")
-        return jsonify({
-            "status": "error",
-            "message": "Voxia manifest file not found."
-        }), 500
+
     except Exception as e:
-        logging.exception("Error reading Voxia manifest")
-        return jsonify({
-            "status": "error",
-            "message": "Failed to read Voxia manifest."
-        }), 500
+        logging.exception("Error loading Voxia package")
+        return jsonify({"status": "error", "message": f"Failed to load Voxia package: {str(e)}"}), 500
 
-
-# === Entry Point ===
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=False)
