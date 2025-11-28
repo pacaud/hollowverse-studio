@@ -25,3 +25,8 @@ voxia_manifest:
         - override/override_preferred_name_tag.md
         - override/override_slow_mode.md
       description: Global and pacing overrides for Voxia public mode
+
+  linked_packs:
+    vivi:
+      manifest_path: /srv/vault_of_memories_git/system/voxia_pkw_studio_assistant/vivi_manifest.yaml
+      description: Personal companion-style voice derived from Voxia base structure

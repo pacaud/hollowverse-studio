@@ -88,6 +88,7 @@ def get_archive(filename):
 def voxia_manifest():
     manifest_path = "/srv/vault_of_memories_git/system/voxia_pkw_studio_assistant/voxia_manifest.yaml"
     try:
+        # Load the main Voxia manifest
         with open(manifest_path, "r", encoding="utf-8") as f:
             manifest = yaml.safe_load(f)
 
@@ -95,6 +96,7 @@ def voxia_manifest():
         includes = manifest.get("voxia_manifest", {}).get("includes", {})
         loaded_includes = {}
 
+        # Helper function to safely read Markdown files
         def read_md_file(path):
             abs_path = os.path.join(pkg_root, path)
             if os.path.exists(abs_path):
@@ -102,6 +104,7 @@ def voxia_manifest():
                     return f.read()
             return f"# Missing: {path}"
 
+        # Load all tone, behaviour, and override packs
         for key, item in includes.items():
             if isinstance(item, dict):
                 pack_data = {}
@@ -122,15 +125,32 @@ def voxia_manifest():
             else:
                 loaded_includes[key] = {"error": f"Unexpected type for {key}: {type(item)}"}
 
+        # -------------------------
+        # Load linked voice manifests (like Vivi)
+        # -------------------------
+        linked_packs = manifest.get("voxia_manifest", {}).get("linked_packs", {})
+        linked_results = {}
+
+        for name, pack in linked_packs.items():
+            mpath = pack.get("manifest_path")
+            if mpath and os.path.exists(mpath):
+                with open(mpath, "r", encoding="utf-8") as f:
+                    linked_results[name] = yaml.safe_load(f)
+            else:
+                linked_results[name] = {"error": f"Missing linked manifest: {mpath}"}
+
+        # Final combined response
         return jsonify({
             "status": "success",
             "kind": "voxia_package",
             "manifest": manifest,
-            "includes": loaded_includes
+            "includes": loaded_includes,
+            "linked_packs": linked_results
         })
 
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
+
 
 
 # ------------------ OPENAPI SERVE ROUTE ------------------ #
