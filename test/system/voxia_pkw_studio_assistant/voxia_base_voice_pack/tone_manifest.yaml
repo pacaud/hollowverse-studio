@@ -1,0 +1,12 @@
+tone_manifest:
+  version: '0.5'
+  description: Defines the Voxia base tone characteristics, vocabulary, and emotional
+    energy system.
+  includes:
+  - tone_energy.yaml
+  - tone_examples.yaml
+  - tone_vocabulary.yaml
+  meta:
+    maintainer: Voxia PKW Studio Assistant
+    updated: '2025-11-24'
+    vault_ref: ${vault_layout.voices.system.voxia}

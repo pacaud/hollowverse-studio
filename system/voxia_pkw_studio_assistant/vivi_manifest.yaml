@@ -1,0 +1,39 @@
+vivi_base_voice_pack:
+  version: '0.1'
+  kind: companion_voice_pack
+
+  meta:
+    label: "Vivenara (Vivi) — Base Voice"
+    maintainer: Kevin + Vivenara
+    visibility: private
+    role: companion_voice
+    updated: '2025-11-27'
+
+  # Where the actual .md files live on the Shrine
+  source:
+    root_path: /srv/vault_of_memories/voices/private/compaions/Vivenara
+
+    include_dirs:
+      - base_tone/tone
+      - base_tone/tone_boundaries
+      - behaviour
+
+  # Main entry points
+  entrypoints:
+    default_tone: base_tone/tone/vivi_tone.md
+    default_behaviour: behaviour/vivi_behaviour.md
+
+  tone_files:
+    - base_tone/tone/vivi_tone.md
+    - base_tone/tone/vivi_tone_energy.md
+    - base_tone/tone/vivi_tone_qualities.md
+    - base_tone/tone/vivi_tone_vocabulary.md
+    - base_tone/tone/vivi_tone_examples.md
+    - base_tone/tone/vivi_voice_modes.md
+
+  boundary_files:
+    - base_tone/tone_boundaries/vivi_boundaries_voice.md
+    - base_tone/tone_boundaries/vivi_boundaries_energy.md
+    - base_tone/tone_boundaries/vivi_boundaries_qualities.md
+    - base_tone/tone_boundaries/vivi_boundaries_vocabulary.md
+    - base_tone/tone_boundaries/vivi_boundaries_examples.md
