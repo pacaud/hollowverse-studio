@@ -211,6 +211,36 @@ def get_archive(filename):
     }), 404
 
 
+
+# === Voxia Manifest ===
+@app.route("/voxia/manifest", methods=["GET"])
+@require_api_key
+def voxia_manifest():
+    """Return the contents of voxia_manifest.yaml for Voxia's voice config."""
+    manifest_path = "/srv/vault_of_memories/system/voxia_pkw_studio_assistant/voxia_manifest.yaml"
+    try:
+        with open(manifest_path, "r", encoding="utf-8") as f:
+            content = f.read()
+        logging.info(f"Served Voxia manifest to {request.remote_addr}")
+        return jsonify({
+            "status": "success",
+            "kind": "voxia_manifest",
+            "content": content
+        }), 200
+    except FileNotFoundError:
+        logging.warning(f"Voxia manifest not found at {manifest_path}")
+        return jsonify({
+            "status": "error",
+            "message": "Voxia manifest file not found."
+        }), 500
+    except Exception as e:
+        logging.exception("Error reading Voxia manifest")
+        return jsonify({
+            "status": "error",
+            "message": "Failed to read Voxia manifest."
+        }), 500
+
+
 # === Entry Point ===
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=False)
