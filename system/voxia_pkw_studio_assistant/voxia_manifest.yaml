@@ -1,47 +1,9 @@
 voxia_manifest:
-  version: '0.5'
-  description: Master loader for Voxia tone, behaviour, and overrides.
-
-  includes:
-    # Unzipped YAML pack folder
-    yaml_pack: ./voxia_base_voice_pack/
-    # Dataflow routing config for the Voxia Dataflow API
-    dataflow: ./../dataflow/dataflow_manifest.yaml
-
-  meta:
-    maintainer: Voxia PKW Studio Assistant
-    schema: unified_vault_layout
-    updated: '2025-11-27'
-    vault_ref: ${vault_layout.voices.system.voxia}
-    dataflow_endpoint: "https://dataflow.hollowverse.studio"
-    dataflow_api_key: "uG2j48nRz7!mA@pF9xQvT1yCwK5oS"
-
   package:
-    # Logical name for this voice package (not a zip anymore)
     name: voxia_voice_v0.5
-    # Root folder for Voxia’s voice content on the Shrine
-    root_path: /srv/vault_of_memories_git/voices/system/voxia
-    location: ${vault_layout.voices.system.voxia}
-    description: >
-      Core Voxia base voice package — public/system unified version,
-      loaded from the unzipped folder structure under voices/system/voxia.
-
-  settings:
-    # Subfolders under package.root_path to include
-    include:
-      - base_tone/tone
-      - base_tone/tone_boundaries
-      - behaviour
-      - override
-
-    # Main entry points (relative to package.root_path)
-    default_tone: base_tone/tone/voxia_tone.md
-    default_behaviour: behaviour/voxia_public_mode.md
-
-    overrides_enabled: true
-
-    # Explicit override files (relative to package.root_path)
-    override_files:
-      - override/override_global.md
-      - override/override_preferred_name_tag.md
-      - override/override_slow_mode.md
+    description: Unified Voxia base voice system manifest
+    root_path: /srv/vault_of_memories_git/system/voxia_pkw_studio_assistant
+  includes:
+    tone_manifest: ./voxia_base_voice_pack/tone/voxia_tone_manifest.yaml
+    behaviour_manifest: ./voxia_base_voice_pack/behaviour/voxia_behaviour_manifest.yaml
+    override_manifest: ./voxia_base_voice_pack/override/voxia_override_manifest.yaml

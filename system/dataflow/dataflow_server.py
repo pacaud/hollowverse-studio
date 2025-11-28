@@ -90,19 +90,27 @@ def voxia_manifest():
     try:
         with open(manifest_path, "r", encoding="utf-8") as f:
             manifest = yaml.safe_load(f)
+
         pkg_root = manifest.get("voxia_manifest", {}).get("package", {}).get("root_path")
-        settings = manifest.get("voxia_manifest", {}).get("settings", {})
-        def read_md(p): 
-            fp = os.path.join(pkg_root, p)
-            return open(fp, "r", encoding="utf-8").read() if os.path.exists(fp) else f"# Missing: {p}"
+        includes = manifest.get("voxia_manifest", {}).get("includes", {})
+        loaded_includes = {}
+
+        # Recursively load each included YAML (tone, behaviour, override)
+        for key, rel_path in includes.items():
+            abs_path = os.path.join(pkg_root, rel_path)
+            if os.path.exists(abs_path):
+                with open(abs_path, "r", encoding="utf-8") as inc:
+                    loaded_includes[key] = yaml.safe_load(inc)
+            else:
+                loaded_includes[key] = {"error": f"Missing include file: {rel_path}"}
+
         return jsonify({
             "status": "success",
             "kind": "voxia_package",
             "manifest": manifest,
-            "tone": read_md(settings.get("default_tone", "")),
-            "behaviour": read_md(settings.get("default_behaviour", "")),
-            "overrides": [read_md(p) for p in settings.get("override_files", [])]
+            "includes": loaded_includes
         })
+
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
