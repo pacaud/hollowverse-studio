@@ -105,12 +105,12 @@ def voxia_manifest():
         for key, item in includes.items():
             if isinstance(item, dict):
                 pack_data = {}
-                # Main file path
+                # Main path
                 main_path = item.get("path")
                 if main_path:
                     pack_data["main"] = read_md_file(main_path)
-                # Boundaries, alternatives, or files lists
-                for subkey in ["boundaries", "alternatives", "files"]:
+                # Lists: boundaries / alternatives / files
+                for subkey in ("boundaries", "alternatives", "files"):
                     if subkey in item:
                         pack_data[subkey] = [read_md_file(p) for p in item[subkey]]
                 # Optional description
@@ -131,6 +131,7 @@ def voxia_manifest():
 
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
+
 
 # ------------------ OPENAPI SERVE ROUTE ------------------ #
 @app.route("/openapi.json")
