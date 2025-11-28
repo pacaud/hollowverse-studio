@@ -1,38 +1,29 @@
 {
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Voxia Dataflow API",
+    "version": "1.3.0",
+    "description": "Voxia Dataflow API with nested REST structure and live OpenAPI route."
+  },
+  "servers": [
+    {
+      "url": "https://dataflow.hollowverse.studio",
+      "description": "Primary Voxia Dataflow API server"
+    }
+  ],
   "paths": {
-    "/voxia/manifest": {
-      "get": {
-        "tags": ["Voxia"],
-        "summary": "Load Voxia voice package",
-        "description": "Loads the Voxia manifest and resolves tone, behaviour, and override markdown files into a single JSON package.",
-        "operationId": "get_voxia_manifest",
-        "responses": {
-          "200": {
-            "description": "Voxia package loaded successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": { "type": "string", "example": "success" },
-                    "kind": { "type": "string", "example": "voxia_package" },
-                    "manifest": { "type": "object" },
-                    "tone": { "type": "string" },
-                    "behaviour": { "type": "string" },
-                    "overrides": {
-                      "type": "array",
-                      "items": { "type": "string" }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": { "description": "Unauthorized" },
-          "500": { "description": "Server error loading Voxia package" }
-        },
-        "security": [{ "ApiKeyAuth": [] }]
-      }
+    "/ping": {"get": {"summary": "Ping the Dataflow server","operationId": "ping_dataflow","responses": {"200": {"description": "Ping successful"}}}},
+    "/dataflow/data/post": {"post": {"summary": "Upload file or JSON data","operationId": "post_data","security": [{"ApiKeyAuth": []}]}},
+    "/dataflow/data/get/{filename}": {"get": {"summary": "Retrieve uploaded file","operationId": "get_data_file","parameters": [{"name": "filename","in": "path","required": true,"schema": {"type": "string"}}],"security": [{"ApiKeyAuth": []}]}},
+    "/dataflow/data/list": {"get": {"summary": "List all data files","operationId": "list_data_files","security": [{"ApiKeyAuth": []}]}},
+    "/dataflow/archive": {"get": {"summary": "List archives","operationId": "get_archives","security": [{"ApiKeyAuth": []}]}, "post": {"summary": "Create new archive","operationId": "create_archive","security": [{"ApiKeyAuth": []}]}},
+    "/dataflow/archive/{filename}": {"get": {"summary": "Download archive file","operationId": "get_archive_file","parameters": [{"name": "filename","in": "path","required": true,"schema": {"type": "string"}}],"security": [{"ApiKeyAuth": []}]}},
+    "/voxia/manifest": {"get": {"summary": "Load Voxia manifest","operationId": "get_voxia_manifest","security": [{"ApiKeyAuth": []}]}},
+    "/openapi.json": {"get": {"summary": "Serve OpenAPI specification","operationId": "get_openapi"}}
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {"type": "apiKey","in": "header","name": "X-API-Key"}
     }
   }
 }
