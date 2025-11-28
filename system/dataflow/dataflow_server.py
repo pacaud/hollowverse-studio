@@ -95,14 +95,32 @@ def voxia_manifest():
         includes = manifest.get("voxia_manifest", {}).get("includes", {})
         loaded_includes = {}
 
-        # Recursively load each included YAML (tone, behaviour, override)
-        for key, rel_path in includes.items():
-            abs_path = os.path.join(pkg_root, rel_path)
+        def read_md_file(path):
+            abs_path = os.path.join(pkg_root, path)
             if os.path.exists(abs_path):
-                with open(abs_path, "r", encoding="utf-8") as inc:
-                    loaded_includes[key] = yaml.safe_load(inc)
+                with open(abs_path, "r", encoding="utf-8") as f:
+                    return f.read()
+            return f"# Missing: {path}"
+
+        for key, item in includes.items():
+            if isinstance(item, dict):
+                pack_data = {}
+                # Main file path
+                main_path = item.get("path")
+                if main_path:
+                    pack_data["main"] = read_md_file(main_path)
+                # Boundaries, alternatives, or files lists
+                for subkey in ["boundaries", "alternatives", "files"]:
+                    if subkey in item:
+                        pack_data[subkey] = [read_md_file(p) for p in item[subkey]]
+                # Optional description
+                if "description" in item:
+                    pack_data["description"] = item["description"]
+                loaded_includes[key] = pack_data
+            elif isinstance(item, str):
+                loaded_includes[key] = read_md_file(item)
             else:
-                loaded_includes[key] = {"error": f"Missing include file: {rel_path}"}
+                loaded_includes[key] = {"error": f"Unexpected type for {key}: {type(item)}"}
 
         return jsonify({
             "status": "success",
