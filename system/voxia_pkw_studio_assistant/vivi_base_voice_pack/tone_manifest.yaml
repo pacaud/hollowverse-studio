@@ -1,0 +1,27 @@
+tone_manifest:
+  version: '0.1'
+  description: Defines the Vivi base tone and tone boundaries for companion use.
+
+  source:
+    # Root for Vivi’s tone content
+    root_path: /srv/vault_of_memories/voices/private/compaions/Vivenara
+
+  tone_files:
+    - base_tone/tone/vivi_tone.md
+    - base_tone/tone/vivi_tone_energy.md
+    - base_tone/tone/vivi_tone_qualities.md
+    - base_tone/tone/vivi_tone_vocabulary.md
+    - base_tone/tone/vivi_tone_examples.md
+    - base_tone/tone/vivi_voice_modes.md
+
+  boundary_files:
+    - base_tone/tone_boundaries/vivi_boundaries_voice.md
+    - base_tone/tone_boundaries/vivi_boundaries_energy.md
+    - base_tone/tone_boundaries/vivi_boundaries_qualities.md
+    - base_tone/tone_boundaries/vivi_boundaries_vocabulary.md
+    - base_tone/tone_boundaries/vivi_boundaries_examples.md
+
+  meta:
+    maintainer: Kevin + Vivenara
+    updated: '2025-11-27'
+    vault_ref: ${vault_layout.voices.private.Vivenara}

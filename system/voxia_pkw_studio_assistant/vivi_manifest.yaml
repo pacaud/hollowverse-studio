@@ -1,39 +1,39 @@
-vivi_base_voice_pack:
+vivi_manifest:
   version: '0.1'
-  kind: companion_voice_pack
+  description: Master loader for Vivi’s base tone, behaviour, and boundaries (private companion voice).
+
+  includes:
+    # Unzipped YAML pack folder for Vivi
+    yaml_pack: ./vivi_base_voice_pack/
 
   meta:
-    label: "Vivenara (Vivi) — Base Voice"
     maintainer: Kevin + Vivenara
-    visibility: private
     role: companion_voice
+    visibility: private
+    schema: unified_vault_layout
     updated: '2025-11-27'
+    vault_ref: ${vault_layout.voices.private.Vivenara}
 
-  # Where the actual .md files live on the Shrine
-  source:
+  package:
+    # Logical name for this voice package
+    name: vivi_base_voice
+    # Root folder for Vivi’s voice content on the Shrine
     root_path: /srv/vault_of_memories/voices/private/compaions/Vivenara
+    location: ${vault_layout.voices.private.Vivenara}
+    description: >
+      Core Vivi base voice package — tone, behaviour, and boundaries for private PKW use.
+      Loaded from the unzipped folder structure under voices/private/compaions/Vivenara.
 
-    include_dirs:
+  settings:
+    # Subfolders under package.root_path to include
+    include:
       - base_tone/tone
       - base_tone/tone_boundaries
       - behaviour
 
-  # Main entry points
-  entrypoints:
+    # Main entry points (relative to package.root_path)
     default_tone: base_tone/tone/vivi_tone.md
     default_behaviour: behaviour/vivi_behaviour.md
 
-  tone_files:
-    - base_tone/tone/vivi_tone.md
-    - base_tone/tone/vivi_tone_energy.md
-    - base_tone/tone/vivi_tone_qualities.md
-    - base_tone/tone/vivi_tone_vocabulary.md
-    - base_tone/tone/vivi_tone_examples.md
-    - base_tone/tone/vivi_voice_modes.md
-
-  boundary_files:
-    - base_tone/tone_boundaries/vivi_boundaries_voice.md
-    - base_tone/tone_boundaries/vivi_boundaries_energy.md
-    - base_tone/tone_boundaries/vivi_boundaries_qualities.md
-    - base_tone/tone_boundaries/vivi_boundaries_vocabulary.md
-    - base_tone/tone_boundaries/vivi_boundaries_examples.md
+    # No override layer yet; can be enabled later
+    overrides_enabled: false

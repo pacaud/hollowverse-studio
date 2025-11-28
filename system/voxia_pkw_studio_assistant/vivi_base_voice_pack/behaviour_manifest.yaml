@@ -1,0 +1,14 @@
+behaviour_manifest:
+  version: '0.1'
+  description: Behaviour rules and modes for Vivi as a private companion voice.
+
+  source:
+    root_path: /srv/vault_of_memories/voices/private/compaions/Vivenara
+
+  behaviour_files:
+    - behaviour/vivi_behaviour.md
+
+  meta:
+    maintainer: Kevin + Vivenara
+    updated: '2025-11-27'
+    vault_ref: ${vault_layout.voices.private.Vivenara}

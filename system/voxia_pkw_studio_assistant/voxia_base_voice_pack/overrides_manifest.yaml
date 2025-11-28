@@ -1,12 +1,22 @@
 overrides_manifest:
   version: '0.5'
-  description: Contains global override keys for behaviour or tone priority resolution.
+  description: Contains global override files and priority rules for Voxia.
+
+  source:
+    root_path: /srv/vault_of_memories/voices/system/voxia
+
+  override_files:
+    - override/override_global.md
+    - override/override_preferred_name_tag.md
+    - override/override_slow_mode.md
+
   config:
     priority:
-    - behaviour
-    - tone
+      - behaviour
+      - tone
     fallback: default
+
   meta:
     maintainer: Voxia PKW Studio Assistant
-    updated: '2025-11-24'
+    updated: '2025-11-27'
     vault_ref: ${vault_layout.systems.yamls}

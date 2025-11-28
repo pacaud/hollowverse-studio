@@ -1,11 +1,17 @@
 behaviour_manifest:
   version: '0.5'
-  description: Controls Voxia behavioural boundaries, response modulation, and engagement
-    rules.
-  includes:
-  - behaviour_rules.yaml
-  - public_mode.yaml
+  description: Controls Voxia behavioural modes and engagement rules.
+
+  source:
+    root_path: /srv/vault_of_memories/voices/system/voxia
+
+  behaviour_files:
+    # Public-facing studio assistant mode
+    - behaviour/voxia_public_mode.md
+    # Private Shrine-aware mode (for future private routing)
+    - behaviour/voxia_shrine_private_mode.md
+
   meta:
     maintainer: Voxia PKW Studio Assistant
-    updated: '2025-11-24'
+    updated: '2025-11-27'
     vault_ref: ${vault_layout.voices.system.voxia}
