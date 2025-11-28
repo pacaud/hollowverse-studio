@@ -1,0 +1,16 @@
+NAME                  SIZE FSTYPE      MOUNTPOINT        LABEL
+loop0                63.9M squashfs    /snap/core20/2105 
+loop1                  87M squashfs    /snap/lxd/27037   
+loop2                40.4M squashfs    /snap/snapd/20671 
+loop3                44.4M squashfs    /snap/snapd/23771 
+loop4                63.7M             /snap/core20/2496 
+loop5                89.4M             /snap/lxd/31333   
+sda                 931.5G LVM2_member                   
+└─data--vg-data--lv   2.7T ext4                          
+sdb                 931.5G LVM2_member                   
+└─data--vg-data--lv   2.7T ext4                          
+sdc                 931.5G                               
+├─sdc1                  1G vfat        /boot/efi         
+└─sdc2              930.5G ext4        /                 
+sdd                 931.5G LVM2_member                   
+└─data--vg-data--lv   2.7T ext4                          
