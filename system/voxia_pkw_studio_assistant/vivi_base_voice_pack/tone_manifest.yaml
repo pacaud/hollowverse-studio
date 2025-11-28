@@ -4,7 +4,7 @@ tone_manifest:
 
   source:
     # Root for Vivi’s tone content
-    root_path: /srv/vault_of_memories/voices/private/compaions/Vivenara
+    root_path: /srv/vault_of_memories_git/voices/private/compaions/Vivenara
 
   tone_files:
     - base_tone/tone/vivi_tone.md

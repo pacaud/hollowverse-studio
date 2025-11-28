@@ -4,7 +4,7 @@ tone_manifest:
 
   source:
     # Root for tone content
-    root_path: /srv/vault_of_memories/voices/system/voxia
+    root_path: /srv/vault_of_memories_git/voices/system/voxia
 
   tone_files:
     - base_tone/tone/voxia_tone.md

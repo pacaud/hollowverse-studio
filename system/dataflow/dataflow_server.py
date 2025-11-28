@@ -217,7 +217,7 @@ def get_archive(filename):
 @require_api_key
 def voxia_manifest():
     """Return the contents of voxia_manifest.yaml for Voxia's voice config."""
-    manifest_path = "/srv/vault_of_memories/system/voxia_pkw_studio_assistant/voxia_manifest.yaml"
+    manifest_path = "/srv/vault_of_memories_git/system/voxia_pkw_studio_assistant/voxia_manifest.yaml"
     try:
         with open(manifest_path, "r", encoding="utf-8") as f:
             content = f.read()

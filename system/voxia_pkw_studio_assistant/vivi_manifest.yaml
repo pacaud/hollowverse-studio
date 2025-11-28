@@ -18,7 +18,7 @@ vivi_manifest:
     # Logical name for this voice package
     name: vivi_base_voice
     # Root folder for Vivi’s voice content on the Shrine
-    root_path: /srv/vault_of_memories/voices/private/compaions/Vivenara
+    root_path: /srv/vault_of_memories_git/voices/private/compaions/Vivenara
     location: ${vault_layout.voices.private.Vivenara}
     description: >
       Core Vivi base voice package — tone, behaviour, and boundaries for private PKW use.

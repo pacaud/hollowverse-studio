@@ -3,7 +3,7 @@ overrides_manifest:
   description: Contains global override files and priority rules for Voxia.
 
   source:
-    root_path: /srv/vault_of_memories/voices/system/voxia
+    root_path: /srv/vault_of_memories_git/voices/system/voxia
 
   override_files:
     - override/override_global.md

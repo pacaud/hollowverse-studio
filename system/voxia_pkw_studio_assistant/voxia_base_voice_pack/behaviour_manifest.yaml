@@ -3,7 +3,7 @@ behaviour_manifest:
   description: Controls Voxia behavioural modes and engagement rules.
 
   source:
-    root_path: /srv/vault_of_memories/voices/system/voxia
+    root_path: /srv/vault_of_memories_git/voices/system/voxia
 
   behaviour_files:
     # Public-facing studio assistant mode

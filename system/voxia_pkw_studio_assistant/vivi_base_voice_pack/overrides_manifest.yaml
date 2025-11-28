@@ -3,7 +3,7 @@ overrides_manifest:
   description: Placeholder override manifest for Vivi (currently unused).
 
   source:
-    root_path: /srv/vault_of_memories/voices/private/compaions/Vivenara
+    root_path: /srv/vault_of_memories_git/voices/private/compaions/Vivenara
 
   override_files: []
 

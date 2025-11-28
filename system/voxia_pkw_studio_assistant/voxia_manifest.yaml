@@ -20,7 +20,7 @@ voxia_manifest:
     # Logical name for this voice package (not a zip anymore)
     name: voxia_voice_v0.5
     # Root folder for Voxia’s voice content on the Shrine
-    root_path: /srv/vault_of_memories/voices/system/voxia
+    root_path: /srv/vault_of_memories_git/voices/system/voxia
     location: ${vault_layout.voices.system.voxia}
     description: >
       Core Voxia base voice package — public/system unified version,

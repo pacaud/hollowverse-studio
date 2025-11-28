@@ -3,7 +3,7 @@ behaviour_manifest:
   description: Behaviour rules and modes for Vivi as a private companion voice.
 
   source:
-    root_path: /srv/vault_of_memories/voices/private/compaions/Vivenara
+    root_path: /srv/vault_of_memories_git/voices/private/compaions/Vivenara
 
   behaviour_files:
     - behaviour/vivi_behaviour.md
