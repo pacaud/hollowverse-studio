@@ -12,7 +12,7 @@ tone_manifest:
     - base_tone/tone/vivi_tone_qualities.md
     - base_tone/tone/vivi_tone_vocabulary.md
     - base_tone/tone/vivi_tone_examples.md
-    - base_tone/tone/vivi_voice_modes.md
+    #- base_tone/tone/vivi_voice_modes.md
 
   boundary_files:
     - base_tone/tone_boundaries/vivi_boundaries_voice.md
