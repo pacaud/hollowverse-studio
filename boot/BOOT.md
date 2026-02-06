@@ -39,11 +39,22 @@ Naming rule (pick one, redirect the other):
 
 ## Work loop pointer (git + machines + droplet + ChatGPT)
 - The workflow source-of-truth is: `core/workflows/loop.md`
+- (Updated) The loop includes the **Voxia read-only edit cycle**: read → edit → Kevin applies → commit.
 - It defines:
   - Laptop ↔ GitHub ↔ Desktop (cos-forge) relationship
   - DigitalOcean droplet as **host/deploy target**
   - ChatGPT Project files as **workspace cache** (sync after checkpoints)
   - Assets policy (bundles/packs vs repo, chat-safe mirrors)
+
+---
+
+## GitHub connector (read-only) — prefer over ZIPs
+- If the GitHub connector is available in this chat, treat it as the default way to **read/search repo content**.
+- Repos may remain **private**; access is granted via the user's connector permissions.
+- If repo answers require browsing files and the connector is not currently active in the chat:
+  - Ask the user to enable GitHub as a source for this chat, then retry.
+  - If still unavailable, fall back to: paste file contents, paste command output, or upload a thin snapshot ZIP.
+- Do **not** assume the connector can run shell commands on the user's machines. It is for reading repo content only.
 
 ---
 
@@ -53,8 +64,8 @@ It tells you which bundles are active and what the next action is.
 
 ## 1) Confirm active bundles (upload set)
 Make sure these are uploaded in the project files list:
-- Core: `pkw_core_v0.2.5.bundle.zip`
-- Chat Center: `pkw_chat_center_v0.2.0.bundle.zip`
+- Core: `pkw_core_v0.2.6.bundle.zip`
+- Chat Center: `pkw_chat_center_v0.2.1.bundle.zip`
 - Assets: `pkw_assets_v0.0.2.bundle.zip` (only if needed)
 - World: `pkw_world_hollowverse__v0.0.6.bundle.zip` (world content)
 
@@ -63,7 +74,7 @@ Make sure these are uploaded in the project files list:
 - Do not assume per-entry folders like `mist_fox/_index.md` unless the index explicitly points there.
 
 ## 2) Start clean (every new chat)
-1) Open: `pkw_chat_center_v0.2.0.bundle.zip → chat_center/START_HERE.md`
+1) Open: `pkw_chat_center_v0.2.1.bundle.zip → chat_center/START_HERE.md`
 2) Run **Room Clear** (no-bleed reset):
 
 Copy/paste block:

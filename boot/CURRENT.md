@@ -1,8 +1,8 @@
 # CURRENT — Active PKW Upload Set
 
 ## Active bundles (uploaded now)
-- Core: `pkw_core_v0.2.5.bundle.zip`
-- Chat Center: `pkw_chat_center_v0.2.0.bundle.zip`
+- Core: `pkw_core_v0.2.6.bundle.zip`
+- Chat Center: `pkw_chat_center_v0.2.1.bundle.zip`
 - Assets: `pkw_assets_v0.0.2.bundle.zip` (only if needed)
 - World: `pkw_world_hollowverse__v0.0.6.bundle.zip`
 
@@ -39,29 +39,26 @@
 - Forest content format: individual entries are **flat `.md` files** linked from indexes (e.g., `animals/mist_fox.md`), not per-entry folders.
 
 ## next_action (close-out checkpoint)
-1) Update workflow doc in repo (Windows laptop):
-   - replace: `core/workflows/loop.md`
+1) Update workflow loop (repo canon on Laptop):
+   - replace: `core/workflows/loop.md` (now includes Voxia edit cycle + `main` branch)
    - `git add core/workflows/loop.md`
-   - `git commit -m "Update workflow loop: multi-machine + droplet + ChatGPT sync"`
-   - `git push origin master`
+   - `git commit -m "Workflow: update loop (Voxia edit cycle + main branch)"`
+   - `git push origin main`
 
-2) Place the session summary into repo logs:
-   - path: `chat_center/logs/session_summaries/2026-02-05_session_summary__git_controller_desktop_mirror.md`
-   - update `chat_center/logs/_index.md` with a link/entry
-   - commit + push
+2) Bump Core bundle version (workspace + exports):
+   - export: `pkw_core_v0.2.6.bundle.zip`
+   - update references in `BOOT.md` + `CURRENT.md`
+   - commit + push those doc updates
 
 3) Sync cos-forge mirror:
-   - `git branch --set-upstream-to=origin/master master` (only if pull complains)
-   - `git pull`
+   - `git pull --ff-only`
 
-4) Sync ChatGPT Project files (this workspace cache):
+4) Sync ChatGPT Project files (workspace cache):
+   - upload/replace: `pkw_core_v0.2.6.bundle.zip`
    - upload/replace: `BOOT.md`, `CURRENT.md`
-   - upload/replace: `chat_center/presence/voxia/appearance_lock.md`
-   - upload the updated `loop.md` (optional but recommended)
    - keep only the active bundles listed above
 
-5) Stop for the night (recommended):
-   - no new repo setup tonight (SpectraPortal/CodeCrunchers tomorrow)
+5) Optional: stop or switch to light tasks (recommended after a checkpoint)
 
 ## Rule
 Only keep the active set uploaded in ChatGPT.

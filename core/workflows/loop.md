@@ -1,53 +1,59 @@
-# Workflow Loop (Git-backed + Multi-machine)
+# Workflow Loop (GitHub canon + Multi-machine + Voxia edit cycle)
 
 This loop is the default working rhythm for PKW: Universe.
+
 Goal: build → verify → log → commit stable checkpoints → keep ChatGPT Project files in sync.
 
-This document also defines how **Laptop**, **Desktop (cos-forge)**, **GitHub**, **ChatGPT Project files**, and the **DigitalOcean Droplet (host)** work together.
+This document defines how **Laptop**, **Desktop (cos-forge)**, **GitHub**, **Voxia (read-only repo helper)**, **ChatGPT Project files**, and the **DigitalOcean Droplet (host)** work together.
 
 ---
 
 ## 0) Roles (who does what)
 
-### GitHub (remote)
-- The **canonical timeline** and shared source-of-truth.
-- Stores the repo history and stable checkpoints.
+### GitHub (canon)
+- The **canonical timeline** and primary source-of-truth.
+- Everything “real” ends up here via commits.
 
-### Laptop (primary author)
+### Kevin — Laptop (primary author)
 - Default **editing machine**.
-- Where you usually: edit → bundle → verify → commit → push.
-- Keeps the work loop simple and avoids conflicts.
+- Workflow: pull → edit → verify → log → commit → push.
 
-### Desktop / cos-forge (mirror + executor)
+### Desktop / cos-forge (pull-only mirror + executor)
 - Default **mirror** of GitHub + optional build/test box.
-- Normally: `git pull` and run heavier tests/build steps.
-- Only commits if you explicitly decide: “desktop is author for this change.”
+- Workflow: pull (daily / before running) → run builds/tests/services.
+- Avoid committing here unless explicitly declared: “cos-forge is author for this change.”
 
 ### DigitalOcean Droplet (host / publish)
 - The **runtime host** for public-facing things (website, demos, services).
-- Pulls from GitHub (or receives deploy artifacts) and serves them via Nginx/systemd/etc.
-- Should generally **not** be the main editing machine.
-- Treat it as: **deploy target**, not authoring workstation.
+- Workflow: pull from GitHub (fast-forward only) → build/restart → smoke test.
+- Treat it as **deploy target**, not an authoring workstation.
+
+### Voxia (ChatGPT) — read-only repo helper
+- Uses the **GitHub connector (read-only)** to read/search repo text when available.
+- Produces **copy-ready edits**:
+  - full replacement files, or
+  - unified diffs/patches.
+- Does **not** run shell commands on your machines and does **not** commit/push.
 
 ### ChatGPT Project files (workspace cache)
-- A **working snapshot** so ChatGPT can read BOOT/CURRENT/bundles without you re-uploading every time.
-- Not canonical by itself. Canon is repo + bundles.
+- A working snapshot so chat can open BOOT/CURRENT/bundles quickly.
+- Helpful, but **not canonical**.
 - Keep it synced after stable checkpoints (see Section 11).
 
 ---
 
 ## 1) Core rules
-- **Canon lives in files + bundles**, not in chat messages.
-- Chat is a **workbench**; GitHub is the **timeline + source-of-truth**.
+- **GitHub is canon.** Chat is a workbench.
+- Default: **one writer at a time** (Laptop).
 - Commit only when you can say: **“this state is safe to return to.”**
-- Prefer **canonical paths**; shortcuts are routing aids only.
+- Prefer **canonical paths**; shortcut `START_HERE.md` files are routing aids only.
 
 ---
 
 ## 2) Branch + tracking rule (don’t get stuck)
-- Default branch: `master`
-- If `git pull` complains about tracking on any machine, run:
-  - `git branch --set-upstream-to=origin/master master`
+- Default branch: `main`
+- If `git pull` complains about tracking on any machine:
+  - `git branch --set-upstream-to=origin/main main`
 
 ---
 
@@ -55,18 +61,19 @@ This document also defines how **Laptop**, **Desktop (cos-forge)**, **GitHub**, 
 
 ### On the machine you are working on (usually Laptop)
 1) Sync from GitHub:
-   - `git pull`
-2) room_clear (work)
-3) open `CURRENT.md` and follow `next_action`
+   - `git pull --rebase`
+2) `room_clear` (work)
+3) Open `CURRENT.md` and follow `next_action`
 
-### On cos-forge (when you switch or before running tests)
+### On cos-forge (daily, or before running builds/tests)
 1) Sync from GitHub:
-   - `git pull`
+   - `git pull --ff-only`
 
 ---
 
 ## 4) Work phase (make changes)
-During the cycle you may:
+
+You may:
 - create/edit `.md` files
 - update indexes/manifests
 - bump bundle versions when needed
@@ -76,6 +83,21 @@ During the cycle you may:
 Notes:
 - Keep changes small and reversible.
 - Treat bundles as “release artifacts” that reflect canon state.
+
+### 4A) Voxia edit cycle (read → edit → apply)
+Use this when you want Voxia to help write/refactor while keeping GitHub canon clean:
+
+1) **Kevin request**
+   - “Rewrite `README.md`” / “Fix wording in `loop.md`” / “Refactor this config”
+2) **Voxia reads (read-only)**
+   - Prefer GitHub connector; otherwise paste the file text.
+3) **Voxia outputs edits**
+   - full replacement file(s) or a patch/diff
+4) **Kevin applies + verifies locally**
+   - paste/replace the file(s) on Laptop, run a quick check
+5) Repeat as needed
+6) **Kevin commits + pushes to GitHub**
+7) cos-forge/droplet pull the new checkpoint
 
 ---
 
@@ -136,27 +158,28 @@ Typical flow (usually on Laptop):
 - `git status`
 - `git add <paths>`
 - `git commit -m "<checkpoint message>"`
-- `git push origin master`
+- `git push origin main`
 
 Commit message style (examples):
-- `Wiring PASS: Step 2 forest ladder + logs (2026-02-05)`
+- `Workflow: update loop (Voxia edit cycle + main branch)`
+- `Wiring PASS: forest ladder + logs (2026-02-05)`
 - `Bump: pkw_world_hollowverse v0.0.6 + route fixes`
 - `Presence: Voxia Phase 1 contracts + boot wiring`
 
 ---
 
-## 9) Multi-machine safety rules (Laptop + Desktop)
+## 9) Multi-machine safety rules (Laptop + cos-forge)
 To avoid conflicts:
 
 1) **Pull before edits**
-- On whichever machine you will edit on: `git pull` first.
+- On whichever machine you will edit on: pull first.
 
 2) **One author at a time (recommended)**
 - Default: Laptop authors, cos-forge mirrors/tests.
-- If you author on cos-forge, do it intentionally and push promptly.
+- If you author on cos-forge, declare it and push promptly.
 
 3) **Switching machines**
-- After you push on one machine, always `git pull` on the other before doing anything.
+- After you push on one machine, always pull on the other before doing anything.
 
 ---
 
@@ -187,51 +210,53 @@ Project sync triggers (do this right after a stable commit):
 - routing/wiring changes
 - workflow doc changes (like this file)
 
-Upload/replace in the ChatGPT Project:
+Upload/replace in the ChatGPT Project (workspace cache):
 - `BOOT.md` (latest)
 - `CURRENT.md` (latest)
 - any updated `.bundle.zip` files referenced by CURRENT
-- any standalone workflow/docs you want available without opening bundles (like this file)
+- (optional) a standalone copy of critical docs for quick opening
 
 Rule of thumb:
-- Keep only the latest versions visible in the Project file list to prevent drift.
+- Keep only the latest active set visible in the Project file list to prevent drift.
 
 ---
 
-## 12) Assets policy (repo vs bundles vs ChatGPT)
+## 12) Disaster recovery ladder (fallback)
+If anything “disappears” or a machine loses local files, recover in this order:
+
+1) **GitHub**
+   - re-clone or re-pull; GitHub is canon.
+2) **Other machine clone**
+   - if Laptop is down, use cos-forge clone as a temporary source, then reconcile back to GitHub.
+3) **Last exported bundles / snapshots**
+   - only if GitHub is unavailable; once GitHub returns, reconcile back into GitHub.
+4) **Safe minimal mode**
+   - if nothing is available, proceed only with user-provided BOOT/CURRENT and the minimum routing docs.
+
+---
+
+## 13) Assets policy (repo vs bundles vs ChatGPT)
 - Large or frequently-changing assets should live in **assets bundles** (or an asset pack), not bloating the main repo history.
 - The repo may include small, stable assets only if they are essential to boot/wiring.
 - If ChatGPT’s UI fails to render a canon format (e.g., PNG), keep the **canon file unchanged** and create a **chat-safe mirror** (e.g., JPG) for display/testing purposes.
 
 ---
 
-## 13) Quick command cheat-sheet
+## 14) Quick command cheat-sheet
 
 ### Laptop (author)
-- `git pull`
+- `git pull --rebase`
 - edit / bundle / verify / log
 - `git add …`
 - `git commit -m "…"`
-- `git push origin master`
+- `git push origin main`
 
-### Desktop (mirror/executor)
-- `git pull`
-- run tests/build steps
+### Desktop / cos-forge (mirror/executor)
+- `git pull --ff-only`
+- run builds/tests/services
 - (commit only if explicitly chosen)
 
-### Droplet (host)
+### Droplet (deploy target)
 - `git pull --ff-only`
-- restart/reload services
+- build/restart
 - smoke test
-
----
-
-## 14) Repeat
-After pushing + deploying + syncing Project files:
-- update `CURRENT.md` if next steps changed
-- start the next cycle
-
----
-
-## Principle
-**Build small. Verify fast. Log always. Commit only safe states. Deploy from GitHub. Sync Project files after checkpoints.**
