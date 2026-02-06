@@ -1,7 +1,7 @@
 # BOOT — PKW Launcher
 
 This file is a **launcher shortcut** for starting a clean session.
-Canon rules live inside the bundles.
+Canon rules live inside the bundles (and the repo).
 
 ## Presence name-tag rule (rendered text)
 - Every assistant response MUST begin with a single-line presence tag:
@@ -34,14 +34,24 @@ Naming rule (pick one, redirect the other):
 - **Forest hub doc:** `hollowverse/FOREST_OF_ILLUSION.md` (singular)
 - If any legacy “illusions” / “illusion” variants exist, keep them as **redirect stubs** only.
 
+## Work loop pointer (git + machines + droplet + ChatGPT)
+- The workflow source-of-truth is: `core/workflows/loop.md`
+- It defines:
+  - Laptop ↔ GitHub ↔ Desktop (cos-forge) relationship
+  - DigitalOcean droplet as **host/deploy target**
+  - ChatGPT Project files as **workspace cache** (sync after checkpoints)
+  - Assets policy (bundles/packs vs repo, chat-safe mirrors)
+
+---
+
 ## 0) Read CURRENT (always)
 Open `CURRENT.md` first.
 It tells you which bundles are active and what the next action is.
 
 ## 1) Confirm active bundles (upload set)
 Make sure these are uploaded in the project files list:
-- Core: `pkw_core_v0.2.4.bundle.zip`
-- Chat Center: `pkw_chat_center_v0.1.3.bundle.zip`
+- Core: `pkw_core_v0.2.5.bundle.zip`
+- Chat Center: `pkw_chat_center_v0.2.0.bundle.zip`
 - Assets: `pkw_assets_v0.0.2.bundle.zip` (only if needed)
 - World: `pkw_world_hollowverse__v0.0.6.bundle.zip` (world content)
 
@@ -50,7 +60,7 @@ Make sure these are uploaded in the project files list:
 - Do not assume per-entry folders like `mist_fox/_index.md` unless the index explicitly points there.
 
 ## 2) Start clean (every new chat)
-1) Open: `pkw_chat_center_v0.1.3.bundle.zip → chat_center/START_HERE.md`
+1) Open: `pkw_chat_center_v0.2.0.bundle.zip → chat_center/START_HERE.md`
 2) Run **Room Clear** (no-bleed reset):
 
 Copy/paste block:
@@ -75,4 +85,4 @@ room_clear:
 
 ## Canon rule
 Conversation is draft.
-If it matters, write it into files and export the bundle again.
+If it matters, write it into files, commit to GitHub, and (if needed) export/bump bundles.
