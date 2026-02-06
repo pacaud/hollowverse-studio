@@ -32,7 +32,7 @@ This document also defines how **Laptop**, **Desktop (cos-forge)**, **GitHub**, 
 ### ChatGPT Project files (workspace cache)
 - A **working snapshot** so ChatGPT can read BOOT/CURRENT/bundles without you re-uploading every time.
 - Not canonical by itself. Canon is repo + bundles.
-- Keep it synced after stable checkpoints (see Section 10).
+- Keep it synced after stable checkpoints (see Section 11).
 
 ---
 
@@ -44,7 +44,14 @@ This document also defines how **Laptop**, **Desktop (cos-forge)**, **GitHub**, 
 
 ---
 
-## 2) Start of cycle (sync + room)
+## 2) Branch + tracking rule (don’t get stuck)
+- Default branch: `master`
+- If `git pull` complains about tracking on any machine, run:
+  - `git branch --set-upstream-to=origin/master master`
+
+---
+
+## 3) Start of cycle (sync + room)
 
 ### On the machine you are working on (usually Laptop)
 1) Sync from GitHub:
@@ -58,7 +65,7 @@ This document also defines how **Laptop**, **Desktop (cos-forge)**, **GitHub**, 
 
 ---
 
-## 3) Work phase (make changes)
+## 4) Work phase (make changes)
 During the cycle you may:
 - create/edit `.md` files
 - update indexes/manifests
@@ -72,7 +79,7 @@ Notes:
 
 ---
 
-## 4) Verify phase (before logging/committing)
+## 5) Verify phase (before logging/committing)
 Run a fast verification pass:
 
 ### A) Wiring checks
@@ -93,11 +100,11 @@ Run a fast verification pass:
 
 ---
 
-## 5) Log phase (always)
-Write a short log entry under:
+## 6) Log phase (always)
+Repo logs live in:
 - `chat_center/logs/session_summaries/`
 
-Include:
+Each log entry should include:
 - what changed (files/bundles)
 - what passed/failed (wiring, pulls, assets)
 - next action
@@ -110,7 +117,7 @@ Include:
 
 ---
 
-## 6) Commit triggers (when to commit)
+## 7) Commit triggers (when to commit)
 Commit when **any** of these are true:
 - A wiring step **PASS**
 - A bundle version **bump**
@@ -123,7 +130,7 @@ Avoid committing when:
 
 ---
 
-## 7) Commit + push (stable checkpoint)
+## 8) Commit + push (stable checkpoint)
 Typical flow (usually on Laptop):
 
 - `git status`
@@ -138,7 +145,7 @@ Commit message style (examples):
 
 ---
 
-## 8) Multi-machine safety rules (Laptop + Desktop)
+## 9) Multi-machine safety rules (Laptop + Desktop)
 To avoid conflicts:
 
 1) **Pull before edits**
@@ -153,11 +160,13 @@ To avoid conflicts:
 
 ---
 
-## 9) Deploy cycle (Droplet publish)
-After a stable checkpoint is pushed to GitHub:
+## 10) Deploy cycle (Droplet publish)
+Deploy trigger:
+- Deploy happens after a stable checkpoint is pushed to GitHub.
 
-1) On the droplet, update to the latest code:
-- `git pull` (or pull a specific branch/tag)
+On the droplet:
+1) Update to the latest code:
+- `git pull --ff-only` (or pull a specific branch/tag)
 
 2) Build/restart as needed:
 - build steps (if any)
@@ -167,13 +176,16 @@ After a stable checkpoint is pushed to GitHub:
 - quick smoke test (homepage loads, key routes work)
 
 Notes:
-- Prefer **fast-forward-only** pulls on droplet.
 - Avoid local edits on droplet. If an emergency hotfix happens, immediately push it back to GitHub and pull on author machine.
 
 ---
 
-## 10) Sync ChatGPT Project files (after a stable checkpoint)
-After meaningful edits (especially to `BOOT.md`, `CURRENT.md`, bundles, workflow docs), update the ChatGPT **Project Files** so ChatGPT is working from the latest canon snapshot.
+## 11) Sync ChatGPT Project files (after a stable checkpoint)
+Project sync triggers (do this right after a stable commit):
+- bundle bump
+- `BOOT.md` or `CURRENT.md` change
+- routing/wiring changes
+- workflow doc changes (like this file)
 
 Upload/replace in the ChatGPT Project:
 - `BOOT.md` (latest)
@@ -182,12 +194,39 @@ Upload/replace in the ChatGPT Project:
 - any standalone workflow/docs you want available without opening bundles (like this file)
 
 Rule of thumb:
-- If you **bumped a bundle** or changed **routing**, do the Project upload in the same session.
 - Keep only the latest versions visible in the Project file list to prevent drift.
 
 ---
 
-## 11) Repeat
+## 12) Assets policy (repo vs bundles vs ChatGPT)
+- Large or frequently-changing assets should live in **assets bundles** (or an asset pack), not bloating the main repo history.
+- The repo may include small, stable assets only if they are essential to boot/wiring.
+- If ChatGPT’s UI fails to render a canon format (e.g., PNG), keep the **canon file unchanged** and create a **chat-safe mirror** (e.g., JPG) for display/testing purposes.
+
+---
+
+## 13) Quick command cheat-sheet
+
+### Laptop (author)
+- `git pull`
+- edit / bundle / verify / log
+- `git add …`
+- `git commit -m "…"`
+- `git push origin master`
+
+### Desktop (mirror/executor)
+- `git pull`
+- run tests/build steps
+- (commit only if explicitly chosen)
+
+### Droplet (host)
+- `git pull --ff-only`
+- restart/reload services
+- smoke test
+
+---
+
+## 14) Repeat
 After pushing + deploying + syncing Project files:
 - update `CURRENT.md` if next steps changed
 - start the next cycle
