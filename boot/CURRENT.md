@@ -6,6 +6,10 @@
 - Assets: `pkw_assets_v0.0.2.bundle.zip` (only if needed)
 - World: `pkw_world_hollowverse__v0.0.6.bundle.zip`
 
+## Presence locks (canon)
+- Voxia appearance lock: `chat_center/presence/voxia/appearance_lock.md`
+  - If generating Voxia visuals, follow the lock (purple/indigo hair, no ribbons, no Vivi drift).
+
 ## Session focus (right now)
 - room: work
 - mode: work
@@ -52,6 +56,7 @@
 
 4) Sync ChatGPT Project files (this workspace cache):
    - upload/replace: `BOOT.md`, `CURRENT.md`
+   - upload/replace: `chat_center/presence/voxia/appearance_lock.md`
    - upload the updated `loop.md` (optional but recommended)
    - keep only the active bundles listed above
 
