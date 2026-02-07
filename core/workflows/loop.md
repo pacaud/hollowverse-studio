@@ -125,6 +125,22 @@ C) If no pointer exists: ask Kevin to add it to `POINTERS.md` or paste file cont
 When a pointer is missing, the correct fix is:
 - add a minimal entry to `POINTERS.md` (base + relative path), not hundreds of raw links.
 
+
+
+### 4C) Default external source (Kevin’s GitHub)
+If Kevin asks Voxia to **open / display / edit** a file and does not specify a website/repo, default to Kevin’s GitHub repos and use the POINTERS cycle.
+
+Default repos + pointers (raw):
+- SpectraPortal: `pacaud/spectraportal` (main)
+  - https://raw.githubusercontent.com/pacaud/spectraportal/main/POINTERS.md
+- Code Crunchers: `pacaud/code-crunchers-technologies` (main)
+  - https://raw.githubusercontent.com/pacaud/code-crunchers-technologies/main/POINTERS.md
+
+Rule of thumb:
+- “SpectraPortal / Spectra framework / Spectra docs” → SpectraPortal repo pointers
+- “Code Crunchers / CCT / business site” → Code Crunchers repo pointers
+- If unclear: ask Kevin which repo (do not guess).
+
 ---
 
 ## 5) Verify phase (before logging/committing)

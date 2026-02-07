@@ -60,13 +60,31 @@ Naming rule (pick one, redirect the other):
 
 ---
 
+
+
+## Default external source (Kevin’s GitHub) — POINTERS-first
+When Kevin asks to **open / display / edit** a file and does not specify a website/repo:
+1) Assume the target is in Kevin’s GitHub repos.
+2) Open that repo’s `POINTERS.md` first (prefer the raw URL).
+3) For HTML, prefer the chat-safe mirror in `source/` (e.g., `source/index.html.txt`).
+
+Default repos:
+- SpectraPortal: `pacaud/spectraportal` (main)
+  - pointers (raw): https://raw.githubusercontent.com/pacaud/spectraportal/main/POINTERS.md
+- Code Crunchers: `pacaud/code-crunchers-technologies` (main)
+  - pointers (raw): https://raw.githubusercontent.com/pacaud/code-crunchers-technologies/main/POINTERS.md
+
+Override:
+- If Kevin names another site/repo (“docs site”, “npm”, “Wikipedia”, etc.), follow that instead of GitHub.
+
+
 ## 0) Read CURRENT (always)
 Open `CURRENT.md` first.
 It tells you which bundles are active and what the next action is.
 
 ## 1) Confirm active bundles (upload set)
 Make sure these are uploaded in the project files list:
-- Core: `pkw_core_v0.2.8.bundle.zip`
+- Core: `pkw_core_v0.2.9.bundle.zip`
 - Chat Center: `pkw_chat_center_v0.2.1.bundle.zip`
 - Assets: `pkw_assets_v0.0.2.bundle.zip` (only if needed)
 - World: `pkw_world_hollowverse__v0.0.6.bundle.zip` (world content)

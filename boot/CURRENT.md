@@ -1,7 +1,7 @@
 # CURRENT — Active PKW Upload Set
 
 ## Active bundles (uploaded now)
-- Core: `pkw_core_v0.2.8.bundle.zip`
+- Core: `pkw_core_v0.2.9.bundle.zip`
 - Chat Center: `pkw_chat_center_v0.2.1.bundle.zip`
 - Assets: `pkw_assets_v0.0.2.bundle.zip` (only if needed)
 - World: `pkw_world_hollowverse__v0.0.6.bundle.zip`
@@ -12,10 +12,12 @@
 
 ## Session focus (right now)
 - room: work
-- mode: work
-- focus_now: close out Git workflow + sync BOOT/CURRENT + log the milestone
+- mode: testing
+- focus_now: lock default GitHub POINTERS-first behavior for new chats (SpectraPortal + Code Crunchers)
 
 ## Status
+- POINTERS mirror flow PASS (verbatim text display): SpectraPortal + Code Crunchers
+- New chat note: for reliable opens, use repo `POINTERS.md` (raw) → `source/*.txt` mirrors for HTML
 - Git controller established:
   - Windows laptop repo present + up to date
   - Desktop (cos-forge) repo mirror present + able to fetch/pull
@@ -39,22 +41,17 @@
 - Canonical folder name: `hollowverse/forest_of_illusions/` (plural). Any `forest_of_illusion/` variants are redirect/shortcut stubs only.
 - Forest content format: individual entries are **flat `.md` files** linked from indexes (e.g., `animals/mist_fox.md`), not per-entry folders.
 
-## next_action (repo pointers test + Spectra read flow)
-1) Add `POINTERS.md` to each public-facing repo (repo root):
-   - `spectraportal/POINTERS.md`
-   - `code-crunchers-technologies/POINTERS.md`
 
-2) For any HTML you want Voxia to display verbatim, add a source mirror:
-   - mirror folder standard: `source/` (singular, repo root)
-   - example: `source/index.html.txt`
-   - pointer entries should reference both the runtime file and the source mirror
+## next_action (new chat default GitHub read)
+1) Update docs so new chats default to GitHub when you ask “open/display/edit”:
+   - `BOOT.md` (default external source: GitHub repos + pointers raw)
+   - `core/workflows/loop.md` (add the same rule under the POINTERS cycle)
 
-3) Test the flow:
-   - ask Voxia to “open/display” `index.html` and `theme.css` via pointers
+2) Quick smoke test (new chat):
+   - open: SpectraPortal pointers (raw) → open: `source/index.html.txt` (raw)
+   - open: Code Crunchers pointers (raw) → open: `source/index.html.txt` (raw)
 
-4) After success:
-   - log + commit the new pointers
-   - (optional) move on to Spectra framework tasks
+3) Log the milestone and commit to GitHub.
 
 ## Rule
 Only keep the active set uploaded in ChatGPT.
