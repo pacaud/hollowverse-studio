@@ -117,6 +117,10 @@ Recommended pattern:
 - keep the real runtime file (e.g., `index.html`) as the deploy target
 - **Folder name standard:** `source/` (singular, repo root). Avoid `sources/`.
 
+Decision (2026-02-07):
+- We are **not** building an HTML/CSS converter. We will keep simple **chat-safe mirrors** in `source/*.txt` and point to them from `POINTERS.md` when verbatim source is needed.
+
+
 Resolution order (best → fallback):
 A) `source_mirror` (plain text) ✅ best for ChatGPT display
 B) `raw_url` for non-HTML (CSS/JS/MD) ✅ usually works

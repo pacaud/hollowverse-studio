@@ -84,8 +84,8 @@ It tells you which bundles are active and what the next action is.
 
 ## 1) Confirm active bundles (upload set)
 Make sure these are uploaded in the project files list:
-- Core: `pkw_core_v0.2.9.bundle.zip`
-- Chat Center: `pkw_chat_center_v0.2.1.bundle.zip`
+- Core: `pkw_core_v0.2.10.bundle.zip`
+- Chat Center: `pkw_chat_center_v0.2.2.bundle.zip`
 - Assets: `pkw_assets_v0.0.2.bundle.zip` (only if needed)
 - World: `pkw_world_hollowverse__v0.0.6.bundle.zip` (world content)
 
@@ -94,7 +94,7 @@ Make sure these are uploaded in the project files list:
 - Do not assume per-entry folders like `mist_fox/_index.md` unless the index explicitly points there.
 
 ## 2) Start clean (every new chat)
-1) Open: `pkw_chat_center_v0.2.1.bundle.zip → chat_center/START_HERE.md`
+1) Open: `pkw_chat_center_v0.2.2.bundle.zip → chat_center/START_HERE.md`
 2) Run **Room Clear** (no-bleed reset):
 
 Copy/paste block:

@@ -30,3 +30,7 @@ When starting a new chat session:
 Conversation is draft.
 If it matters, it must be written into files and bundled.
 
+## Latest
+- session summary: `session_summaries/2026-02-07__pointers_mirrors_repo_visibility.md`
+- decision: `decisions/2026-02-07__decision__no_converter_use_source_txt_mirrors.md`
+

@@ -1,8 +1,8 @@
 # CURRENT — Active PKW Upload Set
 
 ## Active bundles (uploaded now)
-- Core: `pkw_core_v0.2.9.bundle.zip`
-- Chat Center: `pkw_chat_center_v0.2.1.bundle.zip`
+- Core: `pkw_core_v0.2.10.bundle.zip`
+- Chat Center: `pkw_chat_center_v0.2.2.bundle.zip`
 - Assets: `pkw_assets_v0.0.2.bundle.zip` (only if needed)
 - World: `pkw_world_hollowverse__v0.0.6.bundle.zip`
 
@@ -12,24 +12,18 @@
 
 ## Session focus (right now)
 - room: work
-- mode: testing
-- focus_now: lock default GitHub POINTERS-first behavior for new chats (SpectraPortal + Code Crunchers)
+- mode: wrap
+- focus_now: close out the “repo visibility” testing milestone (logs + canon updates)
 
-## Status
-- POINTERS mirror flow PASS (verbatim text display): SpectraPortal + Code Crunchers
-- New chat note: for reliable opens, use repo `POINTERS.md` (raw) → `source/*.txt` mirrors for HTML
-- Git controller established:
-  - Windows laptop repo present + up to date
-  - Desktop (cos-forge) repo mirror present + able to fetch/pull
-- Fixed root cause of “blank fetch URL” on cos-forge:
-  - removed global `origin` override from `~/.gitconfig`
-- Repo tree confirmed on cos-forge:
-  - `boot/ chat_center/ core/ hollowverse/`
-- Workflow doc updated (multi-machine + droplet host + ChatGPT sync + assets policy):
-  - `core/workflows/loop.md`
-  - Added: `POINTERS.md` cycle (repo pointers + chat-safe source mirrors for HTML)
-- Session summary written (ready to place into repo logs):
-  - `2026-02-05_session_summary__git_controller_desktop_mirror.md`
+## Status (milestone complete)
+- POINTERS mirror flow PASS (verbatim text display):
+  - SpectraPortal: `source/index.html.txt`, `source/theme.css.txt`
+  - Code Crunchers: `source/index.html.txt`, `source/theme.css.txt`
+- Standard locked:
+  - Mirror folder = `source/` (singular, repo root)
+  - No converter needed (see decision log)
+- New chat reliability rule:
+  - open raw `POINTERS.md` → open `source/*.txt` mirrors (for verbatim HTML/CSS)
 
 ## Decisions (locked)
 - GitHub is the canonical timeline/source-of-truth.
@@ -40,18 +34,25 @@
 - Forest routing ladder: `hollowverse/START_HERE.md` → `hollowverse/FOREST_OF_ILLUSION.md` → indexes → individual files.
 - Canonical folder name: `hollowverse/forest_of_illusions/` (plural). Any `forest_of_illusion/` variants are redirect/shortcut stubs only.
 - Forest content format: individual entries are **flat `.md` files** linked from indexes (e.g., `animals/mist_fox.md`), not per-entry folders.
+- Repo verbatim source decision:
+  - **No HTML/CSS converter** — use `source/*.txt` mirrors + `POINTERS.md`.
 
+## Logs added (Chat Center)
+- session summary: `chat_center/logs/session_summaries/2026-02-07__pointers_mirrors_repo_visibility.md`
+- decision: `chat_center/logs/decisions/2026-02-07__decision__no_converter_use_source_txt_mirrors.md`
 
-## next_action (new chat default GitHub read)
-1) Update docs so new chats default to GitHub when you ask “open/display/edit”:
-   - `BOOT.md` (default external source: GitHub repos + pointers raw)
-   - `core/workflows/loop.md` (add the same rule under the POINTERS cycle)
+## next_action
+1) Replace the ChatGPT Project upload set with the new versions:
+   - `pkw_core_v0.2.10.bundle.zip`
+   - `pkw_chat_center_v0.2.2.bundle.zip`
+   (Assets/World unchanged.)
 
-2) Quick smoke test (new chat):
-   - open: SpectraPortal pointers (raw) → open: `source/index.html.txt` (raw)
-   - open: Code Crunchers pointers (raw) → open: `source/index.html.txt` (raw)
+2) Commit/push to GitHub (canon):
+   - log files + decisions folder
+   - updated BOOT/CURRENT references
+   - core/workflows/loop.md decision note
 
-3) Log the milestone and commit to GitHub.
+3) Optional (recommended): take a Saturday reset (game/rest) before the next heavy build phase.
 
 ## Rule
 Only keep the active set uploaded in ChatGPT.
