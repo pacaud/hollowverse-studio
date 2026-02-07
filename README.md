@@ -1,21 +1,24 @@
-# Hollowverse Studios (Public)
+# Hollowverse Studios
 
-This repo is the **public-facing** Hollowverse Studios presence (site, previews, and safe docs).
+This repo represents **Hollowverse Studios** — the *stage*.
 
-## Important boundary
-Anything that is:
-- private lore
-- personal notes
-- keys / tokens
-- internal server paths
-- unreleased assets
+It’s intentionally **semi-public**: enough for people to understand the vibe and the studio work, without exposing private lore, vault content, or internal systems.
 
-…should live in a **separate private repo** (example: `hollowverse-studios-private`) and never be committed here.
+## Public vs private
+- **Public:** studio presence, announcements, previews, curated showcases
+- **Private:** world canon files, vault memories, companion/presence internals
+
+If/when this repo links to deeper material, it should link to **public exports only**.
 
 ## Quick start
 ```bash
 npm install
 npm run dev
+```
+
+## Build
+```bash
+npm run build
 ```
 
 ## No secrets policy
