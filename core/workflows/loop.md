@@ -99,6 +99,31 @@ Use this when you want Voxia to help write/refactor while keeping GitHub canon c
 6) **Kevin commits + pushes to GitHub**
 7) cos-forge/droplet pull the new checkpoint
 
+### 4B) POINTERS.md cycle (repo reading + verbatim source)
+Use this when Kevin asks Voxia to “open/display” a file from a Git repo.
+
+1) **Load the repo pointers**
+   - Open the repo’s `POINTERS.md` first (repo root).
+2) **Resolve the request using the pointers**
+   - If Kevin wants a *preview* (how it looks in browser): use the normal site/path.
+   - If Kevin wants *verbatim source* (exact code): use a chat-safe source mirror.
+
+Important limitation:
+- HTML from GitHub raw endpoints may render as a preview in-chat instead of showing literal `<html>` source.
+- Therefore: any HTML we want Voxia to display verbatim must have a **source mirror** tracked in git.
+
+Recommended pattern:
+- `source/<path>.txt` (verbatim source mirror)
+- keep the real runtime file (e.g., `index.html`) as the deploy target
+
+Resolution order (best → fallback):
+A) `source_mirror` (plain text) ✅ best for ChatGPT display
+B) `raw_url` for non-HTML (CSS/JS/MD) ✅ usually works
+C) If no pointer exists: ask Kevin to add it to `POINTERS.md` or paste file contents once
+
+When a pointer is missing, the correct fix is:
+- add a minimal entry to `POINTERS.md` (base + relative path), not hundreds of raw links.
+
 ---
 
 ## 5) Verify phase (before logging/committing)
