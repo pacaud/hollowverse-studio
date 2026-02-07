@@ -1,7 +1,7 @@
 # CURRENT — Active PKW Upload Set
 
 ## Active bundles (uploaded now)
-- Core: `pkw_core_v0.2.7.bundle.zip`
+- Core: `pkw_core_v0.2.8.bundle.zip`
 - Chat Center: `pkw_chat_center_v0.2.1.bundle.zip`
 - Assets: `pkw_assets_v0.0.2.bundle.zip` (only if needed)
 - World: `pkw_world_hollowverse__v0.0.6.bundle.zip`
@@ -45,6 +45,7 @@
    - `code-crunchers-technologies/POINTERS.md`
 
 2) For any HTML you want Voxia to display verbatim, add a source mirror:
+   - mirror folder standard: `source/` (singular, repo root)
    - example: `source/index.html.txt`
    - pointer entries should reference both the runtime file and the source mirror
 

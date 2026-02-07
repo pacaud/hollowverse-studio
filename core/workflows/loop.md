@@ -115,6 +115,7 @@ Important limitation:
 Recommended pattern:
 - `source/<path>.txt` (verbatim source mirror)
 - keep the real runtime file (e.g., `index.html`) as the deploy target
+- **Folder name standard:** `source/` (singular, repo root). Avoid `sources/`.
 
 Resolution order (best → fallback):
 A) `source_mirror` (plain text) ✅ best for ChatGPT display
