@@ -2,7 +2,7 @@
 
 ## Active bundles (uploaded now)
 - Core: `pkw_core_v0.2.10.bundle.zip`
-- Chat Center: `pkw_chat_center_v0.2.2.bundle.zip`
+- Chat Center: `pkw_chat_center_v0.2.3.bundle.zip`
 - Assets: `pkw_assets_v0.0.2.bundle.zip` (only if needed)
 - World: `pkw_world_hollowverse__v0.0.6.bundle.zip`
 
@@ -13,47 +13,34 @@
 ## Session focus (right now)
 - room: work
 - mode: wrap
-- focus_now: close out the “repo visibility” testing milestone (logs + canon updates)
+- focus_now: stabilize SpectraPortal deploy loop + log it (laptop → GitHub → cos-forge → droplet)
 
-## Status (milestone complete)
-- POINTERS mirror flow PASS (verbatim text display):
-  - SpectraPortal: `source/index.html.txt`, `source/theme.css.txt`
-  - Code Crunchers: `source/index.html.txt`, `source/theme.css.txt`
-- Standard locked:
-  - Mirror folder = `source/` (singular, repo root)
-  - No converter needed (see decision log)
-- New chat reliability rule:
-  - open raw `POINTERS.md` → open `source/*.txt` mirrors (for verbatim HTML/CSS)
+## Status (today)
+- Droplet (`cos-world-current`) serves static site from: `/srv/spectraportal`
+- cos-forge deploy source currently: `/opt/spectraportal-src` (NOTE: **not a git repo** yet)
+- rsync deploy verified via `stat` + `curl -I` (Last-Modified matches deployed files)
 
 ## Decisions (locked)
 - GitHub is the canonical timeline/source-of-truth.
-- Laptop is primary author; cos-forge is mirror/executor unless explicitly authoring.
-- DigitalOcean droplet is host/deploy target (no local edits; pull `--ff-only`).
-- ChatGPT Project files are a workspace cache; sync after stable checkpoints.
-- `hollowverse/START_HERE.md` is shortcuts-only (navigation), not a canon content source.
-- Forest routing ladder: `hollowverse/START_HERE.md` → `hollowverse/FOREST_OF_ILLUSION.md` → indexes → individual files.
-- Canonical folder name: `hollowverse/forest_of_illusions/` (plural). Any `forest_of_illusion/` variants are redirect/shortcut stubs only.
-- Forest content format: individual entries are **flat `.md` files** linked from indexes (e.g., `animals/mist_fox.md`), not per-entry folders.
-- Repo verbatim source decision:
-  - **No HTML/CSS converter** — use `source/*.txt` mirrors + `POINTERS.md`.
+- Laptop is primary author.
+- cos-forge is build + deploy executor (pull + build + push to droplet).
+- DigitalOcean droplet is host/deploy target (no manual edits in `/srv/spectraportal`).
+- Use **targeted deploy** paths (avoid syncing dev junk):
+  - site: `index.html`, `theme.css`, `assets/`
+  - CDN: `framework/dist/` → `/framework/cdn/v0.1/`
+  - docs/demos: `framework/docs/`, `framework/demos/`
 
-## Logs added (Chat Center)
-- session summary: `chat_center/logs/session_summaries/2026-02-07__pointers_mirrors_repo_visibility.md`
-- decision: `chat_center/logs/decisions/2026-02-07__decision__no_converter_use_source_txt_mirrors.md`
+## Required fix (blocking)
+- Make cos-forge source a real git checkout:
+  - Recommended: replace `/opt/spectraportal-src` with a Git clone (or clone to `/opt/spectraportal-repo` and build from there).
+  - Until this is done, “pull latest from GitHub” cannot happen on cos-forge.
 
 ## next_action
-1) Replace the ChatGPT Project upload set with the new versions:
-   - `pkw_core_v0.2.10.bundle.zip`
-   - `pkw_chat_center_v0.2.2.bundle.zip`
-   (Assets/World unchanged.)
-
-2) Commit/push to GitHub (canon):
-   - log files + decisions folder
-   - updated BOOT/CURRENT references
-   - core/workflows/loop.md decision note
-
-3) Optional (recommended): take a Saturday reset (game/rest) before the next heavy build phase.
+1) On cos-forge: create a proper git checkout (clone) for SpectraPortal.
+2) Lock a single `post/deploy` command:
+   - pull `--ff-only` → build → deploy (site + CDN) → verify (stat + curl)
+3) Append this session summary into Chat Center logs and bump/export bundles when stable.
 
 ## Rule
-Only keep the active set uploaded in ChatGPT.
-Archive everything else locally, and keep the repo as canon.
+Conversation is draft.
+If it matters, write it into files, commit to GitHub, and (if needed) export/bump bundles.

@@ -85,7 +85,7 @@ It tells you which bundles are active and what the next action is.
 ## 1) Confirm active bundles (upload set)
 Make sure these are uploaded in the project files list:
 - Core: `pkw_core_v0.2.10.bundle.zip`
-- Chat Center: `pkw_chat_center_v0.2.2.bundle.zip`
+- Chat Center: `pkw_chat_center_v0.2.3.bundle.zip`
 - Assets: `pkw_assets_v0.0.2.bundle.zip` (only if needed)
 - World: `pkw_world_hollowverse__v0.0.6.bundle.zip` (world content)
 
