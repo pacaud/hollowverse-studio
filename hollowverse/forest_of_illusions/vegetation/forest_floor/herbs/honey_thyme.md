@@ -4,21 +4,15 @@ status: seeded
 type: herb
 region: forest_of_illusions
 
-[vibe]
-comforting, kind, supportive
+[quick]
+Tiny clustered leaves with faint golden tips; a quiet comfort herb that never dominates a patch.
 
-[description]
-Tiny clustered leaves with faint golden tips.
-Often mixed among other plants, never dominant.
-
-[sensory]
-scent: warm herbal sweetness
-taste: mild, soothing
-
-[lore]
-- Represents care given without asking.
-- The forest’s “extra touch.”
-
-[use]
-- Care scenes
-- Recovery moments
+[deep_dive]
+- vibe: honey_thyme/vibe.md
+- sensory: honey_thyme/sensory.md
+- growth: honey_thyme/growth.md
+- description: honey_thyme/description.md
+- use: honey_thyme/use.md
+- lore: honey_thyme/lore.md
+- variants: honey_thyme/variants.md
+- hooks: honey_thyme/hooks.md

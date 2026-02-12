@@ -1,3 +1,5 @@
+# mooncap — description
+
 status: seeded
 type: mushroom_description
 parent: mooncap

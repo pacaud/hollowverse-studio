@@ -1,3 +1,5 @@
+# mooncap — growth
+
 status: seeded
 type: mushroom_growth
 parent: mooncap

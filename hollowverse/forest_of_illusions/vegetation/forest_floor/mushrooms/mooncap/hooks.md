@@ -1,3 +1,5 @@
+# mooncap — hooks
+
 status: seeded
 type: story_hooks
 parent: mooncap
