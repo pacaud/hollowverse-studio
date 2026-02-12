@@ -4,21 +4,15 @@ status: seeded
 type: mushroom
 region: forest_of_illusions
 
-[vibe]
-soft, rounded, gentle hush
+[quick]
+Small, round mushrooms that appear in mossy patches during fog-heavy days.
 
-[description]
-Small, round mushrooms like pale buttons.
-Often dotted through mossy patches.
-
-[sensory]
-scent: mild, clean dampness
-visual: looks brighter in fog
-
-[lore]
-- Appears where the forest wants footsteps to be quiet.
-- Often near mist_pine groves.
-
-[use]
-- Fog scenes
-- Quiet-path anchors
+[deep_dive]
+- vibe: fogbutton/vibe.md
+- sensory: fogbutton/sensory.md
+- growth: fogbutton/growth.md
+- description: fogbutton/description.md
+- use: fogbutton/use.md
+- lore: fogbutton/lore.md
+- variants: fogbutton/variants.md
+- hooks: fogbutton/hooks.md
