@@ -1,3 +1,5 @@
+# fogbutton — lore
+
 status: seeded
 type: lore_profile
 parent: fogbutton

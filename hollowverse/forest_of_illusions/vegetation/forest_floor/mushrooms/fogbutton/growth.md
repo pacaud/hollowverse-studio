@@ -1,3 +1,5 @@
+# fogbutton — growth
+
 status: seeded
 type: mushroom_growth
 parent: fogbutton

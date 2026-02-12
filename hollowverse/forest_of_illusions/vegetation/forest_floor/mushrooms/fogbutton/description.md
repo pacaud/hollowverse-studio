@@ -1,3 +1,5 @@
+# fogbutton — description
+
 status: seeded
 type: mushroom_description
 parent: fogbutton

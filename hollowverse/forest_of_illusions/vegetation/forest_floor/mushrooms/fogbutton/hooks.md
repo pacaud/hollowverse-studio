@@ -1,3 +1,5 @@
+# fogbutton — hooks
+
 status: seeded
 type: story_hooks
 parent: fogbutton

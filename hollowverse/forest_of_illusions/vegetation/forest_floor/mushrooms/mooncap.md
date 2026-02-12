@@ -4,22 +4,15 @@ status: seeded
 type: mushroom
 region: forest_of_illusions
 
-[vibe]
-quiet glow, gentle night marker
+[quick]
+Pale mushroom caps with a faint moonlike sheen—often found near calm night paths.
 
-[description]
-Pale caps with a faint, soft sheen in darkness.
-They do not shine brightly—more like a calm reflection.
-
-[sensory]
-light: dim, moonlike shimmer
-scent: cool earth, clean damp wood
-touch: smooth cap, firm stem
-
-[lore]
-- Often forms small clusters near safe-feeling paths.
-- A sign the forest is calm tonight.
-
-[use]
-- Night ambience
-- Path marker scenes
+[deep_dive]
+- vibe: mooncap/vibe.md
+- sensory: mooncap/sensory.md
+- growth: mooncap/growth.md
+- description: mooncap/description.md
+- use: mooncap/use.md
+- lore: mooncap/lore.md
+- variants: mooncap/variants.md
+- hooks: mooncap/hooks.md

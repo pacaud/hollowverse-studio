@@ -16,9 +16,11 @@ flowers:
 mushrooms:
   - mooncap (status: seeded)
   - ember_gill (status: seeded)
+  - fogbutton (status: seeded)
 herbs:
   - calmleaf (status: seeded)
   - brightmint (status: seeded)
+  - softsage (status: seeded)
 legendary_flora:
   - lantern_bloom (status: legend)
 
