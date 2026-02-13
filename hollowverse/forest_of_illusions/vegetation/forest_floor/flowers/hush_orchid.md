@@ -5,24 +5,15 @@ type: flower
 region: forest_of_illusions
 bloom_time: unknown (rare)
 
-[vibe]
-quiet, secret, careful
+[quick]
+A slender orchid with muted lavender petals—rumored to appear when silence is kinder than words.
 
-[description]
-A slender orchid with muted lavender petals and a darker center.
-People describe it differently, as if it refuses to be pinned down.
-
-[sensory]
-scent: barely-there, like warm paper
-sound: some say the air feels “muted” nearby
-
-[lore]
-- Said to appear when words would do harm.
-- The forest’s way of asking for silence.
-
-[use]
-- “Don’t speak yet” moments
-- Soft de-escalation scenes
-
-[notes]
-Kept as rumor until observed in canon.
+[deep_dive]
+- vibe: hush_orchid/vibe.md
+- sensory: hush_orchid/sensory.md
+- growth: hush_orchid/growth.md
+- description: hush_orchid/description.md
+- use: hush_orchid/use.md
+- lore: hush_orchid/lore.md
+- variants: hush_orchid/variants.md
+- hooks: hush_orchid/hooks.md
