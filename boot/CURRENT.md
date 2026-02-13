@@ -4,7 +4,7 @@
 - Core: `pkw_core_v0.2.10.bundle.zip`
 - Chat Center: `pkw_chat_center_v0.2.3.bundle.zip`
 - Assets: `pkw_assets_v0.0.2.bundle.zip` (only if needed)
-- World: `pkw_world_hollowverse__v0.0.10.bundle.zip`
+- World: `pkw_world_hollowverse__v0.0.11.bundle.zip`
 
 ## Presence locks (canon)
 - Voxia appearance lock: `chat_center/presence/voxia/appearance_lock.md`

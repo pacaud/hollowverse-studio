@@ -1,3 +1,5 @@
+# honey_thyme — vibe
+
 status: seeded
 type: vibe_profile
 parent: honey_thyme

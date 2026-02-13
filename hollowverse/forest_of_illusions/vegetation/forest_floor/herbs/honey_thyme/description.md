@@ -1,3 +1,5 @@
+# honey_thyme — description
+
 status: seeded
 type: herb_description
 parent: honey_thyme

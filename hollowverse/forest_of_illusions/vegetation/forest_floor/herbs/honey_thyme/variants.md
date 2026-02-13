@@ -1,3 +1,5 @@
+# honey_thyme — variants
+
 status: seeded
 type: variants
 parent: honey_thyme

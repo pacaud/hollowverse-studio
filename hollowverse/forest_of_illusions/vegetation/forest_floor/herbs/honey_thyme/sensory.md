@@ -1,3 +1,5 @@
+# honey_thyme — sensory
+
 status: seeded
 type: sensory_profile
 parent: honey_thyme

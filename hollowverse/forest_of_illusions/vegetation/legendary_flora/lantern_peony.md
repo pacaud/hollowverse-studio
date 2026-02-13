@@ -5,28 +5,16 @@ type: flower
 region: forest_of_illusions
 bloom_time: turning points only
 
-[vibe]
-blessing, return, gentle awe
+[quick]
+A full peony-like bloom with a warm light in its center—seen during returns and restorations.
 
-[description]
-A full peony-like bloom that holds a warm light in its center,
-as if a tiny lantern is hidden inside the petals.
-
-[sensory]
-scent: rich and comforting, like warm tea steam
-visual: soft inner glow; never harsh
-
-[lore]
-- Appears only when someone is returning after a long absence,
-  or when the forest is quietly “welcoming you back.”
-- Never picked. Never owned.
-
-[use]
-- Restoration milestones
-- Homecoming scenes
-- “The forest sees you” moment
-
-[rules]
-- Rare appearance
-- No harvesting
-- If seen, it’s a gift—let it pass
+[deep_dive]
+- vibe: lantern_peony/vibe.md
+- sensory: lantern_peony/sensory.md
+- growth: lantern_peony/growth.md
+- description: lantern_peony/description.md
+- use: lantern_peony/use.md
+- lore: lantern_peony/lore.md
+- rules: lantern_peony/rules.md
+- variants: lantern_peony/variants.md
+- hooks: lantern_peony/hooks.md

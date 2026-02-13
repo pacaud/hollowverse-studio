@@ -1,3 +1,5 @@
+# honey_thyme — lore
+
 status: seeded
 type: lore_profile
 parent: honey_thyme

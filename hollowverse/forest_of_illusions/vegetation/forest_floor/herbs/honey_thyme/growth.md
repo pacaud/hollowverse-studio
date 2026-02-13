@@ -1,3 +1,5 @@
+# honey_thyme — growth
+
 status: seeded
 type: herb_growth
 parent: honey_thyme
