@@ -1,10 +1,10 @@
 # CURRENT — Active PKW Upload Set
 
 ## Active bundles (uploaded now)
-- Core: `pkw_core_v0.2.10.bundle.zip`
+- Core: `pkw_core_v0.2.11.bundle.zip`
 - Chat Center: `pkw_chat_center_v0.2.3.bundle.zip`
 - Assets: `pkw_assets_v0.0.2.bundle.zip` (only if needed)
-- World: `pkw_world_hollowverse__v0.0.35.bundle.zip`
+- World: `pkw_world_hollowverse__v0.0.36.bundle.zip`
 
 ## Presence locks (canon)
 - Voxia appearance lock: `chat_center/presence/voxia/appearance_lock.md`
@@ -40,6 +40,7 @@
 2) Lock a single `post/deploy` command:
    - pull `--ff-only` → build → deploy (site + CDN) → verify (stat + curl)
 3) Append this session summary into Chat Center logs and bump/export bundles when stable.
+   - Before exporting: run `core/RESTRAINTS.md` (nested zips + size budget).
 
 ## Rule
 Conversation is draft.

@@ -13,6 +13,7 @@ Export one bundle at a time:
 Avoid exporting a "mega-zip" containing everything unless strictly needed.
 
 ## Export checklist
+0) Run the preflight checklist: [`RESTRAINTS.md`](RESTRAINTS.md)
 1) Ensure the bundle has a top-level `_index.md`
 2) Keep bundle size under the design target:
    - ~400MB active budget

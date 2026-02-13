@@ -8,6 +8,7 @@ Worlds (like Hollowverse / Forest of Illusions) remain in their own bundles.
 
 ## Primary docs
 - [CONSTRAINTS.md](CONSTRAINTS.md)
+- [RESTRAINTS.md](RESTRAINTS.md)
 - [BUNDLE_REGISTRY.md](BUNDLE_REGISTRY.md)
 - [NAMING_RULES.md](NAMING_RULES.md)
 - [EXPORT_RULES.md](EXPORT_RULES.md)
