@@ -4,22 +4,15 @@ status: seeded
 type: weather
 region: forest_of_illusions
 
-[vibe]
-hush, slow pacing, held
-
-[description]
+[quick]
 Fog gathers low and steady, like a blanket laid across the forest floor.
-Visibility shortens, but the mood becomes softer, not scarier.
 
-[effects_on_places]
-- mist_loop_trail becomes a perfect reset walk
-- fogquiet_clearing feels like a private room outdoors
-- cottage_stream sounds closer
-
-[effects_on_fauna]
-- mist_fox may appear at a respectful distance
-- night_moth becomes more noticeable near dusk
-
-[use]
-- grounding
-- “let’s go slower” scenes
+[deep_dive]
+- vibe: fog_blanket/vibe.md
+- sensory: fog_blanket/sensory.md
+- growth: fog_blanket/growth.md
+- description: fog_blanket/description.md
+- use: fog_blanket/use.md
+- lore: fog_blanket/lore.md
+- variants: fog_blanket/variants.md
+- hooks: fog_blanket/hooks.md
