@@ -5,27 +5,16 @@ type: clearing
 region: forest_of_illusions
 updated: 2026-01-23
 
-[vibe]
-soft hush, slow pacing, fog-held calm
-
-[description]
+[quick]
 A clearing that tends to collect fog like a blanket.
-Even in daylight, it feels muted and gentle.
 
-[ground]
-- mossy patches
-- fogbutton mushrooms scattered like dots
-- whisper_frond at the edges
-
-[nearby]
-- mist_pine saplings
-- mistblue_bush in the shaded corners
-
-[behavior]
-- reliable: mostly
-- illusion_level: low-medium (fog shifts perception, never traps)
-- safety: high
-
-[use]
-- reset walks
-- quiet scenes where words aren’t required
+[deep_dive]
+- vibe: fogquiet_clearing/vibe.md
+- sensory: fogquiet_clearing/sensory.md
+- growth: fogquiet_clearing/growth.md
+- description: fogquiet_clearing/description.md
+- behavior: fogquiet_clearing/behavior.md
+- use: fogquiet_clearing/use.md
+- lore: fogquiet_clearing/lore.md
+- variants: fogquiet_clearing/variants.md
+- hooks: fogquiet_clearing/hooks.md
