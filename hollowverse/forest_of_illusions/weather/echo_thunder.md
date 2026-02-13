@@ -4,25 +4,17 @@ status: rumor
 type: weather
 region: forest_of_illusions
 
-[vibe]
-distant power, respectful caution
+[quick]
+A far-off thunder that never becomes a real storm—more like weather happening somewhere else.
 
-[description]
-A far-off thunder that never seems to arrive as a real storm.
-It’s more like the sound of weather happening somewhere else.
-
-[effects_on_places]
-- echo_shift_path feels more mysterious
-- fogquiet_clearing becomes extra quiet
-- mirrorpool_marker (if present) may vanish
-
-[rules]
-- no destructive storm follows
-- if it feels too intense, it fades quickly
-
-[use]
-- tension release scenes
-- “something is changing” tone
-
-[notes]
-Kept as rumor until it’s used safely in canon.
+[deep_dive]
+- vibe: echo_thunder/vibe.md
+- sensory: echo_thunder/sensory.md
+- cycle: echo_thunder/cycle.md
+- description: echo_thunder/description.md
+- effects: echo_thunder/effects.md
+- rules: echo_thunder/rules.md
+- use: echo_thunder/use.md
+- lore: echo_thunder/lore.md
+- variants: echo_thunder/variants.md
+- hooks: echo_thunder/hooks.md
