@@ -4,24 +4,15 @@ status: rumor
 type: mushroom
 region: forest_of_illusions
 
-[vibe]
-fragile, shimmering, uncertain
+[quick]
+A rumored translucent mushroom with frosted-glass caps that never looks the same twice.
 
-[description]
-Translucent caps that look like thin frosted glass.
-Hard to look at directly—like your eyes slide off it.
-
-[sensory]
-visual: glints softly, then seems to vanish
-touch: not recommended (rumor only)
-
-[lore]
-- Said to appear when the forest wants to be seen clearly.
-- People disagree on what it looks like, as if it resists being pinned down.
-
-[use]
-- Rare “is this real?” moments
-- Soft reality-shift scenes
-
-[notes]
-Kept as rumor until observed in canon.
+[deep_dive]
+- vibe: glassspore/vibe.md
+- sensory: glassspore/sensory.md
+- growth: glassspore/growth.md
+- description: glassspore/description.md
+- use: glassspore/use.md
+- lore: glassspore/lore.md
+- variants: glassspore/variants.md
+- hooks: glassspore/hooks.md
