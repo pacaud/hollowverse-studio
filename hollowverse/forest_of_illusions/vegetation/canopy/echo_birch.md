@@ -4,23 +4,15 @@ status: seeded
 type: tree
 region: forest_of_illusions
 
-[vibe]
-whispering, moon-bright, path-shifting
+[quick]
+A pale-barked birch whose leaves rustle like thin pages; moonlight makes the trunk shimmer like it’s reflecting a second sky.
 
-[description]
-A pale-barked birch with leaves that flutter like thin paper.
-In moonlight the trunk seems to shimmer, as if reflecting a second sky.
-
-[sensory]
-sound: a soft, page-like rustle even in light wind
-scent: cool bark + faint mineral air
-touch: smooth bark with small, cold ridges
-
-[lore]
-- Often grows near paths that “move” when you’re not looking.
-- If you pause under it, the forest feels a little more honest.
-
-[use]
-- Night path scenes
-- “I’m listening” moments
-- Gentle mystery without danger
+[deep_dive]
+- vibe: echo_birch/vibe.md
+- sensory: echo_birch/sensory.md
+- growth: echo_birch/growth.md
+- description: echo_birch/description.md
+- use: echo_birch/use.md
+- lore: echo_birch/lore.md
+- variants: echo_birch/variants.md
+- hooks: echo_birch/hooks.md
