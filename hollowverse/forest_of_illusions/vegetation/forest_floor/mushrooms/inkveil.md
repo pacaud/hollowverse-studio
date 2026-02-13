@@ -4,21 +4,15 @@ status: seeded
 type: mushroom
 region: forest_of_illusions
 
-[vibe]
-mysterious, soft-shadow, careful curiosity
+[quick]
+Thin, dark-capped mushrooms with a faint bluish sheen—found where the forest asks you to slow down.
 
-[description]
-Thin, dark caps with a faint bluish sheen.
-The underside looks like layered folds of night.
-
-[sensory]
-scent: deep soil, cool stone
-touch: delicate cap; handle gently
-
-[lore]
-- Grows near places the forest “doesn’t explain” right away.
-- A reminder: mystery can be safe.
-
-[use]
-- Gentle mystery scenes
-- Slow discovery pacing
+[deep_dive]
+- vibe: inkveil/vibe.md
+- sensory: inkveil/sensory.md
+- growth: inkveil/growth.md
+- description: inkveil/description.md
+- use: inkveil/use.md
+- lore: inkveil/lore.md
+- variants: inkveil/variants.md
+- hooks: inkveil/hooks.md
