@@ -1,10 +1,10 @@
 # CURRENT — Active PKW Upload Set
 
 ## Active bundles (uploaded now)
-- Core: `pkw_core_v0.2.11.bundle.zip`
+- Core: `pkw_core_v0.2.12.bundle.zip`
 - Chat Center: `pkw_chat_center_v0.2.3.bundle.zip`
 - Assets: `pkw_assets_v0.0.2.bundle.zip` (only if needed)
-- World: `pkw_world_hollowverse__v0.0.36.bundle.zip`
+- World: `pkw_world_hollowverse__v0.0.38.bundle.zip`
 
 ## Presence locks (canon)
 - Voxia appearance lock: `chat_center/presence/voxia/appearance_lock.md`

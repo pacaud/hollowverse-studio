@@ -29,6 +29,16 @@ Avoid exporting a "mega-zip" containing everything unless strictly needed.
 - Include a build hash or timestamp in an optional metadata file:
   - `_bundle.meta.json` (optional, but recommended later)
 
+## Path discipline (ChatGPT sandbox vs user machines)
+- In ChatGPT's workspace, uploaded files appear under: `/mnt/data/`.
+- Treat `/mnt/data/` as a temporary sandbox workspace. Do not imply these paths exist on the user's machines.
+- When giving commands for the user's machines:
+  - Prefer *relative* instructions ("run from repo root") over absolute paths.
+  - If an absolute path is required, ask the user for it or read the project's docs (e.g., `POINTERS.md`).
+
+See also:
+- [`workflows/importing.md`](workflows/importing.md)
+
 ## Operational rule
 If you need to actively work inside a bundle, export that bundle as a top-level zip
 rather than nesting additional archives.

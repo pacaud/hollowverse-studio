@@ -2,6 +2,11 @@
 
 Use this as the practical checklist when exporting a bundle.
 
+## Workspace note
+- In ChatGPT's sandbox, uploaded files appear under: `/mnt/data/`.
+- Do not assume the user's machine paths match the sandbox.
+- If you need user-machine paths, ask for them or read the project's docs (e.g., `POINTERS.md`).
+
 ## Steps
 1) Run the preflight checklist: [`../RESTRAINTS.md`](../RESTRAINTS.md)
 2) Confirm you are exporting **one bundle**

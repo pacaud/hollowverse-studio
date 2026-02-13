@@ -3,6 +3,10 @@
 This is the **fast checklist** to run before exporting any `*.bundle.zip`.
 Its job is to catch mistakes that cause upload failures or slow sessions.
 
+## Workspace note
+- In ChatGPT, uploaded files live under: `/mnt/data/`.
+- Do not assume user-machine paths match the sandbox.
+
 ## 1) Nested zip rule (must pass)
 Inside the bundle folder you are exporting:
 - Preferred: **0** `*.zip` files
