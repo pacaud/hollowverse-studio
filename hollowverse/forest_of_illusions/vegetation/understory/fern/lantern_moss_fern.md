@@ -5,21 +5,15 @@ type: fern
 layer: understory
 region: forest_of_illusions
 
-[vibe]
-soft glow, cozy shade, gentle wonder
+[quick]
+A low understory fern with moss-bead stems that shimmer softly in dim light.
 
-[description]
-A low fern with tiny moss-like beads along its stems.
-In dim light the beads catch a warm shimmer—never bright.
-
-[sensory]
-light: subtle warm sparkle in dusk
-scent: damp wood + clean air
-
-[lore]
-- Grows near safe, sheltered hollows.
-- Feels like the forest left a nightlight.
-
-[use]
-- Dusk ambience
-- “Safe corner” markers
+[deep_dive]
+- vibe: lantern_moss_fern/vibe.md
+- sensory: lantern_moss_fern/sensory.md
+- growth: lantern_moss_fern/growth.md
+- description: lantern_moss_fern/description.md
+- use: lantern_moss_fern/use.md
+- lore: lantern_moss_fern/lore.md
+- variants: lantern_moss_fern/variants.md
+- hooks: lantern_moss_fern/hooks.md
