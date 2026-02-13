@@ -5,25 +5,15 @@ type: flower
 region: forest_of_illusions
 bloom_time: late afternoon → early night
 
-[vibe]
-welcoming, light, reassuring
+[quick]
+Small ground-level flowers with warm centers that show up like scattered stars near the cottage paths.
 
-[description]
-Small pale petals with bright, warm centers.
-Clusters appear like scattered stars near the ground.
-
-[sensory]
-scent: light, clean, slightly sweet
-touch: delicate but resilient
-
-[lore]
-- Common near cottage-adjacent clearings.
-- Often noticed on return paths.
-
-[use]
-- “Welcome home” imagery
-- Gentle scene grounding
-- Low-stakes beauty
-
-[notes]
-Safe, familiar, never overwhelming.
+[deep_dive]
+- vibe: starpetal/vibe.md
+- sensory: starpetal/sensory.md
+- growth: starpetal/growth.md
+- description: starpetal/description.md
+- use: starpetal/use.md
+- lore: starpetal/lore.md
+- variants: starpetal/variants.md
+- hooks: starpetal/hooks.md
