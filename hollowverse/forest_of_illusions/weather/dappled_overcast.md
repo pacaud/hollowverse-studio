@@ -4,18 +4,17 @@ status: seeded
 type: weather
 region: forest_of_illusions
 
-[vibe]
-soft grey, cozy focus, gentle quiet
+[quick]
+Muted cloud cover that softens light and lowers the “volume” of the forest.
 
-[description]
-Cloud cover that doesn’t feel heavy—just muted.
-Light becomes dappled and calm, like the world turned down its volume.
-
-[effects_on_places]
-- fogquiet_clearing feels extra safe
-- stump_table_circle becomes more “tea-ready”
-- echo_shift_path feels less sharp, more gentle
-
-[use]
-- cozy planning
-- quiet conversations
+[deep_dive]
+- vibe: dappled_overcast/vibe.md
+- sensory: dappled_overcast/sensory.md
+- cycle: dappled_overcast/cycle.md
+- description: dappled_overcast/description.md
+- effects: dappled_overcast/effects.md
+- rules: dappled_overcast/rules.md
+- use: dappled_overcast/use.md
+- lore: dappled_overcast/lore.md
+- variants: dappled_overcast/variants.md
+- hooks: dappled_overcast/hooks.md
