@@ -4,21 +4,15 @@ status: seeded
 type: herb
 region: forest_of_illusions
 
-[vibe]
-night-calm, dream-soft, gentle
+[quick]
+A night-opening basil with dark green leaves and a calm, dream-soft presence.
 
-[description]
-Dark green leaves with a subtle sheen.
-Opens more fully at night.
-
-[sensory]
-scent: sweet-herbal, soothing
-touch: cool and smooth
-
-[lore]
-- Associated with restful nights.
-- Sometimes found near moonthread_blossom.
-
-[use]
-- Night scenes
-- Sleep-adjacent comfort
+[deep_dive]
+- vibe: moon_basil/vibe.md
+- sensory: moon_basil/sensory.md
+- growth: moon_basil/growth.md
+- description: moon_basil/description.md
+- use: moon_basil/use.md
+- lore: moon_basil/lore.md
+- variants: moon_basil/variants.md
+- hooks: moon_basil/hooks.md
