@@ -4,7 +4,24 @@
 - Core: `pkw_core_v0.2.12.bundle.zip`
 - Chat Center: `pkw_chat_center_v0.2.3.bundle.zip`
 - Assets: `pkw_assets_v0.0.2.bundle.zip` (only if needed)
-- World: `pkw_world_hollowverse__v0.0.38.bundle.zip`
+- Devices: `pkw_hollowverse_devices_v0.0.5.bundle.zip` (sanitized specs + index)
+- World: `pkw_world_hollowverse__v0.0.59.bundle.zip`
+
+## Device hub
+- Open: `devices/_index.md`
+
+## Device bundle contents
+- `devices/_index.md`
+- `devices/regen_commands.md`
+- `devices/roles__recommendation.md`
+- `devices/laptop_specs_sanitized.txt`
+- `devices/desktop_specs_sanitized.txt`
+- `devices/rasberry-pi4_specs_sanitized.txt`
+- `devices/digitalocean_specs_sanitized.txt`
+
+(Optional future files — keep names stable)
+- `devices/vivi_node_specs_sanitized.txt`
+
 
 ## Presence locks (canon)
 - Voxia appearance lock: `chat_center/presence/voxia/appearance_lock.md`

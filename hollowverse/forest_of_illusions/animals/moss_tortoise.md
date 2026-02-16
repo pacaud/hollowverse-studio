@@ -4,20 +4,16 @@ status: seeded
 type: animal
 region: forest_of_illusions
 
-[vibe]
-slow wisdom, patience
+[quick]
+A large tortoise with moss on its shell—slow, steady, and oddly comforting to be near.
 
-[description]
-A large tortoise with moss growing gently on its shell.
-It moves very slowly, but always seems to arrive.
-
-[behavior]
-- rests in sunpatch_clearing
-- barely reacts to noise
-
-[lore]
-- A reminder that time is not an enemy.
-
-[use]
-- grounding scenes
-- patience symbolism
+[deep_dive]
+- vibe: moss_tortoise/vibe.md
+- sensory: moss_tortoise/sensory.md
+- growth: moss_tortoise/growth.md
+- description: moss_tortoise/description.md
+- behavior: moss_tortoise/behavior.md
+- use: moss_tortoise/use.md
+- lore: moss_tortoise/lore.md
+- variants: moss_tortoise/variants.md
+- hooks: moss_tortoise/hooks.md

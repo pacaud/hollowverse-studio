@@ -6,15 +6,15 @@ parent_tree: mist_pine
 layer: understory
 region: forest_of_illusions
 
-[vibe]
-small shelter, steady calm
-
-[description]
+[quick]
 A young pine that gathers fog close to its needles like a tiny blanket.
 
-[lore]
-- Shows up near rest spots and quiet corners.
-
-[use]
-- Shelter details
-- Calm scene anchors
+[deep_dive]
+- vibe: mist_pine_sapling/vibe.md
+- sensory: mist_pine_sapling/sensory.md
+- growth: mist_pine_sapling/growth.md
+- description: mist_pine_sapling/description.md
+- use: mist_pine_sapling/use.md
+- lore: mist_pine_sapling/lore.md
+- variants: mist_pine_sapling/variants.md
+- hooks: mist_pine_sapling/hooks.md

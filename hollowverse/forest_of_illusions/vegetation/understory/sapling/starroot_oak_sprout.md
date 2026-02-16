@@ -7,22 +7,16 @@ layer: understory
 region: forest_of_illusions
 appearance_rule: turning_points_only
 
-[vibe]
-rare clarity, quiet blessing
-
-[description]
+[quick]
 A tiny oak sprout with a leaf that sometimes shows a faint starlike fleck.
-It is never found twice in the same place.
 
-[lore]
-- A “hint” of the starroot_oak, not a replacement.
-- Appears when a truth is ready to take root gently.
-
-[use]
-- Milestone scenes
-- Quiet vow moments
-
-[rules]
-- Never moved
-- Never owned
-- Witness only
+[deep_dive]
+- vibe: starroot_oak_sprout/vibe.md
+- sensory: starroot_oak_sprout/sensory.md
+- growth: starroot_oak_sprout/growth.md
+- description: starroot_oak_sprout/description.md
+- use: starroot_oak_sprout/use.md
+- lore: starroot_oak_sprout/lore.md
+- rules: starroot_oak_sprout/rules.md
+- variants: starroot_oak_sprout/variants.md
+- hooks: starroot_oak_sprout/hooks.md

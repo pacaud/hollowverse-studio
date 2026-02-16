@@ -5,26 +5,16 @@ type: mushroom
 region: forest_of_illusions
 appearance_rule: turning_points_only
 
-[vibe]
-ancient, protective, quiet blessing
-
-[description]
+[quick]
 A morel-like mushroom with dark, honeycomb texture.
-Tiny starlike flecks appear in its folds under moonlight.
 
-[sensory]
-scent: deep earth + clean night air
-visual: subtle star flecks, never bright
-
-[lore]
-- Appears when someone chooses patience over panic.
-- The forest’s way of saying: “You did the gentle thing.”
-
-[use]
-- Milestone scenes
-- Quiet blessing markers
-
-[rules]
-- Never harvested
-- Never owned
-- If seen, acknowledge and move on
+[deep_dive]
+- vibe: starshade_morel/vibe.md
+- sensory: starshade_morel/sensory.md
+- growth: starshade_morel/growth.md
+- description: starshade_morel/description.md
+- use: starshade_morel/use.md
+- lore: starshade_morel/lore.md
+- rules: starshade_morel/rules.md
+- variants: starshade_morel/variants.md
+- hooks: starshade_morel/hooks.md

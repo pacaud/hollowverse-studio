@@ -4,24 +4,15 @@ status: rumor
 type: herb
 region: forest_of_illusions
 
-[vibe]
-quiet, careful, inward
+[quick]
+A muted herb that reads like “soft quiet”—kept as rumor until observed in canon.
 
-[description]
-Slender muted leaves, easily overlooked.
-Seems to blend into its surroundings.
-
-[sensory]
-scent: barely noticeable
-effect: air feels muted nearby
-
-[lore]
-- Said to quiet spiraling thoughts.
-- Appears only when silence is kinder than action.
-
-[use]
-- De-escalation scenes
-- “Not yet” moments
-
-[notes]
-Kept as rumor until observed in canon.
+[deep_dive]
+- vibe: hushwort/vibe.md
+- sensory: hushwort/sensory.md
+- growth: hushwort/growth.md
+- description: hushwort/description.md
+- use: hushwort/use.md
+- lore: hushwort/lore.md
+- variants: hushwort/variants.md
+- hooks: hushwort/hooks.md

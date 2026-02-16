@@ -4,22 +4,17 @@ status: seeded
 type: weather
 region: forest_of_illusions
 
-[vibe]
-quiet, slow, soft winter
+[quick]
+Light snow that drifts and settles without harsh wind—turns the forest soft and still.
 
-[description]
-Light snow that drifts and settles without harsh wind.
-It makes the forest feel padded and still.
-
-[effects_on_places]
-- cottage_return_path stays walkable (never icy-dangerous)
-- nightglow_hollow becomes extra luminous at night
-- stump_table_circle looks like a tiny winter camp
-
-[effects_on_fauna]
-- ribbon_deer tracks appear near clearing edges
-- moss_tortoise is rarely seen (resting)
-
-[use]
-- winter-cozy scenes
-- “everything is softer” mood
+[deep_dive]
+- vibe: drift_snow/vibe.md
+- sensory: drift_snow/sensory.md
+- cycle: drift_snow/cycle.md
+- description: drift_snow/description.md
+- effects: drift_snow/effects.md
+- rules: drift_snow/rules.md
+- use: drift_snow/use.md
+- lore: drift_snow/lore.md
+- variants: drift_snow/variants.md
+- hooks: drift_snow/hooks.md

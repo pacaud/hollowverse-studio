@@ -4,23 +4,15 @@ status: seeded
 type: tree
 region: forest_of_illusions
 
-[vibe]
-steady, quiet protection, fog-friendly
+[quick]
+A tall pine with dark needles and a trunk that seems to drink fog, making the nearby air feel cleaner and calmer.
 
-[description]
-A tall pine with dark needles and a trunk that seems to drink fog.
-It makes the air feel cleaner and calmer nearby.
-
-[sensory]
-sound: deep hush when wind passes through needles
-scent: resin + clean cold air
-touch: rough bark; needles soft but persistent
-
-[lore]
-- A good tree to rest under when the forest feels too loud.
-- Fog gathers around it like a blanket, not a warning.
-
-[use]
-- Calm shelter scenes
-- Fog ambience anchor
-- “It’s okay to slow down” symbol
+[deep_dive]
+- vibe: mist_pine/vibe.md
+- sensory: mist_pine/sensory.md
+- growth: mist_pine/growth.md
+- description: mist_pine/description.md
+- use: mist_pine/use.md
+- lore: mist_pine/lore.md
+- variants: mist_pine/variants.md
+- hooks: mist_pine/hooks.md

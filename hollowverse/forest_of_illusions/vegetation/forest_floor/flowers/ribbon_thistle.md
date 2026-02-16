@@ -5,22 +5,15 @@ type: flower
 region: forest_of_illusions
 bloom_time: midday light
 
-[vibe]
-protective, brave, quietly stubborn
+[quick]
+A thistle with soft ribbon-like filaments—protective at the edges, gentle at the center.
 
-[description]
-A thistle with soft ribbon-like filaments woven through its bloom.
-Looks sharp at a glance, but the filaments are surprisingly gentle.
-
-[sensory]
-scent: dry, sun-warm, faint spice
-touch: prickly guards; soft center
-
-[lore]
-- Grows at the edge of paths that have been walked too many times.
-- A reminder: boundaries can be kind.
-
-[use]
-- Boundary scenes
-- “Stand your ground” symbolism
-- Path-edge visual detail
+[deep_dive]
+- vibe: ribbon_thistle/vibe.md
+- sensory: ribbon_thistle/sensory.md
+- growth: ribbon_thistle/growth.md
+- description: ribbon_thistle/description.md
+- use: ribbon_thistle/use.md
+- lore: ribbon_thistle/lore.md
+- variants: ribbon_thistle/variants.md
+- hooks: ribbon_thistle/hooks.md

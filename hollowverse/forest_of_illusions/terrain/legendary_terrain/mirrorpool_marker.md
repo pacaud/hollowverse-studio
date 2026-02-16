@@ -3,32 +3,19 @@
 status: legend
 type: landmark
 region: forest_of_illusions
-appearance_rule: turning_points_only
 updated: 2026-01-23
 
-[vibe]
-quiet truth, gentle clarity, sacred calm
+[quick]
+A quiet legendary landmark that appears at turning points: a small pool (or the *idea* of one) offering clarity without demand.
 
-[description]
-A small pool that reflects more than the sky—sometimes it reflects *a feeling*.
-It is never found the same way twice. Some find water; others find a smooth stone circle
-with the *idea* of water in the center.
-
-[behavior]
-- appears only at meaningful turning points
-- never forces revelations
-- disappears if approached with urgency or hunger
-
-[lore]
-- The forest’s way of offering clarity without demand.
-- Not a test. Not a trap. A soft mirror.
-
-[use]
-- restoration milestones
-- vow moments
-- “I can be honest with myself” scenes
-
-[rules]
-- Never taken from
-- No throwing stones, no bottles, no collecting
-- If you see it: sit, breathe, and leave it undisturbed
+[deep_dive]
+- vibe: mirrorpool_marker/vibe.md
+- sensory: mirrorpool_marker/sensory.md
+- growth: mirrorpool_marker/growth.md
+- description: mirrorpool_marker/description.md
+- behavior: mirrorpool_marker/behavior.md
+- use: mirrorpool_marker/use.md
+- lore: mirrorpool_marker/lore.md
+- rules: mirrorpool_marker/rules.md
+- variants: mirrorpool_marker/variants.md
+- hooks: mirrorpool_marker/hooks.md

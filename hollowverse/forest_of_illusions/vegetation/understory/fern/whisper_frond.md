@@ -5,20 +5,15 @@ type: fern
 layer: understory
 region: forest_of_illusions
 
-[vibe]
-quiet, hush, soft secrecy
+[quick]
+Thin, feathery fronds that tremble with the smallest air shift. Easy to miss unless you’re moving slowly.
 
-[description]
-Thin, feathery fronds that tremble with the smallest air shift.
-It’s easy to miss unless you’re moving slowly.
-
-[sensory]
-sound: faint brushy rustle
-touch: feather-light
-
-[lore]
-- Appears where the forest wants you to speak gently—or not at all.
-
-[use]
-- Quiet scenes
-- De-escalation ambience
+[deep_dive]
+- vibe: whisper_frond/vibe.md
+- sensory: whisper_frond/sensory.md
+- growth: whisper_frond/growth.md
+- description: whisper_frond/description.md
+- use: whisper_frond/use.md
+- lore: whisper_frond/lore.md
+- variants: whisper_frond/variants.md
+- hooks: whisper_frond/hooks.md

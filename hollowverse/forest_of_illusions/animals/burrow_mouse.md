@@ -4,19 +4,16 @@ status: seeded
 type: animal
 region: forest_of_illusions
 
-[vibe]
-small life, everyday comfort
+[quick]
+A tiny forest mouse that makes the roots feel lived-in.
 
-[description]
-A tiny forest mouse with bright eyes.
-Often seen darting between roots.
-
-[behavior]
-- gathers crumbs near stump_table_circle
-- freezes, then scurries
-
-[lore]
-- A sign that the forest is lived-in.
-
-[use]
-- cozy background detail
+[deep_dive]
+- vibe: burrow_mouse/vibe.md
+- sensory: burrow_mouse/sensory.md
+- growth: burrow_mouse/growth.md
+- description: burrow_mouse/description.md
+- behavior: burrow_mouse/behavior.md
+- use: burrow_mouse/use.md
+- lore: burrow_mouse/lore.md
+- variants: burrow_mouse/variants.md
+- hooks: burrow_mouse/hooks.md

@@ -4,19 +4,19 @@ status: rumor
 type: bird
 region: forest_of_illusions
 
-[vibe]
-watchful quiet, deep night
+[quick]
+An owl rarely seen, more often felt. Its call is said to silence other sounds.
 
-[description]
-An owl rarely seen, more often felt.
-Its call is said to silence other sounds.
-
-[behavior]
-- appears only in deep night
-- never seen clearly
-
-[lore]
-- Some say it watches over rest.
+[deep_dive]
+- vibe: hush_owl/vibe.md
+- sensory: hush_owl/sensory.md
+- growth: hush_owl/growth.md
+- description: hush_owl/description.md
+- behavior: hush_owl/behavior.md
+- lore: hush_owl/lore.md
+- use: hush_owl/use.md
+- variants: hush_owl/variants.md
+- hooks: hush_owl/hooks.md
 
 [notes]
 Kept as rumor until observed in canon.

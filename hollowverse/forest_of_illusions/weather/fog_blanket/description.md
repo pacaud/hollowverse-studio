@@ -9,8 +9,10 @@ region: forest_of_illusions
 Fog gathers low and steady, like a blanket laid across the forest floor.
 Visibility shortens, but the mood becomes softer, not scarier.
 
-[effects]
-Fog Blanket shortens sight-lines, but it also softens the mood—more “private room outdoors” than “lost.”
+[summary]
+A calm, even fog that makes the forest feel closer and quieter.
 
 [see_also]
-- sensory profile: sensory.md
+- sensory: sensory.md
+- effects: effects.md
+- cycle: cycle.md
