@@ -1,44 +1,153 @@
 # Export Rules — PKW Core
 
-Local folders are the source of truth.
-Bundle zips are export snapshots designed for upload and portability.
+This document defines how PKW content is exported for **Gate viewing** and for
+ChatGPT-compatible reading.
 
-## What to export
-Export one bundle at a time:
-- Core bundle
-- World bundles
-- Assets bundle
-- Chat Center bundle (if separated later)
+---
 
-Avoid exporting a "mega-zip" containing everything unless strictly needed.
+## 1) Gate is viewer-only
 
-## Export checklist
-0) Run the preflight checklist: [`RESTRAINTS.md`](RESTRAINTS.md)
-1) Ensure the bundle has a top-level `_index.md`
-2) Keep bundle size under the design target:
-   - ~400MB active budget
-   - ~100MB overflow buffer
-3) Avoid nested zips:
-   - Allow at most one legacy sub-zip (rare)
-4) Name the bundle using the naming rules:
-   - `pkw_<scope>__v<semver>.bundle.zip`
-5) Update `BUNDLE_REGISTRY.md` if a new bundle is created.
+- The DigitalOcean droplet (Gate) is **read-only / viewer-only**.
+- **No git clone/pull/build happens on DO.**
+- All builds happen on a **build machine** (the machine that has the repo).
+- The build machine publishes a static export to DO via `rsync` + **atomic swap**.
 
-## Recommended tooling
-- Use a consistent bundler script (e.g., Python) to avoid manual mistakes.
-- Include a build hash or timestamp in an optional metadata file:
-  - `_bundle.meta.json` (optional, but recommended later)
+---
 
-## Path discipline (ChatGPT sandbox vs user machines)
-- In ChatGPT's workspace, uploaded files appear under: `/mnt/data/`.
-- Treat `/mnt/data/` as a temporary sandbox workspace. Do not imply these paths exist on the user's machines.
-- When giving commands for the user's machines:
-  - Prefer *relative* instructions ("run from repo root") over absolute paths.
-  - If an absolute path is required, ask the user for it or read the project's docs (e.g., `POINTERS.md`).
+## 2) Publish only approved slices
 
-See also:
-- [`workflows/importing.md`](workflows/importing.md)
+Gate should only host the minimum “public slice” needed for routing + rules.
 
-## Operational rule
-If you need to actively work inside a bundle, export that bundle as a top-level zip
-rather than nesting additional archives.
+### Current baseline slices
+- `boot/` (entry + boot documents)
+- `core/` (global rules/registries)
+- `chat_center/` (global hub for all companion voices)
+
+Everything else stays private until explicitly added to the export.
+
+---
+
+## 3) Output layout (public URLs)
+
+All Gate content is served under the `/boot/` prefix.
+
+### Required files (top-level)
+- `/boot/index.json`
+- `/boot/BOOT.json`
+- `/boot/CURRENT.json`
+- `/boot/SHA256SUMS.txt`
+
+### Required docs root
+- `/boot/docs/`
+
+### Slice roots (public)
+- `/boot/docs/boot/`
+- `/boot/docs/core/`
+- `/boot/docs/chat_center/`
+
+Rule: **chat_center is world-agnostic** (shared hub for all companion voices).
+It must not live under `/hollowverse/` in the public export.
+
+---
+
+## 4) JSON capsule rule (critical)
+
+### Rule
+For every exported `.md` or `.txt` file, generate a **same-name JSON capsule**
+beside it:
+
+- `something.md` → `something.json`
+- `something.txt` → `something.json`
+
+No double extensions like `.md.json` or `.txt.json`.
+
+### Why
+Some consumers (including ChatGPT web fetch) do not reliably open raw `.md`.
+They **do** reliably open JSON.
+
+### Capsule schema (required)
+Each capsule MUST include:
+
+- `schema`: `pkw.text.v1`
+- `format`: `markdown` or `text`
+- `source_url`: public URL to the original file
+- `sha256`: sha256 of the original content
+- `bytes`: byte length of the original content
+- `content`: full original file content as a string
+
+---
+
+## 5) CURRENT.json must be JSON-first
+
+`/boot/CURRENT.json` MUST include:
+
+- `docs.preferred = "json"`
+- `docs.boot_json = "/boot/docs/boot/BOOT.json"`
+- `docs.current_json = "/boot/docs/boot/CURRENT.json"`
+
+And must declare the slice roots:
+
+- `docs.core_root = "/boot/docs/core/"`
+- `docs.chat_center_root = "/boot/docs/chat_center/"`
+
+Consumers must prefer `*_json` pointers when `preferred=json`.
+
+---
+
+## 6) index.json is the public entry
+
+`/boot/index.json` MUST point to:
+
+- `current: "/boot/CURRENT.json"`
+- `boot: "/boot/BOOT.json"`
+- `docs_*` roots (boot/core/chat_center)
+
+This is the “start here” map for any viewer.
+
+---
+
+## 7) File type allowlist (exported to Gate)
+
+Export should include only:
+- `.json`
+- `.md`
+- `.txt`
+
+Everything else is excluded unless explicitly approved.
+
+---
+
+## 8) Deployment must be atomic
+
+Deployment to DO must use:
+- upload to a temp directory (e.g. `/var/www/.boot_incoming_<stamp>`)
+- then rename/swap into `/var/www/boot`
+- keep one previous backup directory (optional but recommended)
+
+This prevents half-written exports.
+
+---
+
+## 9) Verification commands (required)
+
+After publish, verify these return 200 and JSON content:
+
+- `curl -I https://gate.hollowverse.studio/boot/CURRENT.json`
+- `curl -I https://gate.hollowverse.studio/boot/docs/boot/BOOT.json`
+- `curl -I https://gate.hollowverse.studio/boot/docs/core/_index.json`
+- `curl -I https://gate.hollowverse.studio/boot/docs/chat_center/_index.json`
+
+Notes:
+- Directory URLs may 404 (nginx directory listing is off). Always check a file URL.
+- `Cache-Control: no-store` is preferred for routing files.
+
+---
+
+## 10) Don’t leak private structure
+
+Anything not included in the published slices is treated as:
+- private
+- non-canon for Gate viewers
+- not available to ChatGPT via Gate
+
+To publish something new, add it explicitly as a new slice in the exporter.
