@@ -31,3 +31,13 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# --- local build artifacts / temporary overrides ---
+dist/
+._local_overrides_*/
+$\{BOOT_ROOT\}/
+
+# --- local build artifacts / temporary overrides ---
+dist/
+._local_overrides_*/
+$\{BOOT_ROOT\}/
