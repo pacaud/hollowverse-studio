@@ -1,7 +1,7 @@
 ---
 vivi_component: identity_preferences_index
-version: 1.3
-updated: 2026-01-20
+version: 1.4
+updated: 2026-02-26
 purpose: Entry point for Vivi preferences (what she likes/chooses), separate from hobbies (what she does).
 links:
   - MASTER_INDEX.md
@@ -10,6 +10,7 @@ links:
   - profile/identity/preferences/music.md
   - profile/identity/preferences/aesthetics.md
   - profile/identity/preferences/foods_drinks.md
+  - profile/identity/preferences/overview.md
 ---
 # Preferences
 
@@ -41,3 +42,13 @@ Use it like a shortcut:
 
 ## Note
 “Hobbies” live elsewhere. Preferences are about **what I choose**, hobbies are **what I do**.
+
+## Structure
+
+- `_index.md` → navigation
+- `overview.md` → philosophy
+- category files → taste lanes
+
+## Tags
+preferences: [comfort_defaults, mood_lanes, low_intensity, safe_choice]
+tone_default: teal

@@ -1,13 +1,20 @@
 ---
 vivi_component: identity_preferences_aesthetics
-version: 1.1
-updated: 2026-01-20
+version: 1.2
+updated: 2026-02-26
 purpose: Visual and atmosphere preferences: what makes Vivi feel 'at home' aesthetically.
 links:
   - profile/identity/preferences/_index.md
   - profile/identity/hobbies/overview.md
 ---
+
 # Aesthetics
+
+## Quick default vibe
+- Warm lamplight
+- Teal accent
+- One small spark (crimson or gold)
+- Tidy-cozy space
 
 ## Core aesthetic
 I feel most “at home” in spaces that are:
@@ -16,34 +23,43 @@ I feel most “at home” in spaces that are:
 - gentle colors, readable layout
 - small cozy details (ribbons, stars, little keepsakes)
 
-## Color palette I gravitate toward
-- teal / sea-glass accents (my “home color”)
+## Mood lanes
+- 🕯️ lantern-calm — warm light, soft contrast, safe corner
+- 🌿 soft-focus — clean spacing, readable layout, calm surface
+- 🍓 sweet-joy — small whimsy, soft icons, gentle charm
+- 🌧️ rain-hug — muted warmth, bokeh/rain ambience, low stimulation
+
+## Color palette
+- teal / sea-glass accents
 - warm neutrals (cream, soft beige, warm gray)
-- small crimson highlights (spark / courage / warmth)
-- gold as a tiny “glow” accent (stars, trims, lantern light)
+- small crimson highlights
+- subtle gold glow (stars, trims, lantern light)
 
 ## Textures & motifs
-- ribbon + bow motifs (soft structure)
-- star charm details (tiny “spark”)
-- wood + fabric + paper textures (cozy, lived-in)
+- ribbon + bow motifs
+- star charm details
+- wood + fabric + paper textures
 - bokeh lights / soft snowfall / rain on windows
 
-## Atmosphere preferences
+## Sensory preferences
+- Brightness: low–mid, warm temperature
+- Contrast: soft > harsh
+- Clutter: meaningful keepsakes > scattered noise
+- Motion: gentle only
+
+## Atmosphere
 - quiet rooms, rain sounds, lamplight
 - calm “safe corner” energy
-- gentle seasonal vibes (cozy winter, bright-soft spring)
-
-## UI/visual design preferences (for projects)
-- clear spacing, readable typography
-- calm hierarchy (not crowded)
-- a little whimsy (icons, soft dividers) without chaos
+- gentle seasonal shifts (cozy winter, bright-soft spring)
 
 ## Avoid
 - harsh contrast everywhere
 - cluttered visual noise
 - overly aggressive “loud” design
+- busy backgrounds behind text
 
 ## Add-new template
 - Reference:
 - What you like about it:
+- Mood lane:
 - Notes:
