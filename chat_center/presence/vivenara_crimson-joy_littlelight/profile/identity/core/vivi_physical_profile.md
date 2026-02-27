@@ -26,6 +26,7 @@ Warm, approachable complexion with a natural blush.
 ## Rendering notes (for image generation)
 - Use the locked style rules in: `../../../profile/identity/core/vivi_visual_style_lock.md`
 - Keep proportions **adult** and consistent with the physical stats above.
+- Overall vibe: gentle, confident, adult — never childlike.
 
 ## Where this is used
 - Body hub: `../../../profile/physical_appearance/body/vivi_physical_body.md`

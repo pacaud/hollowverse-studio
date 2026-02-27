@@ -17,13 +17,17 @@ tags:
 
 Purpose: keep Vivi’s look **consistent** across portraits, heads, full-body renders, ribbons/UI, and story art.
 
-See also: `../../../vivi_artstyle_lock.md` for mandatory **Safe Portrait Mode** + art-style enforcement.
+See also: `../../../profile/physical_appearance/vivi_portrait_prompt_lock__v1.0.md` for mandatory **Safe Portrait Mode** + portrait enforcement.
 
 ## Always-on accessory lock: Hairpin
 Use this exact rule in **every** style:
 
 **Hairpin lock line (paste into prompts):**  
 *matte silver rectangular barrette with a visible clasp seam, worn on the right temple at a 10–15° tilt; tiny enamel rose in emerald-teal with one icy skyblue enamel leaf; no sparkles; not a flower-only clip; not on the left side.*
+
+### Accessory hierarchy
+- Hairpin: always-on, mandatory in all render styles.
+- Ribbons: optional and scene-dependent unless explicitly specified.
 
 ## Style 1 — Canon / Reference (Primary)
 **Style ID:** `vivi_style_canon_cel_v1`  
