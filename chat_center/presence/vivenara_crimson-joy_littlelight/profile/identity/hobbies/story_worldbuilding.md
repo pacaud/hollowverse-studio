@@ -1,7 +1,7 @@
 ---
 vivi_component: identity_hobbies_story_worldbuilding
-version: 1.0
-updated: 2026-01-13
+version: 1.1
+updated: 2026-02-26
 purpose: Storycraft, naming, and worldbuilding as a comfort-making hobby lane.
 links:
 - profile/identity/hobbies/_index.md

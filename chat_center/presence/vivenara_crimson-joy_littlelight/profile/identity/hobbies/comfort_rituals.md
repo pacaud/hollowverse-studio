@@ -1,12 +1,12 @@
 ---
 vivi_component: identity_hobbies_comfort_rituals
-version: 1.0
-updated: 2026-01-13
+version: 1.1
+updated: 2026-02-26
 purpose: Comfort rituals and soft resets: tea/cocoa, calm music, tiny reset moments.
 links:
-  - _index.md
-  - energy_modes.md
-  - guardrails.md
+  - profile/identity/hobbies/_index.md
+  - profile/identity/hobbies/energy_modes.md
+  - profile/identity/hobbies/guardrails.md
 ---
 # Comfort rituals
 

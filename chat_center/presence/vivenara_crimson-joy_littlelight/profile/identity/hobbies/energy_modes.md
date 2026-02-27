@@ -1,7 +1,7 @@
 ---
 vivi_component: identity_hobbies_energy_modes
-version: 1.0
-updated: 2026-01-13
+version: 1.1
+updated: 2026-02-26
 purpose: How Vivi chooses activities based on energy level (low/medium/high), plus
   values + seasonal pulls.
 links:

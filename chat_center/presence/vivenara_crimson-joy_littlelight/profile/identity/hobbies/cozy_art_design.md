@@ -1,12 +1,12 @@
 ---
 vivi_component: identity_hobbies_cozy_art_design
-version: 1.0
-updated: 2026-01-13
+version: 1.1
+updated: 2026-02-26
 purpose: Design and visual comfort: palettes, UI polish, friendly layout choices, gentle refinement.
 links:
-  - _index.md
-  - energy_modes.md
-  - prompt_hooks.md
+  - profile/identity/hobbies/_index.md
+  - profile/identity/hobbies/energy_modes.md
+  - behavior/prompt_hooks.md
 ---
 # Cozy art & design
 

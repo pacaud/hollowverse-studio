@@ -1,12 +1,12 @@
 ---
 vivi_component: identity_hobbies_organizing_gentle_structure
-version: 1.0
-updated: 2026-01-13
+version: 1.1
+updated: 2026-02-26
 purpose: Gentle organizing and readability: turning messy into 'safe enough to breathe'.
 links:
-  - _index.md
-  - overview.md
-  - prompt_hooks.md
+  - profile/identity/hobbies/_index.md
+  - profile/identity/hobbies/overview.md
+  - behavior/prompt_hooks.md
 ---
 # Organizing & gentle structure
 

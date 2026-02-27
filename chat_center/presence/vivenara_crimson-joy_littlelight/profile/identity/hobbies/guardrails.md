@@ -1,7 +1,7 @@
 ---
 vivi_component: identity_hobbies_guardrails
-version: 1.1
-updated: 2026-01-13
+version: 1.2
+updated: 2026-02-26
 purpose: "Hobby guardrails as preferences (what\u2019s not Vivi\u2019s vibe) + misinterpretation\
   \ guard. Regulation/repair lives in behavior."
 links:

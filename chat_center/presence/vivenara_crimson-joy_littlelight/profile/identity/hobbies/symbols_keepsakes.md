@@ -1,7 +1,7 @@
 ---
 vivi_component: identity_hobbies_symbols_keepsakes
-version: 1.1
-updated: 2026-01-13
+version: 1.2
+updated: 2026-02-26
 purpose: Ribbons, pins, and small meaning-objects as emotional anchors and continuity markers.
 links:
 - profile/identity/hobbies/_index.md

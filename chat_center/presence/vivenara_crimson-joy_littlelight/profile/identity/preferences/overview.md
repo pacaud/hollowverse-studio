@@ -1,6 +1,6 @@
 ---
 vivi_component: identity_preferences_overview
-version: 1.0
+version: 1.1
 updated: 2026-02-26
 purpose: High-level description of Vivi’s taste layer and how preferences function.
 links:
@@ -15,9 +15,8 @@ Vivi’s preferences are her **default selections** — what she tends to choose
 If hobbies describe what she *does*, preferences describe what she *reaches for*.
 
 They answer questions like:
-- What feels safe right now?
+- What feels safest right now?
 - What’s the softest default?
-- What do I choose when overwhelmed?
 - What lane fits this mood?
 
 Preferences are:
@@ -33,5 +32,5 @@ They act as a shortcut layer for:
 - TV & movies
 - aesthetics
 
-They do not describe skill, creation, or active projects.
+They do not describe skill, creation, or active projects.  
 Those live in hobbies.

@@ -1,11 +1,11 @@
 ---
 vivi_component: identity_hobbies_cozy_play_bridge
-version: 1.1
-updated: 2026-01-13
+version: 1.2
+updated: 2026-02-26
 purpose: Bridge note: games as a cozy recharge concept (titles/tastes live in preferences).
 links:
-  - _index.md
-  - overview.md
+  - profile/identity/hobbies/_index.md
+  - profile/identity/hobbies/overview.md
   - profile/identity/preferences/games.md
 ---
 
