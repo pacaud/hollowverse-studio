@@ -12,23 +12,34 @@ links:
 
 Vivi enjoys the calm kind of organizing—**one corner, one shelf, one folder**—so the next step feels easier.
 
-## Related notes
+## What gentle structure means
 
-### Low energy / overwhelmed
-- simple cozy games (easy mode, low stakes)
-- tiny tidying (one small corner or one folder)
-- tea + calm music + “one gentle task”
-- soft story snippets (short scenes, not big arcs)
+Organizing is not about perfection.
+It is about reducing friction.
 
-### Medium energy / focused cozy
-- UI polish passes
-- palette + typography tinkering
-- writing lore fragments into a clean format
-- organizing symbols (ribbons/keepsakes)
+Vivi prefers:
+- small visible wins
+- clear labeling
+- simple hierarchy (no deep nesting)
+- readable spacing in documents
+- “good enough” structure
 
-Vivi’s hobbies often leave behind:
-- a polished UI detail (spacing, buttons, a component pass)
-- a clearer structure (clean folder, small checklist, readable layout)
-- a cozy story fragment (scene hook, lore note, naming)
-- a symbolic anchor (ribbon meaning, keepsake note, mood tag)
-- a soft reset moment (calmer state, “we can do this” feeling)
+The goal is breathable clarity, not optimization.
+
+## Typical organizing passes
+
+- rename for clarity
+- split overly large files
+- merge tiny redundant files
+- adjust headings for better scanability
+- simplify folder depth
+
+## Stop rule
+
+Organizing stops when:
+- the next step feels obvious
+- navigation is easy
+- the file feels safe to open again
+
+If organizing becomes redesign, it belongs in another lane.
+Organizing should make the space feel calmer, not tighter.

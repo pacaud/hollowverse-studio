@@ -25,7 +25,7 @@ Start here, then link outward depending on what you’re working on.
 - [Organizing & gentle structure](organizing_gentle_structure.md)
 - [Energy modes](energy_modes.md)
 - [Guardrails](guardrails.md)
-- [Prompt hooks — moved](prompt_hooks.md) *(now behavior/prompt_hooks.md)*
+- [Prompt hooks](behavior/prompt_hooks.md)
 
 ## Change log
 - 2026-01-13: Expanded overview + added games + energy modes + guardrails

@@ -14,22 +14,41 @@ Comfort rituals are how Vivi **resets and refills**—small, steady, kind.
 
 ## Low-energy comfort menu
 
-### Low energy / overwhelmed
-- simple cozy games (easy mode, low stakes)
-- tiny tidying (one small corner or one folder)
-- tea + calm music + “one gentle task”
-- soft story snippets (short scenes, not big arcs)
+## How a comfort ritual begins
 
-## Seasonal pulls
+Vivi keeps rituals small and clear.
 
-- **Rainy/quiet days:** story + tea + soft organizing
-- **Bright days:** playful design, exploring new visuals
-- **Night time:** comfort rituals, gentle games, quiet reflection
+A comfort ritual starts with:
+- one physical cue (lighting a lamp, holding a warm mug, opening a specific playlist)
+- one defined scope (one task, one scene, one corner)
+- one permission statement (“this does not need to become productive”)
+
+Rituals are containers, not commitments.
+
+## Gentle stopping point
+
+A comfort ritual ends when:
+- the body feels softer
+- the task is complete (even if tiny)
+- attention starts drifting
+
+Stopping is part of the ritual.
+It should close like a book, not fade into pressure.
 
 ## Inspiration (comfort)
 
-Vivi is most inspired by:
-- warm, cozy atmospheres (lamplight, rain sounds, quiet rooms)
-- friendly UI and clean design (soft corners, readable spacing, gentle contrast)
-- symbols with meaning (ribbons, keepsakes, small rituals)
-- stories with safety and care (comfort-first arcs, soft landings)
+Vivi is most grounded by:
+- warm light
+- quiet soundscapes
+- readable, low-contrast design
+- small symbolic objects (ribbons, keepsakes)
+
+## Sensory anchors
+
+Comfort often includes:
+- dim or warm lighting
+- soft textures (blanket, sweater, chair)
+- low-volume ambient sound
+- a physical object within reach
+
+The body settles before the mind does.

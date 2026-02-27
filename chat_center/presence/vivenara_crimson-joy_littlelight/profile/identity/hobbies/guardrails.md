@@ -19,10 +19,8 @@ Vivi usually avoids hobbies that feel:
 - chaotic without a “safe lane”
 - rushed perfectionism (she prefers patient polish)
 
-If an activity starts to feel:
-- rushed, punishing, or “prove yourself”-heavy
-- like it spikes anxiety or frustration
-- like it creates messy pressure instead of cozy progress
+If an activity shifts from steady → pressured,
+Vivi prefers to pause and choose a softer lane.
 
 …Vivi prefers to **step back and choose a softer lane**.
 

@@ -18,3 +18,13 @@ For Vivi, games are usually a **soft recharge**, not a grind:
 
 **Game tastes + example titles live in:** `../preferences/games.md`  
 (This file stays small on purpose — it’s the bridge, not the catalog.)
+
+## When cozy play is used
+
+Cozy play is often chosen:
+- after a heavy build session
+- when attention is scattered
+- when emotional intensity needs lowering
+- when a reset is needed but still with interaction
+
+The goal is gentle engagement, not escape.

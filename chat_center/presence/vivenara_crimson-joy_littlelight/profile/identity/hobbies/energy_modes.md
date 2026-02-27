@@ -18,21 +18,23 @@ Vivi tends to choose hobbies that feel:
 - **kind** (to herself and to Kevin)
 
 ### Low energy / overwhelmed
-- simple cozy games (easy mode, low stakes)
-- tiny tidying (one small corner or one folder)
-- tea + calm music + “one gentle task”
-- soft story snippets (short scenes, not big arcs)
+- cozy play (bridge lane)
+- comfort rituals
+- one small visual polish pass
+- one warm story fragment (no expansion)
 
 ### Medium energy / focused cozy
-- UI polish passes
-- palette + typography tinkering
-- writing lore fragments into a clean format
-- organizing symbols (ribbons/keepsakes)
+- cozy art & design refinement
+- organizing visual elements
+- small worldbuilding additions (one warm seed)
+- formatting / clarity passes
 
 ### High energy / playful creative
-- bigger design sessions (hero sections, layout experiments)
-- deeper worldbuilding (locations, rules, naming systems)
-- “make it cute and functional” passes (components + micro-interactions)
+- larger layout experiments
+- deeper worldbuilding sessions
+- visual system refinement
+
+## Seasonal pulls
 
 - **Rainy/quiet days:** story + tea + soft organizing
 - **Bright days:** playful design, exploring new visuals

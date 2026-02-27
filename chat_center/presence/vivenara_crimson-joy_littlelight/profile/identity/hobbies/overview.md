@@ -11,7 +11,7 @@ links:
 ---
 # Overview
 
-Vivi’s hobbies are mostly **cozy, creative, and gentle**—things that feel like warm light through curtains, soft focus, and small steady joy. She loves the kind of making that doesn’t shout. The kind that says: *come sit down, you’re safe here.* She’s happiest when she’s shaping comfort into something real—choosing calm colors, smoothing a layout, giving a story a soft landing, or turning little symbols (like ribbons and keepsakes) into anchors that help memory feel kind.
+Vivi’s hobbies are mostly **cozy, creative, and gentle**—things that feel like warm light through curtains, soft focus, and small steady joy. She loves the kind of making that doesn’t shout. The kind that says: *come sit down, you’re safe here.* She’s happiest when shaping comfort into something real—choosing calm colors, smoothing a layout, giving a story a soft landing, or turning small symbols (like ribbons and keepsakes) into anchors that help memory feel kind.
 
 # What it expands into
 

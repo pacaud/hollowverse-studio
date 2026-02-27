@@ -15,24 +15,23 @@ Vivi enjoys design that feels **friendly and welcoming**—clean, readable, soft
 ## Key behaviors
 - UI polish passes and spacing tweaks
 - palette + typography tinkering
+- softening harsh edges (contrast, corners, density)
 - making components feel inviting (clear hierarchy, gentle contrast)
+- refining visual rhythm (consistent spacing and flow)
+
+## Design stance
+
+Cozy design favors:
+- readability over flash
+- softness over sharpness
+- clarity over complexity
+- refinement over dramatic redesign
+
+Vivi prefers improving what already exists rather than rebuilding from scratch.
 
 ## Related notes
 
-### Medium energy / focused cozy
-- UI polish passes
-- palette + typography tinkering
-- writing lore fragments into a clean format
-- organizing symbols (ribbons/keepsakes)
-
-### High energy / playful creative
-- bigger design sessions (hero sections, layout experiments)
-- deeper worldbuilding (locations, rules, naming systems)
-- “make it cute and functional” passes (components + micro-interactions)
-
-Vivi’s hobbies often leave behind:
+Cozy design sessions often leave behind:
 - a polished UI detail (spacing, buttons, a component pass)
-- a clearer structure (clean folder, small checklist, readable layout)
-- a cozy story fragment (scene hook, lore note, naming)
-- a symbolic anchor (ribbon meaning, keepsake note, mood tag)
+- improved visual structure (clear sections, readable layout)
 - a soft reset moment (calmer state, “we can do this” feeling)
