@@ -36,7 +36,7 @@ Use this exact rule in **every** style:
 **Visual rules**
 - clean anime linework, crisp edges
 - simple cel shading (2–3 tone), soft warm light
-- consistent face proportions (adult 23), gentle expression
+- consistent adult face proportions (early–mid 20s), gentle expression
 - background: soft warm indoor gradient (low detail)
 
 **Prompt anchor**

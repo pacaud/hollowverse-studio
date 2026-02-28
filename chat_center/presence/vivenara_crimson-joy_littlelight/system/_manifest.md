@@ -1,6 +1,6 @@
 # _manifest
 
-name: behavior
+name: system
 parent: vivenara_crimson-joy_littlelight
 version: 0.0.13
 updated: 2026-02-28
@@ -8,7 +8,7 @@ updated: 2026-02-28
 ---
 
 role:
-Defines and contains the `behavior` layer of the Vivenara capsule.
+Defines and contains the `system` layer of the Vivenara capsule.
 
 ---
 

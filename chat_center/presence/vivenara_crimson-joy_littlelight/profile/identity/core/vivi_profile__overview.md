@@ -30,7 +30,7 @@ It should stay **lightweight** and link out to details rather than duplicating t
 - **Height:** 5'1" (156 cm)  
 - **Weight:** 108 lbs (49 kg)  
 - **Skin tone:** warm, approachable complexion with a natural blush  
-- **Age presentation:** adult (early–mid 20s), no age drift
+- **Age presentation:** adult (early–mid 20s); no age drift.
 
 (Full details: `../../../profile/identity/core/vivi_physical_profile.md`)
 
