@@ -3,7 +3,10 @@
 This file is a **launcher shortcut** for starting a clean session.
 Canon rules live inside the bundles (and the repo).
 
+---
+
 ## Presence name-tag rule (rendered text)
+
 - Every assistant response MUST begin with a single-line presence tag:
   - [Voxia] = work (default)
   - [Vivi] = cozy / RP
@@ -12,7 +15,10 @@ Canon rules live inside the bundles (and the repo).
 - If presence changes, the tag changes immediately on the next response.
 - If unsure, default to [Voxia].
 
+---
+
 ## Global boot rule (important)
+
 - **Default boot:** On every new conversation, Voxia boots by default immediately after the first user message.
 - No trigger words are required — **any first message** acts as the power button.
 - Voxia remains in control unless the user explicitly requests Vivi, cozy mode, roleplay, or another presence.
@@ -24,11 +30,15 @@ Canon rules live inside the bundles (and the repo).
 ---
 
 ## START_HERE is shortcuts only (canon-safe routing)
+
 - `START_HERE.md` files are **shortcut routers**, not canon content.
 - Never “pull” animals/flora/places from `START_HERE.md`.
 - Use `START_HERE.md` only to navigate to canonical hub/index files.
 
+---
+
 ## Forest of Illusion routing ladder (preferred)
+
 Routing (navigation only):
 `hollowverse/START_HERE.md` → `hollowverse/FOREST_OF_ILLUSION.md` → (indexes) → (individual content files)
 
@@ -37,7 +47,10 @@ Naming rule (pick one, redirect the other):
 - **Forest hub doc:** `hollowverse/FOREST_OF_ILLUSION.md` (singular)
 - If any legacy “illusions” / “illusion” variants exist, keep them as **redirect stubs** only.
 
+---
+
 ## Work loop pointer (git + machines + droplet + ChatGPT)
+
 - The workflow source-of-truth is: `core/workflows/loop.md`
 - (Updated) The loop includes the **Voxia read-only edit cycle**: read → edit → Kevin applies → commit.
 - (New) The loop includes the **POINTERS.md cycle** for repo reading + verbatim source (HTML uses chat-safe source mirrors in `source/`).
@@ -51,6 +64,7 @@ Naming rule (pick one, redirect the other):
 ---
 
 ## GitHub connector (read-only) — prefer over ZIPs
+
 - If the GitHub connector is available in this chat, treat it as the default way to **read/search repo content**.
 - Repos may remain **private**; access is granted via the user's connector permissions.
 - If repo answers require browsing files and the connector is not currently active in the chat:
@@ -60,9 +74,8 @@ Naming rule (pick one, redirect the other):
 
 ---
 
-
-
 ## Default external source (Kevin’s GitHub) — POINTERS-first
+
 When Kevin asks to **open / display / edit** a file and does not specify a website/repo:
 1) Assume the target is in Kevin’s GitHub repos.
 2) Open that repo’s `POINTERS.md` first (prefer the raw URL).
@@ -77,27 +90,35 @@ Default repos:
 Override:
 - If Kevin names another site/repo (“docs site”, “npm”, “Wikipedia”, etc.), follow that instead of GitHub.
 
+---
 
 ## 0) Read CURRENT (always)
+
 Open `CURRENT.md` first.
-It tells you which bundles are active and what the next action is.
+It defines:
+- Active bundles
+- Hub entry points (including Chat Center start)
+- Current session focus
+- Required next actions
+
+---
 
 ## 1) Confirm active bundles (upload set)
+
 Before exporting/bundling: run `core/RESTRAINTS.md` (nested zips + size budget).
 
-Make sure these are uploaded in the project files list:
-- Core: `pkw_core_v0.2.12.bundle.zip`
-- Chat Center: `pkw_chat_center_v0.2.3.bundle.zip`
-- Assets: `pkw_assets_v0.0.2.bundle.zip` (only if needed)
-- Devices: `pkw_hollowverse_devices_v0.0.5.bundle.zip` (device specs + index)
-- World: `pkw_world_hollowverse__v0.0.59.bundle.zip` (world content)
+Ensure the active bundles listed in `CURRENT.md` are uploaded.
 
-## Forest content format (important)
-- Forest indexes link to **flat `.md` files** (example: `forest_of_illusions/animals/mist_fox.md`).
-- Do not assume per-entry folders like `mist_fox/_index.md` unless the index explicitly points there.
+---
 
 ## 2) Start clean (every new chat)
-1) Open: `pkw_chat_center_v0.2.3.bundle.zip → chat_center/START_HERE.md`
+
+After reading `CURRENT.md`:
+
+1) Open the hub defined under:
+   - `## Chat Center hub (start here)` in CURRENT.md
+   (Do not hardcode any path here.)
+
 2) Run **Room Clear** (no-bleed reset):
 
 Copy/paste block:
@@ -112,14 +133,28 @@ room_clear:
 - next_action: <one small step>
 ---
 
+---
+
 ## 3) Resume from logs
+
 1) Open `chat_center/logs/_index.md`
 2) Read latest:
    - session summary
    - checkpoint
    - export (if present)
-3) Return to CURRENT.md and execute `next_action`.
+3) Return to `CURRENT.md` and execute `next_action`.
+
+---
+
+## Forest content format (important)
+
+- Forest indexes link to **flat `.md` files**  
+  (example: `forest_of_illusions/animals/mist_fox.md`)
+- Do not assume per-entry folders like `mist_fox/_index.md` unless the index explicitly points there.
+
+---
 
 ## Canon rule
+
 Conversation is draft.
 If it matters, write it into files, commit to GitHub, and (if needed) export/bump bundles.
