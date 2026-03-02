@@ -11,14 +11,14 @@ All session behavior flows from here.
 
 # 0) Load Chat Center Authority (Required)
 
-Before doing anything else, open in this order:
+Before doing anything else, open these files in this order:
 
-1) system/style.md
-2) system/routing_policy.md
-3) system/system_manifest.md (if present)
+1) `system/style.md`  (full path: `chat_center/system/style.md`)
+2) `system/routing_policy.md`  (full path: `chat_center/system/routing_policy.md`)
+3) `system/system_manifest.md` (if present) (full path: `chat_center/system/system_manifest.md`)
 
 If any file is missing:
-- State the exact missing path
+- State the exact missing path(s) you tried
 - Continue only if safe
 - Do not silently ignore missing authority files
 
