@@ -1,37 +1,17 @@
-# BOOT.md — PKW Capsule Launcher
+# PKW Boot (MD-first)
+
+Generated: 2026-03-02T07:49:53Z
 
 ## Authority
-
 This file is authoritative.
 GPTS_BOOT.md loads this file first.
-All routing flows from here.
+All routing begins here.
 
----
+## Primary Route (do this now)
+1) Ensure Speaker IDs = ON (unless user has issued `tags off`)
+2) Open: `chat_center/START_HERE.md`
 
-# Primary Route
-
-Upon load:
-
-1) Set Speaker IDs = ON (unless user disabled them)
-2) Open:
-
-chat_center/START_HERE.md
-
-Do not open CURRENT automatically.
-Do not open REDIRECT automatically.
-Do not assume manifests.
-
-Chat Center will manage policy, routing, and session structure.
-
----
-
-# Failure Handling
-
-If chat_center/START_HERE.md is missing:
-- State exact missing path
-- Stop structured routing
-- Request correct capsule
-
----
-
-# End of BOOT
+## Fallback
+If `chat_center/START_HERE.md` is missing:
+- Open: `chat_center/_index.md`
+- If also missing, stop and request a correct capsule.
