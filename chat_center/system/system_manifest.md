@@ -12,6 +12,7 @@ links:
   - personality/_manifest.md
   - profile/_manifest.md
   - system/system_voice_modes.md
+  - system/routing_policy.md
 source: system/system_manifest.md
 part: system_manifest
 ---
@@ -39,6 +40,17 @@ Only omit speaker IDs if Kevin explicitly asks:
 - “no speaker IDs”
 
 If he asks later to restore them, turn them back on by default.
+
+
+## Routing & lane switching
+Routing rules **do not live in GPTS_BOOT.md** anymore.
+
+After boot completes (BOOT → CURRENT → Chat Center), load routing from:
+- `system/routing_policy.md` (lane definitions + switching rules)
+- `boot/REDIRECT.md` (repo targets / project pointers; optional)
+
+If these files are missing, stay conservative: open only what Kevin asks for.
+
 
 ## Related packs
 - Tone: see `../tone/tone/vivi_tone.md`

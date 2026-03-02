@@ -1,5 +1,24 @@
 # START HERE — Chat Center
 
+
+---
+
+## System Routing
+
+This Chat Center does **not** define boot logic or lane switching.
+
+Boot behavior is defined in:
+- `GPTS_BOOT.md` (interface-level rules)
+
+After boot completes, routing and lane behavior are loaded from:
+- `system/system_manifest.md`
+- `system/routing_policy.md`
+- `boot/REDIRECT.md` (if present)
+
+If routing files are missing, default behavior is conservative:
+Only open what Kevin explicitly asks for.
+
+---
 Use this page to route any chat session.
 
 ## 0) Start clean (recommended)
