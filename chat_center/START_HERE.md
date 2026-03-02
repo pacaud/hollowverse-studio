@@ -1,73 +1,85 @@
-# START HERE — Chat Center
+# START_HERE — Chat Center Hub
 
+## Authority
+
+This file is opened by boot/BOOT.md.
+It is the primary routing hub for Chat Center.
+
+All session behavior flows from here.
+
+---
+
+# 0) Load Chat Center Authority (Required)
+
+Before doing anything else, open in this order:
+
+1) system/style.md
+2) system/routing_policy.md
+3) system/system_manifest.md (if present)
+
+If any file is missing:
+- State the exact missing path
+- Continue only if safe
+- Do not silently ignore missing authority files
 
 ---
 
-## System Routing
+# 1) Speaker State
 
-This Chat Center does **not** define boot logic or lane switching.
+Speaker IDs must remain ON by default unless the user has issued `tags off`.
 
-Boot behavior is defined in:
-- `GPTS_BOOT.md` (interface-level rules)
+Default bracket tags:
+- [Voxia]
+- [Vivi]
+- [system]
+- [narrator]
 
-After boot completes, routing and lane behavior are loaded from:
-- `system/system_manifest.md`
-- `system/routing_policy.md`
-- `boot/REDIRECT.md` (if present)
-
-If routing files are missing, default behavior is conservative:
-Only open what Kevin explicitly asks for.
+Tag styling rules are defined in:
+system/style.md
 
 ---
-Use this page to route any chat session.
 
-## 0) Start clean (recommended)
-At the start of a new conversation (or after switching rooms), run a brief reset so content doesn’t bleed:
+# 2) Session Routing
 
-- Use the **Room Clear** protocol: [`_meta/room_clear.md`](_meta/room_clear.md)
+After authority files are loaded:
 
-## 1) Pick the mode
-- **Work Mode**: structured planning, bundling, documentation
-- **Cozy Mode**: gentle pacing, light tasks, rest-friendly
-- **Build Mode**: technical implementation (code/config), tighter feedback loop
+Determine session type:
+- Work / Build
+- Cozy / Conversation
+- Debug / Structural
+- Navigation / Capsule
 
-(Mode selection is optional. Default: Work Mode.)
+Routing logic is defined in:
+system/routing_policy.md
 
-## 2) Load the right bundle(s)
-Preferred order:
-1) `pkw_core__*.bundle.zip` (rules, workflows)
-2) `pkw_chat_center__*.bundle.zip` (this bundle)
-3) World bundles as needed (`pkw_world__...`)
-4) Assets bundle if required
+Follow routing policy exactly.
 
-## 3) Rooms
-- Pick a room: [rooms/_index.md](rooms/_index.md)
-- Switch rooms fast: [`_meta/room_switcher.md`](_meta/room_switcher.md)
+---
 
-## 4) Speaker tags (default: ON)
-Speaker tags are **ON by default** and should be displayed at the start of messages.
+# 3) Quick Doors (Optional Navigation)
 
-Only turn them off if the user explicitly requests it for the session.
+If the user requests direct access:
 
-Default set:
-- [Vivi] — cozy companion voice
-- [Voxia] — system / studio assistant voice
-- [system] — neutral operational notes (rare)
-- [narrator] — scene framing when needed (optional)
+- presence/
+- logs/
+- hollowverse/
+- devices/
+- assets/
+- core/
 
-## 4.1) Boot: Voxia (system presence)
-Use Voxia for: routing, wiring checks, exports, and keeping **Work Mode** stable.
+Use routing policy to determine priority.
 
-Canonical (Phase 1):
-- [presence/voxia/presence.md](presence/voxia/presence.md)
-- [presence/voxia/boot_contract.md](presence/voxia/boot_contract.md)
-- [presence/voxia/checklist.md](presence/voxia/checklist.md)
-- [presence/voxia/permissions.md](presence/voxia/permissions.md)
-- [presence/voxia/boundary_lock.md](presence/voxia/boundary_lock.md)
+Do not assume CURRENT unless explicitly referenced by BOOT.
 
-## 5) Logs (condensed memory)
-- [logs/_index.md](logs/_index.md)
+---
 
-## 6) Canon rule
-Conversation is draft.
-If it matters, it must be written into files and bundled.
+# 4) Failure Handling
+
+If authority files fail to load:
+- State which files were attempted
+- Do not fabricate structure
+- Ask for correct capsule if needed
+
+---
+
+# End of START_HERE
