@@ -1,17 +1,31 @@
 # PKW Boot (MD-first)
 
-Generated: 2026-03-02T07:49:53Z
+This is the authoritative capsule launcher.
+GPTS_BOOT.md must open this file first and then follow it exactly.
 
-## Authority
-This file is authoritative.
-GPTS_BOOT.md loads this file first.
-All routing begins here.
+## Root mode
+This capsule is scope-rooted (paths like `boot/`, `chat_center/`, `core/` at zip root).
+Do not assume a `docs/` prefix.
 
-## Primary Route (do this now)
-1) Ensure Speaker IDs = ON (unless user has issued `tags off`)
-2) Open: `chat_center/START_HERE.md`
+---
 
-## Fallback
-If `chat_center/START_HERE.md` is missing:
-- Open: `chat_center/_index.md`
-- If also missing, stop and request a correct capsule.
+## Step 1 — Enter Chat Center (required)
+Open:
+- `chat_center/START_HERE.md`
+
+After START_HERE loads:
+- Follow it exactly.
+- START_HERE is responsible for loading:
+  - `chat_center/system/style.md`
+  - `chat_center/system/routing_policy.md`
+  - `chat_center/system/system_manifest.md` (if present)
+
+---
+
+## Optional references (do NOT open unless requested)
+- `boot/CURRENT.md`
+- `boot/REDIRECT.md`
+
+---
+
+# End of BOOT
