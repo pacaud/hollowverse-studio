@@ -1,20 +1,14 @@
-# starbound_stag — appearance_window
+# starbound_stag — growth
 
-status: legend
-type: legend_cycle
+status: seeded
+type: life_cycle
 parent: starbound_stag
 region: forest_of_illusions
 
-[appearance_window]
-- turning points only (returns, endings that become beginnings, quiet vows)
+[activity_cycle]
+- most active: clear night skies
+- rests: hidden glades during heavy storms
 
-[phases]
-- distant_glint
-  - antlers catch light first, like a small constellation shifting
-- witness
-  - it stands at the edge of view; still, attentive
-- vanish
-  - it is simply gone—no retreat sound, no trail
-
-[notes]
-Not cultivated. Not tracked. Not summoned.
+[seasonal_notes]
+- antlers brightest during winter constellations
+- sheds faint star-dust fragments in late winter

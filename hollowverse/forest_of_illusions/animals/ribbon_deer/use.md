@@ -6,9 +6,8 @@ parent: ribbon_deer
 region: forest_of_illusions
 
 [use]
-- transition moments (leaving / returning / choosing a path)
-- calm awe scenes
-- a “safe route” cue for travelers and guides
+- crossroads marker
+- emotional turning point symbol
 
 [notes]
-Not a mount, not a pet—more like a living signpost.
+Not hunted; treated as a sign rather than prey.

@@ -1,14 +1,10 @@
 # whisper_frond — description
 
 status: seeded
-type: description
+type: vegetation_description
 parent: whisper_frond
-layer: understory
 region: forest_of_illusions
 
 [description]
-Thin, feathery fronds that tremble with the smallest air shift.
-It’s easy to miss unless you’re moving slowly.
-
-[notes]
-Often found beside paths where arguments have ended, or where someone stopped rushing.
+A delicate fern with thin, feathery fronds.
+It’s easy to miss unless you’re moving slowly—then it becomes obvious, like it was waiting.

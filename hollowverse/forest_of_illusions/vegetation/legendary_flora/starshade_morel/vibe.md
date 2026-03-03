@@ -1,9 +1,9 @@
 # starshade_morel — vibe
 
 status: legend
-type: vibe_profile
+type: vibe
 parent: starshade_morel
 region: forest_of_illusions
-appearance_rule: turning_points_only
-[vibe]
-ancient, protective, quiet blessing
+
+[vibe_keywords]
+quiet depth, shadow-honeycomb, threshold marker

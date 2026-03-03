@@ -1,11 +1,11 @@
 # night_moth
 
 status: seeded
-type: insect
+type: animal
 region: forest_of_illusions
 
 [quick]
-A large moth with velvety wings that catch moonlight softly—an easy sign the night is calm.
+A soft-winged moth that drifts through twilight and deep night, drawn to faint forest glows.
 
 [deep_dive]
 - vibe: night_moth/vibe.md

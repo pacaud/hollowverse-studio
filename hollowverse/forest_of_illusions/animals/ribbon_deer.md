@@ -5,7 +5,7 @@ type: animal
 region: forest_of_illusions
 
 [quick]
-A deer with faint ribbon-like markings that appears at clearing edges—often felt as “safe passage.”
+A graceful deer whose antlers resemble branching ribbons of pale light.
 
 [deep_dive]
 - vibe: ribbon_deer/vibe.md

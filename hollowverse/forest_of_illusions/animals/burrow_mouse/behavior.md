@@ -1,13 +1,11 @@
 # burrow_mouse — behavior
 
 status: seeded
-type: animal_behavior
+type: behavior_profile
 parent: burrow_mouse
 region: forest_of_illusions
 
 [behavior]
-- gathers crumbs near stump_table_circle
-- freezes, then scurries
-
-[notes]
-They’re brave in pairs, shy alone.
+- builds interconnected tunnel systems
+- stores seeds in multiple small caches
+- freezes briefly when shadows pass overhead

@@ -1,20 +1,12 @@
 # starshade_morel — growth
 
 status: legend
-type: legend_growth
+type: growth
 parent: starshade_morel
 region: forest_of_illusions
-appearance_rule: turning_points_only
-[appearance_window]
-- turning_points_only
 
-[stages]
-- pin
-  - dark, small, easy to miss
-- starfold
-  - honeycomb folds show faint starlike flecks in moonlight
-- softfade
-  - flecks vanish first; then the mushroom is simply gone
+[growth_notes]
+Appears at turning points only; not foraging.
 
-[notes]
-Not cultivated. Not harvested. It arrives when it means to.
+[seasonal_notes]
+Not seasonal—tied to milestone thresholds.

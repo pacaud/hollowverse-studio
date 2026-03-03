@@ -9,9 +9,10 @@ A long, smooth stone that warms in sunlight—positioned like a bench beside a q
 
 [deep_dive]
 - vibe: warmstone_bench/vibe.md
-- sensory: warmstone_bench/sensory.md
-- cycle: warmstone_bench/growth.md
 - description: warmstone_bench/description.md
+- sensory: warmstone_bench/sensory.md
+- behavior: warmstone_bench/behavior.md
+- nearby: warmstone_bench/nearby.md
 - use: warmstone_bench/use.md
 - lore: warmstone_bench/lore.md
 - variants: warmstone_bench/variants.md

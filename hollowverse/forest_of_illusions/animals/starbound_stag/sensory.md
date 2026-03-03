@@ -1,22 +1,15 @@
 # starbound_stag — sensory
 
-status: legend
+status: seeded
 type: sensory_profile
 parent: starbound_stag
 region: forest_of_illusions
 
 [visual]
-- antlers: starlight-catching, constellation-like points
-- coat: dark and clean, edges softened by night air
-- presence: feels “outlined” rather than brightly lit
+tiny star-like glints across antler branches
 
 [sound]
-- footsteps: nearly silent
-- leaving: no snap of twig, no rush—just absence
+deep steady hoofbeats, spaced and deliberate
 
-[scent]
-- cool air after a clear night
-- faint clean woodsmoke *memory* (not literal smoke)
-
-[touch]
-Not known. It never approaches closely.
+[presence]
+air feels wider and quieter around it

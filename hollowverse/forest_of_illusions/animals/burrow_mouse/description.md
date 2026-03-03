@@ -6,10 +6,5 @@ parent: burrow_mouse
 region: forest_of_illusions
 
 [description]
-A tiny forest mouse with bright eyes.
-Often seen darting between roots.
-
-[where_you_spot_it]
-- between roots and fallen leaves
-- near stump tables and low crossings
-- anywhere crumbs collect after rest stops
+A small brown-grey mouse with soft fur and bright attentive eyes.
+Its tunnels weave quietly beneath roots and fallen leaves.

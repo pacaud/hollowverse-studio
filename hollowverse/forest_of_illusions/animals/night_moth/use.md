@@ -6,10 +6,8 @@ parent: night_moth
 region: forest_of_illusions
 
 [use]
-- evening ambience
-- night scenes
-- “the night is safe” marker
+- night atmosphere enhancer
+- fragile beauty motif
 
-[scene_moves]
-- a lantern is lowered instinctively when a night_moth passes
-- a character follows its slow loops toward a quiet rest spot
+[notes]
+Symbolic rather than impactful creature.

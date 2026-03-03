@@ -5,20 +5,14 @@ type: shrub
 layer: understory
 region: forest_of_illusions
 
-[vibe]
-playful, threaded paths, gentle movement
+[quick]
+A low shrub with trailing ribbon-like vines that curl across stones and gently frame looping paths.
 
-[description]
-A low shrub with trailing vines that curl like ribbons.
-The vines sometimes drape across stones like soft lines drawn by hand.
-
-[sensory]
-touch: smooth vines, slightly cool
-visual: ribbon-like arcs in morning light
-
-[lore]
-- Often appears near paths that loop back home.
-
-[use]
-- Path detail
-- “Return route” framing
+[deep_dive]
+- vibe: ribbon_vine_shrub/vibe.md
+- description: ribbon_vine_shrub/description.md
+- sensory: ribbon_vine_shrub/sensory.md
+- lore: ribbon_vine_shrub/lore.md
+- use: ribbon_vine_shrub/use.md
+- variants: ribbon_vine_shrub/variants.md
+- hooks: ribbon_vine_shrub/hooks.md

@@ -1,11 +1,11 @@
 # lantern_wren
 
 status: seeded
-type: bird
+type: animal
 region: forest_of_illusions
 
 [quick]
-A small wren with warm brown feathers and a faintly lighter breast.
+A small warm-toned bird whose chest glows faintly in low light like a living lantern.
 
 [deep_dive]
 - vibe: lantern_wren/vibe.md

@@ -1,14 +1,15 @@
 # hush_owl — sensory
 
-status: rumor
+status: seeded
 type: sensory_profile
 parent: hush_owl
 region: forest_of_illusions
+
 [sound]
-- a call that seems to lower everything else
+nearly silent wingbeats
 
-[sight]
-- rarely seen clearly; often just a shape in the canopy
+[visual]
+smooth glide between branches
 
-[air]
-- deep-night cool, like the forest is holding its breath
+[presence]
+felt as a shift in stillness above

@@ -6,11 +6,10 @@ parent: moss_tortoise
 region: forest_of_illusions
 
 [visual]
-- moss-soft shell texture, muted greens and earth browns
-- slow movement that feels almost ceremonial
-
-[scent]
-- clean damp moss + warm stone
+patchwork shell of green moss and faint blooms
 
 [sound]
-- a faint shell-scrape over leaves when it turns
+soft scrape of shell against bark or stone
+
+[presence]
+feels like the forest moving deliberately

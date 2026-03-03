@@ -6,6 +6,6 @@ parent: starlumen_rose
 region: forest_of_illusions
 
 [rules]
-- never picked
-- never owned
-- if seen, speak softly or not at all
+- rare appearance
+- never harvested
+- do not summon

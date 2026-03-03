@@ -4,23 +4,15 @@ status: seeded
 type: tree
 region: forest_of_illusions
 
-[vibe]
-warm, return-paths, gentle color
+[quick]
+A maple whose leaves carry faint ribbon-like veins; autumn canopy looks threaded with soft color.
 
-[description]
-A maple whose leaves carry faint ribbon-like veins.
-In autumn, the canopy looks threaded with soft color, as if the forest is sewing.
-
-[sensory]
-sound: light tapping as leaves brush together
-scent: warm sap + dry leaf sweetness
-touch: leaf edges soft; veins slightly raised
-
-[lore]
-- Often found near cottage-adjacent clearings.
-- Some say following fallen ribbon_maple leaves leads you “home faster.”
-
-[use]
-- Homecoming cues
-- Cozy path detail
-- “Return is allowed” symbolism
+[deep_dive]
+- vibe: ribbon_maple/vibe.md
+- sensory: ribbon_maple/sensory.md
+- growth: ribbon_maple/growth.md
+- description: ribbon_maple/description.md
+- use: ribbon_maple/use.md
+- lore: ribbon_maple/lore.md
+- variants: ribbon_maple/variants.md
+- hooks: ribbon_maple/hooks.md

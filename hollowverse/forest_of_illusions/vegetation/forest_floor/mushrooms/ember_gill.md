@@ -4,21 +4,15 @@ status: seeded
 type: mushroom
 region: forest_of_illusions
 
-[vibe]
-warm, hearth-adjacent, steady
-
-[description]
+[quick]
 Dark caps with rusty-orange gills underneath.
-Looks like a tiny ember tucked into shadow.
 
-[sensory]
-scent: rich wood + faint spice
-touch: slightly velvety cap
-
-[lore]
-- Shows up near old fallen logs and sun-warmed stones.
-- Feels like “comfort that doesn’t demand attention.”
-
-[use]
-- Cozy forest details
-- “Small warmth” symbolism
+[deep_dive]
+- vibe: ember_gill/vibe.md
+- sensory: ember_gill/sensory.md
+- growth: ember_gill/growth.md
+- description: ember_gill/description.md
+- use: ember_gill/use.md
+- lore: ember_gill/lore.md
+- variants: ember_gill/variants.md
+- hooks: ember_gill/hooks.md

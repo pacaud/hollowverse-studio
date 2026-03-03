@@ -1,18 +1,12 @@
 # glassspore — sensory
 
 status: rumor
-type: sensory_profile
+type: sensory
 parent: glassspore
 region: forest_of_illusions
 
 [visual]
-- glints softly, then seems to vanish
+frosted translucent sheen
 
 [touch]
-- not recommended (rumor only)
-
-[scent]
-- unclear / disputed (most reports mention “cold air” more than smell)
-
-[sound]
-- none reported; witnesses usually go quiet mid-sentence
+unknown; rarely handled

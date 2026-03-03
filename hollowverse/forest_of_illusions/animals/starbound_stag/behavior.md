@@ -1,20 +1,11 @@
 # starbound_stag — behavior
 
-status: legend
+status: seeded
 type: behavior_profile
 parent: starbound_stag
 region: forest_of_illusions
 
 [behavior]
-- appears briefly
-- watches without approaching
-- vanishes without sound
-
-[body_language]
-- head high, calm
-- no threat display
-- no invitation either—pure witness
-
-[interaction]
-If you move toward it, it won’t “run.”
-It will simply no longer be there.
+- appears in open clearings under visible stars
+- does not flee unless pursued aggressively
+- stands still when observed with reverence

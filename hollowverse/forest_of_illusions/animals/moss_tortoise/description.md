@@ -6,9 +6,5 @@ parent: moss_tortoise
 region: forest_of_illusions
 
 [description]
-A large tortoise with moss growing gently on its shell.
-It moves very slowly, but always seems to arrive.
-
-[appearance_notes]
-- shell: carries a living moss layer that changes with the season
-- eyes: calm, unhurried focus
+A broad-shelled tortoise whose back supports moss, tiny flowers, and drifting spores.
+Its movements are slow but unwavering.

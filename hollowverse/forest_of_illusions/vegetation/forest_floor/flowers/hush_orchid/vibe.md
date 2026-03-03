@@ -1,9 +1,9 @@
 # hush_orchid — vibe
 
 status: rumor
-type: vibe_profile
+type: vibe
 parent: hush_orchid
 region: forest_of_illusions
 
-[vibe]
-quiet, secret, careful
+[vibe_keywords]
+(derived from quick description)

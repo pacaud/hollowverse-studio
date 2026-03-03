@@ -1,17 +1,14 @@
 # lantern_wren — growth
 
 status: seeded
-type: animal_growth
+type: life_cycle
 parent: lantern_wren
 region: forest_of_illusions
 
-[life_stages]
-- hatchling
-  - stays hidden; only tiny peeps
-- fledgling
-  - clumsy hops; learns the safe edges of paths
-- adult
-  - dusk/dawn singer; bold enough to be near cottages
+[activity_cycle]
+- most active: dusk and early night
+- rests: dense canopy midday
 
 [seasonal_notes]
-Most active around mild mornings and calm evenings.
+- glow strongest in autumn evenings
+- nests in hollow branches

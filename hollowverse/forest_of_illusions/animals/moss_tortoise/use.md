@@ -6,10 +6,8 @@ parent: moss_tortoise
 region: forest_of_illusions
 
 [use]
-- grounding scenes
-- patience symbolism
+- ancient guide symbol
+- slow-travel pacing device
 
-[best_for]
-- grounding scenes
-- patience symbolism
-- “we’ll get there” reassurance
+[notes]
+Never hurried; never forced.

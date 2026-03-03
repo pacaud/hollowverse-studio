@@ -1,19 +1,15 @@
 # lantern_peony — sensory
 
 status: legend
-type: sensory_profile
+type: sensory
 parent: lantern_peony
 region: forest_of_illusions
 
-[scent]
-- rich and comforting, like warm tea steam
-
 [visual]
-- soft inner glow; never harsh
-- light sits in the center like a hidden lantern
+petals catch dim light; center glows warm
 
-[touch]
-- petals feel full and soft (if brushed), never wet
+[scent]
+richer floral warmth than lantern_bloom
 
-[sound]
-- none; the “sound” is the quiet that gathers around it
+touch
+petals soft and layered, cool outer edges

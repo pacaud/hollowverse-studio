@@ -1,18 +1,15 @@
 # lantern_bloom — sensory
 
 status: legend
-type: sensory_profile
+type: sensory
 parent: lantern_bloom
 region: forest_of_illusions
 
+[visual]
+a warm inner light, never harsh
+
 [scent]
-- warm tea steam
-- clean night air
+soft floral warmth, subtle like tea steam
 
-[light]
-- soft inner glow (never harsh)
-- strongest at dusk and night
-
-[sound]
-- none
-- the area often *feels* calmer (as if the forest lowers its voice)
+touch
+petals feel cool at the edges, warm near the center

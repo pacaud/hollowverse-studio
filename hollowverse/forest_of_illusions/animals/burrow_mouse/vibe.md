@@ -5,5 +5,5 @@ type: vibe_profile
 parent: burrow_mouse
 region: forest_of_illusions
 
-[vibe]
-small life, everyday comfort
+[vibe_keywords]
+small, careful, industrious

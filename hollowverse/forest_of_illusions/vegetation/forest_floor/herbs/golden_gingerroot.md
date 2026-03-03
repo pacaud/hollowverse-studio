@@ -4,21 +4,16 @@ status: seeded
 type: herb
 region: forest_of_illusions
 
-[vibe]
-warm, steady, hearth-adjacent
+[quick]
+A low sturdy herb with a warm-toned root.
 
-[description]
-Low plant with sturdy stems and warm-toned root.
-Often near sun-warmed stones.
-
-[sensory]
-scent: warm spice, earth
-taste: gentle heat
-
-[lore]
-- A symbol of quiet strength.
-- Used when energy needs steadiness, not speed.
-
-[use]
-- Comfort scenes
-- Slow energy support
+[deep_dive]
+- vibe: golden_gingerroot/vibe.md
+- sensory: golden_gingerroot/sensory.md
+- growth: golden_gingerroot/growth.md
+- description: golden_gingerroot/description.md
+- behavior: golden_gingerroot/behavior.md
+- use: golden_gingerroot/use.md
+- lore: golden_gingerroot/lore.md
+- variants: golden_gingerroot/variants.md
+- hooks: golden_gingerroot/hooks.md

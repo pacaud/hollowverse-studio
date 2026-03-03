@@ -6,6 +6,6 @@ parent: lantern_peony
 region: forest_of_illusions
 
 [rules]
-- Rare appearance
-- No harvesting
-- If seen, it’s a gift—let it pass
+- turning points only
+- never harvested
+- acknowledge and move on

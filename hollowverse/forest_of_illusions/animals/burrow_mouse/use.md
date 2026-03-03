@@ -6,9 +6,8 @@ parent: burrow_mouse
 region: forest_of_illusions
 
 [use]
-- cozy background detail
+- subtle environmental life marker
+- grounding scene detail
 
-[best_in_scenes]
-- warmstone benches
-- stump tables
-- gentle trails where snacks exist
+[notes]
+Not central to conflict; supports ecosystem texture.

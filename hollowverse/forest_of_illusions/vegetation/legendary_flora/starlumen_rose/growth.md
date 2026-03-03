@@ -1,20 +1,12 @@
 # starlumen_rose — growth
 
 status: legend
-type: legend_growth
+type: growth
 parent: starlumen_rose
 region: forest_of_illusions
 
-[appearance_window]
-- rare; tied to gentle returns and quiet milestone moments
+[growth_notes]
+Appears rarely; never cultivated.
 
-[stages]
-- starbud
-  - a closed bud with a faint shimmer at the edges
-- shimmerbloom
-  - full rose-like bloom; petal edges sparkle softly
-- gratitude_fade
-  - shimmer dims first, then the bloom relaxes and vanishes like a released gift
-
-[notes]
-Not cultivated. Not propagated. It arrives when it means to.
+[seasonal_notes]
+Most often noticed during calm nights after a return.

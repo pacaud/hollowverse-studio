@@ -5,7 +5,7 @@ type: animal
 region: forest_of_illusions
 
 [quick]
-A tiny forest mouse that makes the roots feel lived-in.
+A small, earth-toned mouse that lives beneath root systems and leaf-litter tunnels.
 
 [deep_dive]
 - vibe: burrow_mouse/vibe.md

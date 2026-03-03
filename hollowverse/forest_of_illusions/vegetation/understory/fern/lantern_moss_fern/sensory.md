@@ -5,15 +5,11 @@ type: sensory_profile
 parent: lantern_moss_fern
 region: forest_of_illusions
 
-[light]
-- subtle warm sparkle in dusk (never bright)
+[visual]
+moss-bead stems shimmer softly in dim light
 
 [scent]
-- damp wood + clean air
+damp green, faint stone-cool
 
 [touch]
-- fronds: soft and cool
-- beads: feel like tiny mossy nodules, not sticky
-
-[sound]
-- none; the “sound” is the quiet you notice around sheltered hollows
+cool stems; fronds springy and light

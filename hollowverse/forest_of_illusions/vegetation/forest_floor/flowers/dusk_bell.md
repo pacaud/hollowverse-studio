@@ -5,26 +5,16 @@ type: flower
 region: forest_of_illusions
 bloom_time: dusk → night
 
-[vibe]
-quiet, twilight, gentle mystery
+[quick]
+A bell-shaped twilight flower with deep violet-blue petals that seems to listen as evening arrives.
 
-[description]
-A bell-shaped flower with deep violet-blue petals.
-At dusk, the petals tilt downward slightly, as if listening.
-
-[sensory]
-scent: faint, cool, almost rain-like
-sound: a soft chime only heard when the forest is very quiet
-touch: smooth, cool to the fingers
-
-[lore]
-- Often grows along paths taken during emotional transitions.
-- Said to “hold the evening” a little longer.
-
-[use]
-- Scene softener
-- Night arrival marker
-- Emotional threshold symbol
-
-[notes]
-Not harvested. Observed only.
+[deep_dive]
+- vibe: dusk_bell/vibe.md
+- sensory: dusk_bell/sensory.md
+- growth: dusk_bell/growth.md
+- description: dusk_bell/description.md
+- behavior: dusk_bell/behavior.md
+- use: dusk_bell/use.md
+- lore: dusk_bell/lore.md
+- variants: dusk_bell/variants.md
+- hooks: dusk_bell/hooks.md

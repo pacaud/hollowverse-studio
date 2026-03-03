@@ -4,22 +4,14 @@ status: seeded
 type: weather
 region: forest_of_illusions
 
-[vibe]
-fresh, guiding, gentle motion
+[quick]
+A soft evening wind that carries warmth and faint drifting light through the trees.
 
-[description]
-A mild breeze that moves through leaves like a slow exhale.
-It feels like the forest is “tidying the air.”
-
-[effects_on_places]
-- ribbon_maple leaves rustle like soft notes
-- echo_birch sounds like turning pages
-- cottage_stream carries sound farther
-
-[effects_on_fauna]
-- lantern_wren becomes more active
-- mist_fox may cross paths briefly
-
-[use]
-- transition scenes
-- “let’s keep moving, gently” mood
+[deep_dive]
+- vibe: lantern_breeze/vibe.md
+- sensory: lantern_breeze/sensory.md
+- behavior: lantern_breeze/behavior.md
+- lore: lantern_breeze/lore.md
+- use: lantern_breeze/use.md
+- variants: lantern_breeze/variants.md
+- hooks: lantern_breeze/hooks.md

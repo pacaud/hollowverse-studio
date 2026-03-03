@@ -1,8 +1,10 @@
 # hush_owl — description
 
-status: rumor
+status: seeded
 type: animal_description
 parent: hush_owl
 region: forest_of_illusions
-An owl rarely seen, more often felt.
-Its call is said to silence other sounds.
+
+[description]
+A broad-winged owl with pale feather edges that diffuse moonlight.
+Its eyes reflect faint silver in darkness.

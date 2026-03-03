@@ -3,25 +3,14 @@
 status: seeded
 type: landmark
 region: forest_of_illusions
-updated: 2026-01-23
 
-[vibe]
-steady crossing, gentle movement, safe route
-
-[description]
-A line of flat stones across the cottage_stream.
-They never wobble. They never sink. They’re quietly reliable.
-
-[nearby]
-- silverleaf_fern along the bank
-- dewleaf_cluster at dawn
-- ribbonred_bush sometimes near the approach
-
-[lore]
-- The crossing is a promise: you can move forward without being rushed.
-- Good for “small courage” moments.
-
-[use]
-- transition scenes
-- walks from cottage
-- “okay, one step” pacing
+[deep_dive]
+- vibe: stone_step_crossing/vibe.md
+- description: stone_step_crossing/description.md
+- sensory: stone_step_crossing/sensory.md
+- behavior: stone_step_crossing/behavior.md
+- nearby: stone_step_crossing/nearby.md
+- use: stone_step_crossing/use.md
+- lore: stone_step_crossing/lore.md
+- variants: stone_step_crossing/variants.md
+- hooks: stone_step_crossing/hooks.md

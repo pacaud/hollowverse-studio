@@ -6,15 +6,10 @@ parent: hush_orchid
 region: forest_of_illusions
 
 [baseline]
-Muted lavender orchid with a darker center; hard to describe the same way twice.
+Standard bloom form.
 
-[whispered_variants]
-- paperlilac
-  - looks a touch paler; scent leans more “warm paper”
-- duskcenter
-  - darker center, shows up closer to twilight
-- hushwhite
-  - almost white petals; rarely reported
+[known_variants]
+- none recorded
 
-[rarity]
-All variants remain rumor-tier until observed in canon.
+[rarity_scale]
+- common or rumor per status

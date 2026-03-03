@@ -4,21 +4,16 @@ status: seeded
 type: herb
 region: forest_of_illusions
 
-[vibe]
-fresh, alert, clean reset
+[quick]
+A small, bright-leaf herb with a crisp, clean scent—like a gentle reset.
 
-[description]
-Small bright leaves with crisp edges.
-Looks lively even in shade.
-
-[sensory]
-scent: cool, sharp, refreshing
-taste: clean, invigorating
-
-[lore]
-- Grows where new paths begin.
-- Signals fresh starts without pressure.
-
-[use]
-- Reset moments
-- Morning scenes
+[deep_dive]
+- vibe: brightmint/vibe.md
+- sensory: brightmint/sensory.md
+- growth: brightmint/growth.md
+- description: brightmint/description.md
+- behavior: brightmint/behavior.md
+- use: brightmint/use.md
+- lore: brightmint/lore.md
+- variants: brightmint/variants.md
+- hooks: brightmint/hooks.md

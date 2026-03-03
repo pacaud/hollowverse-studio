@@ -1,15 +1,10 @@
 # hushwort — use
 
 status: rumor
-type: use_profile
+type: use
 parent: hushwort
 region: forest_of_illusions
 
 [use]
-- De-escalation scenes
-- “Not yet” moments
-
-[scene_roles]
-- de-escalation anchor (“let’s slow down”)
-- boundary cue (“not yet” / “later”)
-- quiet support near rest spots
+- Rumor plant
+- Quiet scene symbol

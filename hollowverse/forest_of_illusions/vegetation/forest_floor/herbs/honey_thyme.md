@@ -5,7 +5,7 @@ type: herb
 region: forest_of_illusions
 
 [quick]
-Tiny clustered leaves with faint golden tips; a quiet comfort herb that never dominates a patch.
+Tiny clustered leaves with faint golden tips.
 
 [deep_dive]
 - vibe: honey_thyme/vibe.md

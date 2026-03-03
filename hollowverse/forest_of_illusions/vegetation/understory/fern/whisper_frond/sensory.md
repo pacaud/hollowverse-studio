@@ -3,14 +3,13 @@
 status: seeded
 type: sensory_profile
 parent: whisper_frond
-layer: understory
 region: forest_of_illusions
 
+[visual]
+thin feathery fronds that tremble with tiny air shifts
+
 [sound]
-- faint brushy rustle (only when close)
+soft brushing like paper-thin leaves
 
 [touch]
-- feather-light, almost ticklish
-
-[sight]
-- thin fronds; edges look slightly blurred in mist
+light, airy, almost ticklish against fingertips

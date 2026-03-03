@@ -3,25 +3,14 @@
 status: seeded
 type: landmark
 region: forest_of_illusions
-updated: 2026-01-23
 
-[vibe]
-cozy meeting, small rituals, friendly
-
-[description]
-A small circle of old stumps around one wider stump like a table.
-Nothing fancy—just a spot the forest keeps clear.
-
-[nearby]
-- softbloom_shrub framing the edge
-- honey_spore sometimes near the stumps
-- ribbonleaf_groundplant in tidy lines
-
-[lore]
-- Used for tea, notes, tiny offerings, or just sitting together.
-- It’s a “no pressure” gathering place.
-
-[use]
-- tea scenes
-- planning gently
-- companion hangout spot
+[deep_dive]
+- vibe: stump_table_circle/vibe.md
+- description: stump_table_circle/description.md
+- sensory: stump_table_circle/sensory.md
+- behavior: stump_table_circle/behavior.md
+- nearby: stump_table_circle/nearby.md
+- use: stump_table_circle/use.md
+- lore: stump_table_circle/lore.md
+- variants: stump_table_circle/variants.md
+- hooks: stump_table_circle/hooks.md

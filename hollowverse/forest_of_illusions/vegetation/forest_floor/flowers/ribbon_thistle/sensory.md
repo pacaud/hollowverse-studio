@@ -1,15 +1,15 @@
 # ribbon_thistle — sensory
 
 status: seeded
-type: sensory_profile
+type: sensory
 parent: ribbon_thistle
 region: forest_of_illusions
 
+[visual]
+(placeholder)
+
 [scent]
-- dry
-- sun-warm
-- faint spice
+(placeholder)
 
 [touch]
-- outer: prickly guards (don’t grab)
-- center: soft filaments (surprisingly gentle)
+(placeholder)

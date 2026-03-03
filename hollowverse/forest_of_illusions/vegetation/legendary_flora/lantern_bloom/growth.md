@@ -1,20 +1,12 @@
 # lantern_bloom — growth
 
 status: legend
-type: legend_growth
+type: growth
 parent: lantern_bloom
 region: forest_of_illusions
 
-[appearance_window]
-- turning points only (returns, restorations, quiet vow moments)
+[growth_notes]
+Does not grow predictably; appears.
 
-[stages]
-- emberbud
-  - a closed bud with warmth tucked inside
-- lanternbloom
-  - full bloom; inner light visible but gentle
-- softfade
-  - light dims first, then petals relax and vanish like a gift released
-
-[notes]
-Not cultivated. Not propagated. It arrives when it means to.
+[seasonal_notes]
+Not seasonal—tied to turning points.

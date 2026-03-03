@@ -5,21 +5,15 @@ type: fern
 layer: understory
 region: forest_of_illusions
 
-[vibe]
-cool, calm, attentive
+[quick]
+A fern with deep green fronds and pale, silvery undersides that angles slightly toward soft light.
 
-[description]
-A fern with deep green fronds and pale, silvery undersides.
-It seems to angle slightly toward soft light.
-
-[sensory]
-scent: clean green, faint rain
-touch: smooth fronds, cool to the fingers
-
-[lore]
-- Often lines quiet paths and “slow zones.”
-- A gentle cue: lower shoulders, breathe.
-
-[use]
-- Grounding scenes
-- Path framing
+[deep_dive]
+- vibe: silverleaf_fern/vibe.md
+- sensory: silverleaf_fern/sensory.md
+- growth: silverleaf_fern/growth.md
+- description: silverleaf_fern/description.md
+- use: silverleaf_fern/use.md
+- lore: silverleaf_fern/lore.md
+- variants: silverleaf_fern/variants.md
+- hooks: silverleaf_fern/hooks.md

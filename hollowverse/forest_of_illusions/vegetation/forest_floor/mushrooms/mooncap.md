@@ -5,7 +5,7 @@ type: mushroom
 region: forest_of_illusions
 
 [quick]
-Pale mushroom caps with a faint moonlike sheen—often found near calm night paths.
+A soft pale mushroom emitting faint glow at deep night.
 
 [deep_dive]
 - vibe: mooncap/vibe.md

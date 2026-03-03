@@ -1,11 +1,14 @@
 # hush_owl — growth
 
-status: rumor
-type: animal_growth
+status: seeded
+type: life_cycle
 parent: hush_owl
 region: forest_of_illusions
-[sighting_window]
-- deep night only
 
-[life_cycle_notes]
-- kept as rumor until observed; details unknown
+[activity_cycle]
+- most active: deep night
+- rests: high canopy daylight
+
+[seasonal_notes]
+- nests early spring
+- hunts more frequently during long winter nights

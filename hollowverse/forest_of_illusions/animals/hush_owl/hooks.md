@@ -1,11 +1,11 @@
 # hush_owl — hooks
 
-status: rumor
+status: seeded
 type: story_hooks
 parent: hush_owl
 region: forest_of_illusions
+
 [scene_hooks]
-- The call arrives and the forest goes quiet—then you notice a hidden rest spot.
-- Someone follows the hush and finds a trail they swear wasn’t there before.
-- The owl’s presence becomes a nightly boundary: “don’t push past this point.”
-- A companion interprets the hush as permission to finally sleep.
+- An owl watches silently as a secret is revealed below.
+- A sudden glide overhead interrupts a heated argument.
+- A feather falls where a decision must be made.

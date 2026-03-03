@@ -1,14 +1,14 @@
 # ribbon_deer — growth
 
 status: seeded
-type: animal_cycle
+type: life_cycle
 parent: ribbon_deer
 region: forest_of_illusions
 
-[cycle]
-- most active: dawn, late afternoon, and fog-soft evenings
-- avoids: harsh noon light and loud crowded paths
+[activity_cycle]
+- most active: twilight and early dawn
+- rests: deep glades midday
 
-[signs_of_presence]
-- shallow hoof prints near clearing edges
-- bent grasses where it paused briefly
+[seasonal_notes]
+- antlers brightest in late spring
+- sheds lightly glowing fragments in autumn

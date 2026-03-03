@@ -4,21 +4,15 @@ status: seeded
 type: mushroom
 region: forest_of_illusions
 
-[vibe]
-friendly, sweet, cottage-adjacent
-
-[description]
+[quick]
 Warm beige caps with tiny speckles like pollen.
-Often found near the edges of clearings.
 
-[sensory]
-scent: faint honey + dry grass
-visual: cozy, soft-colored
-
-[lore]
-- Said to appear when the cottage is “welcoming you back.”
-- Not a medicine—just a comforting detail.
-
-[use]
-- Homecoming scenes
-- Gentle forest “kindness” cues
+[deep_dive]
+- vibe: honey_spore/vibe.md
+- sensory: honey_spore/sensory.md
+- growth: honey_spore/growth.md
+- description: honey_spore/description.md
+- use: honey_spore/use.md
+- lore: honey_spore/lore.md
+- variants: honey_spore/variants.md
+- hooks: honey_spore/hooks.md

@@ -1,14 +1,14 @@
 # burrow_mouse — growth
 
 status: seeded
-type: animal_growth
+type: life_cycle
 parent: burrow_mouse
 region: forest_of_illusions
 
-[life_cycle]
-- kit (very small, stays close to shelter)
-- young (fast, curious, bold for seconds at a time)
-- adult (careful route habits, knows the safe roots)
+[activity_cycle]
+- most active: early morning + dusk
+- rests: mid-day heat
 
-[seasonality]
-More visible on clear mornings after damp nights, when crumbs are easy to smell.
+[seasonal_notes]
+- gathers extra seeds before winter
+- tunnels deepen during colder months

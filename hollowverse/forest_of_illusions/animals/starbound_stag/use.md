@@ -1,15 +1,14 @@
 # starbound_stag — use
 
-status: legend
+status: seeded
 type: use_profile
 parent: starbound_stag
 region: forest_of_illusions
 
-[primary_uses]
-- turning-point marker (story beats)
-- protective atmosphere (a “you are seen” feeling)
-- quiet courage scenes
+[use]
+- celestial omen
+- night climax presence
+- mythic reveal moment
 
 [notes]
-It is not an ingredient source.
-It is a narrative presence.
+Rare sighting; treated as sacred.

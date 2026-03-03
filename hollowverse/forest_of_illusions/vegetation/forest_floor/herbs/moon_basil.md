@@ -5,7 +5,7 @@ type: herb
 region: forest_of_illusions
 
 [quick]
-A night-opening basil with dark green leaves and a calm, dream-soft presence.
+A night-opening basil with dream-soft presence.
 
 [deep_dive]
 - vibe: moon_basil/vibe.md

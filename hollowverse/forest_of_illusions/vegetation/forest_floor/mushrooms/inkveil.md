@@ -5,7 +5,7 @@ type: mushroom
 region: forest_of_illusions
 
 [quick]
-Thin, dark-capped mushrooms with a faint bluish sheen—found where the forest asks you to slow down.
+Thin dark-capped mushrooms with faint bluish sheen.
 
 [deep_dive]
 - vibe: inkveil/vibe.md

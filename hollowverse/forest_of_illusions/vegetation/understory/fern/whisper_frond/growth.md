@@ -1,17 +1,13 @@
 # whisper_frond — growth
 
 status: seeded
-type: growth_profile
+type: growth_cycle
 parent: whisper_frond
-layer: understory
 region: forest_of_illusions
 
-[growth_cycle]
-- prefers dim light and damp soil
-- strongest after fog or light rain
+[growth_notes]
+Grows in sheltered understory pockets where air moves gently.
+Often appears in “slow zones” and along quiet path edges.
 
-[stages]
-- thread_sprout
-- soft_frond
-- full_whisper
-- rest_curl (fronds curl inward when the forest wants quiet)
+[seasonal_notes]
+Most noticeable in late summer evenings when the air is still.

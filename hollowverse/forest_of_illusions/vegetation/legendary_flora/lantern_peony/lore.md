@@ -1,14 +1,10 @@
 # lantern_peony — lore
 
 status: legend
-type: lore_profile
+type: lore
 parent: lantern_peony
 region: forest_of_illusions
 
 [lore]
-- Appears only when someone is returning after a long absence,
-  or when the forest is quietly “welcoming you back.”
-- Never picked. Never owned.
-
-[meaning]
-A lantern_peony is less “found” and more “offered.”
+- Considered a sign the forest accepts a gentle restoration.
+- Often appears near “return paths.”

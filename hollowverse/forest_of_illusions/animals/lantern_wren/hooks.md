@@ -6,8 +6,6 @@ parent: lantern_wren
 region: forest_of_illusions
 
 [scene_hooks]
-- A lantern wren sings exactly when someone finally stops overthinking.
-- A quiet path “reappears” because the wren’s song draws attention to it.
-- A ribbon-throat variant shows up near a bench that feels like home.
-- The song repeats a pattern that matches a forgotten lullaby.
-- Someone follows the sound and finds a note tucked beneath a stone.
+- A wren circles above a hidden doorway.
+- Its glow pulses when a promise is renewed.
+- A fallen feather glows faintly in a traveler’s pocket.

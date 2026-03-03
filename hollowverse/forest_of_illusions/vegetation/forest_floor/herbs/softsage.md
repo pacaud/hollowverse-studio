@@ -1,9 +1,11 @@
+# softsage
+
 status: seeded
 type: herb
 region: forest_of_illusions
 
 [quick]
-A low, velvety herb found near cool clearings and quiet paths.
+A low velvety herb near cool clearings.
 
 [deep_dive]
 - vibe: softsage/vibe.md

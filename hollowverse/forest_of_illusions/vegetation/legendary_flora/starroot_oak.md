@@ -5,29 +5,16 @@ type: tree
 region: forest_of_illusions
 appearance_rule: turning_points_only
 
-[vibe]
-ancient, gentle authority, quiet truth
+[quick]
+A broad oak with bark like dark velvet and faint starlike flecks; rumored glowing roots like a hidden constellation.
 
-[description]
-A broad oak with bark like dark velvet and faint starlike flecks in the grooves.
-Its roots are rumored to glow softly under soil, like a hidden constellation.
-
-[sensory]
-sound: the space around it feels “still,” as if the forest is holding its breath
-scent: deep earth + old wood + something clean and bright
-touch: bark is warm-cool at once, strangely comforting
-
-[lore]
-- Said to appear when the forest needs to anchor a truth without forcing it.
-- Standing beneath it can make tangled thoughts feel simpler.
-- It does not “grant wishes.” It grants *clarity*.
-
-[use]
-- Major restoration milestones
-- Vow moments
-- “We’re safe enough to be honest” scenes
-
-[rules]
-- Rare appearance (do not summon)
-- No harvesting, carving, or claiming
-- If you find it: sit, breathe, then leave it as you found it
+[deep_dive]
+- vibe: starroot_oak/vibe.md
+- sensory: starroot_oak/sensory.md
+- growth: starroot_oak/growth.md
+- description: starroot_oak/description.md
+- use: starroot_oak/use.md
+- lore: starroot_oak/lore.md
+- rules: starroot_oak/rules.md
+- variants: starroot_oak/variants.md
+- hooks: starroot_oak/hooks.md

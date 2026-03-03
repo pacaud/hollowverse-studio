@@ -1,19 +1,14 @@
 # night_moth — growth
 
 status: seeded
-type: insect_lifecycle
+type: life_cycle
 parent: night_moth
 region: forest_of_illusions
 
-[cycle]
-- egg
-  - hidden under leaf edges in shaded places
-- larva
-  - moss-friendly; stays low and avoids open light
-- cocoon
-  - tucked near roots or under warm stones
-- adult (night_moth)
-  - appears on calm nights; most active around soft lantern light
+[activity_cycle]
+- most active: dusk → deep night
+- rests: bark crevices during day
 
-[seasonality]
-Most often seen during long, gentle nights (late-summer → autumn), but can appear anytime the air turns kind.
+[seasonal_notes]
+- most numerous in late summer
+- fewer sightings during heavy storms

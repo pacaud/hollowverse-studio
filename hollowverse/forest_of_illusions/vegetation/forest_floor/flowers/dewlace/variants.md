@@ -6,18 +6,10 @@ parent: dewlace
 region: forest_of_illusions
 
 [baseline]
-Tiny white flower; lace-edge effect appears when dew beads at dawn.
+Standard bloom form.
 
 [known_variants]
-- silverthread dewlace
-  - look: dew beads look slightly brighter, almost silvery
-  - where: deep shade with cold mornings
-
-- sunfade dewlace
-  - look: petals more matte; lace effect weaker
-  - where: edges of clearings with early sun
+- none recorded
 
 [rarity_scale]
-- common: baseline
-- uncommon: sunfade
-- rare: silverthread
+- common or rumor per status

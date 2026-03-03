@@ -4,22 +4,15 @@ status: seeded
 type: weather
 region: forest_of_illusions
 
-[vibe]
-restful, safe, moon-soft
+[quick]
+A clear, calm night with steady air and gentle moonlight. The forest feels watchful in a protective way.
 
-[description]
-A clear, calm night with steady air and gentle moonlight.
-The forest feels watchful in a protective way.
-
-[effects_on_places]
-- mooncap mushrooms show their soft shimmer
-- nightglow_hollow feels “fully present”
-- stone_step_crossing reflects moonlight in small glints
-
-[effects_on_fauna]
-- night_moth is common
-- hush_owl might be *felt* (rare)
-
-[use]
-- bedtime walks
-- quiet reflection
+[deep_dive]
+- vibe: night_calm/vibe.md
+- description: night_calm/description.md
+- sensory: night_calm/sensory.md
+- effects_on_places: night_calm/effects_on_places.md
+- effects_on_fauna: night_calm/effects_on_fauna.md
+- use: night_calm/use.md
+- hooks: night_calm/hooks.md
+- variants: night_calm/variants.md

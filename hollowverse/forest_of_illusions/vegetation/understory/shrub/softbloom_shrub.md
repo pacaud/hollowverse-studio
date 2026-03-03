@@ -5,21 +5,14 @@ type: shrub
 layer: understory
 region: forest_of_illusions
 
-[vibe]
-friendly, cozy, cottage-adjacent
+[quick]
+A rounded understory shrub with pale blooms that makes clearings feel lived-in and gently held.
 
-[description]
-A low shrub with rounded leaves and small, pale blooms.
-It fills space softly without blocking paths.
-
-[sensory]
-scent: light floral, warm air
-touch: springy branches
-
-[lore]
-- Often found near cottage-clearings.
-- Makes places feel “lived-in.”
-
-[use]
-- Clearing borders
-- Gentle “home” cues
+[deep_dive]
+- vibe: softbloom_shrub/vibe.md
+- description: softbloom_shrub/description.md
+- sensory: softbloom_shrub/sensory.md
+- lore: softbloom_shrub/lore.md
+- use: softbloom_shrub/use.md
+- variants: softbloom_shrub/variants.md
+- hooks: softbloom_shrub/hooks.md

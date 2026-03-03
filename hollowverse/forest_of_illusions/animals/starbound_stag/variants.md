@@ -1,20 +1,17 @@
 # starbound_stag — variants
 
-status: legend
+status: seeded
 type: variants
 parent: starbound_stag
 region: forest_of_illusions
 
 [baseline]
-Constellation-lit antlers, distant presence, appears only at turning points.
+Dark coat, star-flecked antlers.
 
-[whispered_variants]
-- frostconstellation
-  - antlers look sharper, like cold stars; seen in winter-clear nights
-- embervein
-  - faint warm threads in the antlers; seen near homecoming routes
-- hollowglass
-  - antlers look almost transparent; seen in deep fog pockets
+[known_variants]
+- nova-antler stag
+  - brighter constellation clusters during meteor showers
 
-[rarity]
-All variants are extremely rare and should be treated as special scenes, not defaults.
+[rarity_scale]
+- rare: baseline
+- very rare: nova-antler

@@ -6,8 +6,5 @@ parent: ribbon_deer
 region: forest_of_illusions
 
 [description]
-A deer with faint ribbon-like markings along its flanks.
-It appears briefly at clearing edges, then slips away like a calm thought.
-
-[placement]
-Often seen where paths split, where a traveler hesitates, or where the forest feels newly safe.
+A slender deer with softly luminous antlers that curve like flowing ribbons.
+Its coat shifts subtly with the light of the canopy.

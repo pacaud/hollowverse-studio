@@ -6,8 +6,6 @@ parent: moss_tortoise
 region: forest_of_illusions
 
 [scene_hooks]
-- Someone follows the moss tortoise and ends up exactly where they needed to rest.
-- A rushed character slows down because the tortoise refuses to hurry.
-- The tortoise is found asleep in a path—like it’s protecting something under its shell shadow.
-- A ribbon gets snagged gently in the moss and becomes a “return marker.”
-- The tortoise arrives at a bench right as a hard conversation ends.
+- A traveler realizes they have been following the same tortoise unknowingly for hours.
+- Rare moss grows only on one ancient tortoise’s shell.
+- The tortoise stops where a hidden clearing once stood.

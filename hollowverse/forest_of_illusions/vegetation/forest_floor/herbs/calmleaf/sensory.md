@@ -1,21 +1,12 @@
 # calmleaf — sensory
 
 status: seeded
-type: sensory_profile
+type: sensory
 parent: calmleaf
 region: forest_of_illusions
 
-[scent]
-- mild, grassy, comforting
-- strongest when warmed between fingers
-
 [touch]
-- soft and pliable leaves
-- matte surface; never glossy
+soft velvety leaves
 
-[visual]
-- rounded edges
-- muted green, like shade-light
-
-[notes]
-One-line sensory: “soft matte green leaves, grassy-comfort scent.”
+[scent]
+faint herbal calm

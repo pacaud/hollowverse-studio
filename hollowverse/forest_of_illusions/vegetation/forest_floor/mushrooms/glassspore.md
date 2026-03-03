@@ -5,7 +5,7 @@ type: mushroom
 region: forest_of_illusions
 
 [quick]
-A rumored translucent mushroom with frosted-glass caps that never looks the same twice.
+A rumored translucent mushroom with frosted-glass caps.
 
 [deep_dive]
 - vibe: glassspore/vibe.md
