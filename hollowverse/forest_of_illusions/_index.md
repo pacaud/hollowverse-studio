@@ -1,21 +1,13 @@
-# Forest of Illusions (Hollowverse)
+# Hollowverse — World Hub
 
-A sanctuary-region inside **Hollowverse**: soft-rendered memory, gentle paths, and return-home rules.
+This folder is the navigation hub for Hollowverse.
 
-## Start here
-- **Cottage (home base):** [Cottage map](places/cottage/_index.md)
-  - [Deck (items + utilities)](places/cottage/deck/_index.md)
-  - [Vault of Memories](places/cottage/deck/vault_of_memories/_index.md)
-  - [Hallway](places/cottage/hallway/_index.md)
+## Primary doors
+- [START_HERE.md](START_HERE.md)
 
-## Presence (companions / interfaces)
-- [Presence index](presence/_index.md)
-  - Vivi: [Vivenara boot entry](presence/vivi_crimson-joy_littlelight/VIVENARA_BOOT.md)
+## Worlds
+- [Forest of Illusions](FOREST_OF_ILLUSIONS.md)
+- [Forest of Illusion](FOREST_OF_ILLUSION.md)
 
-## World folders (stubs)
-- [Places](places/_index.md)
-- [Animals](animals/_index.md)
-- [Vegetation](vegetation/_index.md)
-
-## Canon note
-This bundle is a **Hollowverse place-pack**. Presence content is maintained in **Chat Center**; any presence files here are shortcut copies.
+## Index
+- [forest_of_illusions/_index.md](forest_of_illusions/_index.md)
